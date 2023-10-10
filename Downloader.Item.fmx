@@ -1,0 +1,278 @@
+object DownloaderItem: TDownloaderItem
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 157
+  ClientWidth = 842
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object Container: TLayout
+    Align = Client
+    Size.Width = 842.000000000000000000
+    Size.Height = 157.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object Rectangle1: TRectangle
+      Align = Client
+      Size.Width = 842.000000000000000000
+      Size.Height = 157.000000000000000000
+      Size.PlatformDefault = False
+      object EdUrl: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Anchors = [akLeft, akTop, akRight]
+        TabOrder = 0
+        Text = 'http://ipv4.download.thinkbroadband.com/200MB.zip'
+        Position.X = 32.000000000000000000
+        Position.Y = 24.000000000000000000
+        Size.Width = 463.000000000000000000
+        Size.Height = 33.000000000000000000
+        Size.PlatformDefault = False
+      end
+      object ProgressBar1: TProgressBar
+        Align = Bottom
+        Orientation = Horizontal
+        Margins.Left = 10.000000000000000000
+        Margins.Top = 10.000000000000000000
+        Margins.Right = 10.000000000000000000
+        Margins.Bottom = 10.000000000000000000
+        Position.X = 10.000000000000000000
+        Position.Y = 127.000000000000000000
+        Size.Width = 822.000000000000000000
+        Size.Height = 20.000000000000000000
+        Size.PlatformDefault = False
+      end
+      object LbUrl: TLabel
+        Position.X = 8.000000000000000000
+        Position.Y = 24.000000000000000000
+        Size.Width = 33.000000000000000000
+        Size.Height = 33.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Url'
+        TabOrder = 2
+      end
+    end
+    object CornerButton1: TCornerButton
+      Action = ADownloadFile
+      Anchors = [akTop, akRight]
+      Enabled = True
+      Images = ImageList
+      ImageIndex = 3
+      Position.X = 502.000000000000000000
+      Position.Y = 24.000000000000000000
+      Sides = [Top, Left, Bottom, Right]
+      Size.Width = 105.000000000000000000
+      Size.Height = 33.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 4
+      XRadius = 3.000000000000000000
+      YRadius = 3.000000000000000000
+    end
+    object CornerButton2: TCornerButton
+      Action = ADownloadPause
+      Anchors = [akTop, akRight]
+      Enabled = True
+      Images = ImageList
+      ImageIndex = 2
+      Position.X = 614.000000000000000000
+      Position.Y = 24.000000000000000000
+      Sides = [Top, Left, Bottom, Right]
+      Size.Width = 105.000000000000000000
+      Size.Height = 33.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 3
+      XRadius = 3.000000000000000000
+      YRadius = 3.000000000000000000
+    end
+    object CornerButton3: TCornerButton
+      Action = ADownloadAbort
+      Anchors = [akTop, akRight]
+      Enabled = True
+      Images = ImageList
+      ImageIndex = 1
+      Position.X = 726.000000000000000000
+      Position.Y = 24.000000000000000000
+      Sides = [Top, Left, Bottom, Right]
+      Size.Width = 105.000000000000000000
+      Size.Height = 33.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      XRadius = 3.000000000000000000
+      YRadius = 3.000000000000000000
+    end
+  end
+  object SaveDialog: TSaveDialog
+    Left = 64
+    Top = 80
+  end
+  object ActionList: TActionList
+    Images = ImageList
+    Left = 184
+    Top = 80
+    object ADownloadFile: TAction
+      Text = 'Download'
+      ImageIndex = 3
+      OnExecute = ADownloadFileExecute
+      ImageIndex = 3
+    end
+    object ADownloadPause: TAction
+      Text = 'Pause'
+      ImageIndex = 2
+      OnExecute = ADownloadPauseExecute
+      ImageIndex = 2
+    end
+    object ADownloadAbort: TAction
+      Text = 'ADownloadAbort'
+      ImageIndex = 1
+      ImageIndex = 1
+    end
+  end
+  object NetHTTPClient: TNetHTTPClient
+    UserAgent = 'Embarcadero URI Client/1.0'
+    OnReceiveData = NetHTTPClientReceiveData
+    Left = 272
+    Top = 80
+  end
+  object ImageList: TImageList
+    Source = <
+      item
+        MultiResBitmap.Height = 48
+        MultiResBitmap.Width = 48
+        MultiResBitmap.LoadSize = 0
+        MultiResBitmap = <
+          item
+            Width = 48
+            Height = 48
+            PNG = {
+              89504E470D0A1A0A0000000D49484452000000300000003008060000005702F9
+              87000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+              0539494441546843ED995D4C1C5514C7EFBDB31F604A6365A0B15516345688BE
+              B5F6C14401A389891A13084995B6D1AA14686B933E1A13C2AB31297EF291F851
+              DB5A2C509BA8890F54418D2FB63E19ADB5292CA44A61C11888ECE73DDEB37BD8
+              CE3233BB33BB056CCAEF61E79EFFCCBD73CEFDBE3B6C9D756E71385D0BA2A303
+              C40FD393DB130C1EE1003BA564352216B99B6E27915EFFA4D0D8AFC0F84F9060
+              DFD5DD59F173672797743B6F0A0AE0F103C12DF1041CE409B69B797886C33989
+              C32468EC8447E3EF0EBF17F89354D7E41540EDE1B1DB79947770C65B95599452
+              F3260C00DD1E99E81CEEBBF71FD21CE33A80FAB6B1861813EF7B19DB4CD28D21
+              C6A6A497B78D76579C25C5118E03686A026D469FE852190E92B452BCAD872A8E
+              0C0CA88EE90047013435FDE20BE9259FAA64634A5961800DEAB3F3CD03030F46
+              49B1256700B51DE011D3139FABE4D329657500905FC0E6CA86D14E1E27C91241
+              575BC4B5F137D565559D473817CFF06BC137C8B4256B0BD4B58E3772CE07C95C
+              0316814B7FE337BD55D8032CB10DA0B6E5AACEB47F7F17CC7707496B422C169F
+              D54451F568DFD6104919D8762121A2AF3B721EE033F5D34F9663D4DC7F4A3279
+              9A4C5BBC5E4F2917B1D7C8346119407DFB9500E3A29DCC6C9CD46703CD8F9607
+              9A954BC7487300F48EF4049ACB4395CF2BE3644AB3271CE6ED8FED9FD84A6606
+              D62D00A245FDAAB5CA1E9C25F4D0FC3E9CAF714F23CB032F2B35674B60CDEBA1
+              C001D57B01F362194AFE3275D79AE262E65783A18DCC0C4C01E082A5DEB297CC
+              2CF005C61E482F3638DDA920F6640B029D2F9B0DECC95CA4B00C5065E520C1F6
+              E2A691AC3426616ED3F84ED57DEE22D316353B3D37531A3C9E0C98C8168495F3
+              9837A4074FA8D27691648FDA2C7E3F35B983AC34A6001242D45332274E8328D8
+              79427269F2CD3C06383345990D0C62BA74E2F4F696F3E93183415C1FD8A9016B
+              741E9FC53C6E9C47D4BB1EA2641A53009CC9FB28E918C1594389D08F195B6269
+              602F0D58929335BF51D33FC13C243907E4364AA5312D64B56D7FCCE6BB784960
+              6716E4CCAE0B7D3B6224658035BF4194F5E7E57C1219FAB6BBAA8C8C24E62EC4
+              7C1B28E11A740C1D3476A7250A775E6D2C16450925D3580450180298BFCCBFD1
+              542E6A788FCC1B86E94589587C9E927900FDFA5CC5B35FBFB32D42421AD4F01E
+              3E43926B8A8BA5C93753005EAFF88B92EE90EC2BBF27FA8271B6C1B3847160E3
+              3D7C069F25C91DC04CBE99BB10888B947281B9E69F3C74C92FA626CE2E9F620B
+              6909E066DFACC6C005BA3AC3A6E62371DFC7AAF4A7ACA6D8FC5B02CE53228D29
+              00C1F9394AE6069DF7451A8D359F3A82068F1B1729AB151BF3605E374108C186
+              2999C6E24003BCF6952B9785C7730F0936A86E130AEC36D63C769B48D43F8435
+              4F520656EB0406E5644B21012E8DF654DE4F661A8B2EC44168DA29326C015043
+              CA80B1DB9064C2AA3B3945B5A2E5E1C7F248F944EBE5F2288F8F09567C1B4996
+              2CD528CEF1D96A7E39AEF32DCA05E9F355591D2B6DCFC4F5AD635D6A5B7D984C
+              5B70A7C93996E36E63E6269F7AF6E8484FE5113233B00DE0E17DBF95783DDE8B
+              42F36E21694D88B3F8D544245AF3E38735960BACD5349A043370E17995CC3562
+              11BC521CB2731EB10D0051CD36A4B6B06F91B9EA00147565FB4F08B1ED42D701
+              5EB73FF80117FC4512560590F0D1486FE025E562C66CB79CAC2D908243D9DC02
+              7E07184AD9AB00B0C1D43BB33B8F386881143877DFB47FAF1BF9BF7DE070D085
+              325147BA339A4F56AB85B84B99E1945A10F889E9A826E2D56E9D475CB780919B
+              F623DF726C3FB316156D4A3E100EFFBD529F59D759E7D686B1FF009DF16FAF6E
+              98FE3D0000000049454E44AE426082}
+            FileName = 'C:\Users\p.wojcik\Desktop\Downloader\Img\Cancel_48px.png'
+          end>
+        Name = 'Cancel_48px'
+      end
+      item
+        MultiResBitmap.Height = 48
+        MultiResBitmap.Width = 48
+        MultiResBitmap.LoadSize = 0
+        MultiResBitmap = <
+          item
+            Width = 48
+            Height = 48
+            PNG = {
+              89504E470D0A1A0A0000000D49484452000000300000003008060000005702F9
+              87000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+              005D494441546843EDCF310D80401044D1052368410E8A90735A5002CDD11E0D
+              C984F05EB35B4DF20B00089AFA7DB46EC7D9DFA1B62FC3CDB7766E73BF9F2520
+              4D409A8034016902D204A40948139026204D409A80340169020080FFAABA0066
+              800838BF78B3850000000049454E44AE426082}
+            FileName = 'C:\Users\p.wojcik\Desktop\Downloader\Img\Pause_48px.png'
+          end>
+        Name = 'Pause_48px'
+      end
+      item
+        MultiResBitmap.Height = 48
+        MultiResBitmap.Width = 48
+        MultiResBitmap.LoadSize = 0
+        MultiResBitmap = <
+          item
+            Width = 48
+            Height = 48
+            PNG = {
+              89504E470D0A1A0A0000000D49484452000000300000003008060000005702F9
+              87000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+              01CB494441546843EDD5BF4B02611807F0F787E6103537843A44D0186D119851
+              D0E214B4B5162764F51758FD074165AEADD554A3594634044143058960DA5614
+              1434DCF0BE6F8FDC5B4DA1E7BDF79ED1FB013DDF47D0FBBEF7DC73C8300CC330
+              8CBF2869D5F6130BD5B85C0686C8633B6608216508B231BD58EE9535EDBC0468
+              08C32B63DB917B08329FCD0AAFBFE79A9A3FA4A80FDEF3674FF5CBA4F530EA14
+              F550BD632308F1F371ABB69B48571BA17CE7C325A718233427B8A8405BADC2FD
+              11915FF8C2B79EA59876C3216BDBE19B09AB9672AAEAC166B5077657C88FADE1
+              BC80115E2AE6E377B2A284BEA941C8A420F85AF5D8D517C0A17CECEA0EE05038
+              768309F0C3F3D80D3A00F036763B2080A3DDB1DB3101BE5112E24274C955531D
+              138021F4060F96E577F63C78BA133F90E5A6F43DC87EC119E384D24D42E8FAF1
+              56FF8B2CB72CD0009CA30B4250E62417BB9225D7826921261E61E7664BF9E898
+              97936FD01A803164C3612DD413192AE6627BD0009EAFA2CE163AE218AF94B6A3
+              15B956C2F72BC038BBE5084D41ABA4549F7C836F01BEC6E287781D2EE5620559
+              564E790B791D8B6E290DA0622CBAA5A685148E45B73C05F0632C6A032D749848
+              D707E4D2300CC3308C7F08A14F423DBEB674F972580000000049454E44AE4260
+              82}
+            FileName = 'C:\Users\p.wojcik\Desktop\Downloader\Img\Play_48px.png'
+          end>
+        Name = 'Play_48px'
+      end>
+    Destination = <
+      item
+        Layers = <>
+      end
+      item
+        Layers = <
+          item
+            Name = 'Cancel_48px'
+            SourceRect.Right = 48.000000000000000000
+            SourceRect.Bottom = 48.000000000000000000
+          end>
+      end
+      item
+        Layers = <
+          item
+            Name = 'Pause_48px'
+            SourceRect.Right = 48.000000000000000000
+            SourceRect.Bottom = 48.000000000000000000
+          end>
+      end
+      item
+        Layers = <
+          item
+            Name = 'Play_48px'
+            SourceRect.Right = 48.000000000000000000
+            SourceRect.Bottom = 48.000000000000000000
+          end>
+      end>
+    Left = 120
+    Top = 88
+  end
+end
