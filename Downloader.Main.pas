@@ -10,7 +10,6 @@ uses
 
 type
   TDownloaderMain = class(TForm)
-    Container: TLayout;
     Button1: TButton;
     Rectangle1: TRectangle;
     TabControl1: TTabControl;
@@ -19,14 +18,16 @@ type
     CornerButton1: TCornerButton;
     CornerButton2: TCornerButton;
     CornerButton3: TCornerButton;
-    LBDownload: TListBox;
-    ActionList1: TActionList;
+    ActionList: TActionList;
     ImageList1: TImageList;
+    Action1: TAction;
     procedure Button1Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure CornerButton3Click(Sender: TObject);
   private
-    { Private declarations }
+
   public
-    { Public declarations }
+    procedure InitGui;
   end;
 
 var
@@ -35,7 +36,7 @@ var
 implementation
 
 uses
-  Downloader.Item;
+  Downloader.Item, Downloader.Browser;
 
 {$R *.fmx}
 
@@ -44,7 +45,24 @@ var
   DownloaderItem: TDownloaderItem;
 begin
   DownloaderItem := TDownloaderItem.Create(Self);
-  DownloaderItem.Container.Parent := Container;
+  DownloaderItem.Container.Parent := TsDownload;
+end;
+
+procedure TDownloaderMain.CornerButton3Click(Sender: TObject);
+begin
+  DownloaderBrowser.AddItem;
+end;
+
+procedure TDownloaderMain.FormCreate(Sender: TObject);
+begin
+  InitGui;
+end;
+
+procedure TDownloaderMain.InitGui;
+begin
+  DownloaderBrowser:= TDownloaderBrowser.Create(Self);
+  DownloaderBrowser.Container.Parent := TsDownload;
+
 end;
 
 end.

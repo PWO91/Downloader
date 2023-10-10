@@ -7,6 +7,7 @@ object DownloaderMain: TDownloaderMain
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
   DesignerMasterStyle = 0
   object Rectangle1: TRectangle
     Align = Left
@@ -43,7 +44,7 @@ object DownloaderMain: TDownloaderMain
       Size.Height = 76.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 3
-      Text = 'CornerButton1'
+      Text = 'Settings'
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
     end
@@ -60,7 +61,7 @@ object DownloaderMain: TDownloaderMain
       Size.Height = 76.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 2
-      Text = 'CornerButton1'
+      Text = 'About'
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
     end
@@ -77,9 +78,10 @@ object DownloaderMain: TDownloaderMain
       Size.Height = 76.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 1
-      Text = 'CornerButton1'
+      Text = 'Browser'
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
+      OnClick = CornerButton3Click
     end
   end
   object TabControl1: TTabControl
@@ -106,38 +108,21 @@ object DownloaderMain: TDownloaderMain
       Text = 'TsDownload'
       ExplicitSize.cx = 8.000000000000000000
       ExplicitSize.cy = 8.000000000000000000
-      object Container: TLayout
-        Align = Top
-        Size.Width = 854.000000000000000000
-        Size.Height = 57.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 0
-      end
       object Button1: TButton
-        Position.X = 312.000000000000000000
-        Position.Y = 288.000000000000000000
-        TabOrder = 1
+        Position.X = 448.000000000000000000
+        Position.Y = 320.000000000000000000
+        TabOrder = 0
         Text = 'Button1'
         OnClick = Button1Click
       end
-      object LBDownload: TListBox
-        Align = Client
-        Size.Width = 854.000000000000000000
-        Size.Height = 431.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 2
-        DisableFocusEffect = True
-        DefaultItemStyles.ItemStyle = ''
-        DefaultItemStyles.GroupHeaderStyle = ''
-        DefaultItemStyles.GroupFooterStyle = ''
-        Viewport.Width = 850.000000000000000000
-        Viewport.Height = 427.000000000000000000
-      end
     end
   end
-  object ActionList1: TActionList
+  object ActionList: TActionList
     Left = 920
     Top = 80
+    object Action1: TAction
+      Text = 'Action1'
+    end
   end
   object ImageList1: TImageList
     Source = <>

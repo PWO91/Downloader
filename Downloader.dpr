@@ -5,7 +5,8 @@ uses
   FMX.Forms,
   Downloader.Main in 'Downloader.Main.pas' {DownloaderMain},
   Downloader.Item in 'Downloader.Item.pas' {DownloaderItem},
-  Downloader.Common in 'Downloader.Common.pas';
+  Downloader.Common in 'Downloader.Common.pas',
+  Downloader.Browser in 'Downloader.Browser.pas' {DownloaderBrowser};
 
 {$R *.res}
 

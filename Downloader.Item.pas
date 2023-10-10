@@ -8,7 +8,7 @@ uses
   FMX.Controls.Presentation, FMX.Edit, FMX.Objects, System.Net.URLClient,
   System.Net.HttpClient, System.Net.HttpClientComponent, System.Actions,
   FMX.ActnList, FMX.StdCtrls,
-  Threading, System.ImageList, FMX.ImgList, Downloader.Common;
+  Threading, System.ImageList, FMX.ImgList, Downloader.Common, FMX.Effects;
 
 type
   TDownloaderItem = class(TForm)
@@ -27,10 +27,13 @@ type
     ADownloadPause: TAction;
     ImageList: TImageList;
     ADownloadAbort: TAction;
+    GlowEffect1: TGlowEffect;
     procedure ADownloadFileExecute(Sender: TObject);
     procedure NetHTTPClientReceiveData(const Sender: TObject; AContentLength,
       AReadCount: Int64; var AAbort: Boolean);
     procedure ADownloadPauseExecute(Sender: TObject);
+    procedure NetHTTPClientRequestCompleted(const Sender: TObject;
+      const AResponse: IHTTPResponse);
   private
     SFile: TFileStream;
     FDFile: TFileSetting;
@@ -52,8 +55,8 @@ var
   aResponse: IHTTPResponse;
 begin
   FABort := False;
-  SFile := TFileStream.Create('C:\Downloads\ccc.zip', fmCreate);
   aResponse := NetHTTPClient.Head(EdUrl.Text);
+  SFile := TFileStream.Create('C:\Downloads\' + ExtractUrlFileName(EdUrl.Text), fmCreate);
   ProgressBar1.Max:= aResponse.ContentLength;
 
   FDownloadTask := TTask.Create(
@@ -76,8 +79,6 @@ begin
 
     FDownloadTask.Start;
 
-
-
   end;
 
 procedure TDownloaderItem.ADownloadPauseExecute(Sender: TObject);
@@ -94,6 +95,13 @@ procedure TDownloaderItem.NetHTTPClientReceiveData(const Sender: TObject;
 begin
   AAbort := FAbort;
   ProgressBar1.Value:= AReadCount;
+end;
+
+procedure TDownloaderItem.NetHTTPClientRequestCompleted(const Sender: TObject;
+  const AResponse: IHTTPResponse);
+begin
+  if Assigned(SFile) then
+    SFile.Free;
 end;
 
 end.
