@@ -6,11 +6,10 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Layouts,
   FMX.Controls.Presentation, FMX.StdCtrls, FMX.Objects, FMX.TabControl,
-  FMX.ListBox, System.ImageList, FMX.ImgList, System.Actions, FMX.ActnList;
+  FMX.ListBox, System.ImageList, FMX.ImgList, System.Actions, FMX.ActnList, Downloader.Common;
 
 type
   TDownloaderMain = class(TForm)
-    Button1: TButton;
     Rectangle1: TRectangle;
     TabControl1: TTabControl;
     TsDownload: TTabItem;
@@ -20,10 +19,10 @@ type
     CornerButton3: TCornerButton;
     ActionList: TActionList;
     ImageList1: TImageList;
-    Action1: TAction;
-    procedure Button1Click(Sender: TObject);
+    AAddFileToDownload: TAction;
+    CornerButton4: TCornerButton;
     procedure FormCreate(Sender: TObject);
-    procedure CornerButton3Click(Sender: TObject);
+    procedure AAddFileToDownloadExecute(Sender: TObject);
   private
 
   public
@@ -40,17 +39,14 @@ uses
 
 {$R *.fmx}
 
-procedure TDownloaderMain.Button1Click(Sender: TObject);
+procedure TDownloaderMain.AAddFileToDownloadExecute(Sender: TObject);
 var
-  DownloaderItem: TDownloaderItem;
+  DFIle: TFileSetting;
 begin
-  DownloaderItem := TDownloaderItem.Create(Self);
-  DownloaderItem.Container.Parent := TsDownload;
-end;
-
-procedure TDownloaderMain.CornerButton3Click(Sender: TObject);
-begin
-  DownloaderBrowser.AddItem;
+  DFIle.Url := InputBox('Url', 'Url', '');
+  DFIle.Dest := 'C:\Downloads\';
+  if not DFIle.Url.IsEmpty then
+    DownloaderBrowser.AddItem(DFIle);
 end;
 
 procedure TDownloaderMain.FormCreate(Sender: TObject);

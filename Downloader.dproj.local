@@ -1,19 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
 	<Transactions>
-    <Transaction>1899.12.30 00:00:00.000.721,=C:\Users\p.wojcik\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.590,=C:\Users\p.wojcik\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.314,C:\Users\p.wojcik\Desktop\Downloader\Unit1.pas=C:\Users\p.wojcik\Desktop\Downloader\Downloader.Item.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.676,C:\Users\p.wojcik\Documents\Embarcadero\Studio\Projects\Unit1.fmx=C:\Users\p.wojcik\Desktop\Downloader\Downloader.Main.fmx</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.676,C:\Users\p.wojcik\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\p.wojcik\Desktop\Downloader\Downloader.Main.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.022,=C:\Users\p.wojcik\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.376,C:\Users\p.wojcik\Desktop\Downloader\Unit1.pas=C:\Users\p.wojcik\Desktop\Downloader\Downloader.Common.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.765,C:\Users\p.wojcik\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\p.wojcik\Desktop\Downloader\Downloader.dproj</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.314,C:\Users\p.wojcik\Desktop\Downloader\Unit1.fmx=C:\Users\p.wojcik\Desktop\Downloader\Downloader.Item.fmx</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.505,=C:\Users\p.wojcik\Desktop\Downloader\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.025,C:\Users\p.wojcik\Desktop\Downloader\Src\Unit1.fmx=C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Browser.fmx</Transaction>
     <Transaction>1899.12.30 00:00:00.000.100,=C:\Users\p.wojcik\Desktop\Downloader\Unit1.pas</Transaction>
-    <Transaction>2023.10.10 18:44:08.137,=C:\Users\p.wojcik\Desktop\Downloader\Src\Unit1.pas</Transaction>
-    <Transaction>2023.10.10 18:44:55.025,C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Browser.pas=C:\Users\p.wojcik\Desktop\Downloader\Src\Unit1.pas</Transaction>
-    <Transaction>2023.10.10 18:44:55.025,C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Browser.fmx=C:\Users\p.wojcik\Desktop\Downloader\Src\Unit1.fmx</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.505,=C:\Users\p.wojcik\Desktop\Downloader\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.721,=C:\Users\p.wojcik\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.676,C:\Users\p.wojcik\Desktop\Downloader\Downloader.Main.fmx=C:\Users\p.wojcik\Documents\Embarcadero\Studio\Projects\Unit1.fmx</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.022,=C:\Users\p.wojcik\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.590,=C:\Users\p.wojcik\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.765,C:\Users\p.wojcik\Desktop\Downloader\Downloader.dproj=C:\Users\p.wojcik\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.025,C:\Users\p.wojcik\Desktop\Downloader\Src\Unit1.pas=C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Browser.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.137,=C:\Users\p.wojcik\Desktop\Downloader\Src\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.314,C:\Users\p.wojcik\Desktop\Downloader\Downloader.Item.fmx=C:\Users\p.wojcik\Desktop\Downloader\Unit1.fmx</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.314,C:\Users\p.wojcik\Desktop\Downloader\Downloader.Item.pas=C:\Users\p.wojcik\Desktop\Downloader\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.676,C:\Users\p.wojcik\Desktop\Downloader\Downloader.Main.pas=C:\Users\p.wojcik\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.376,C:\Users\p.wojcik\Desktop\Downloader\Downloader.Common.pas=C:\Users\p.wojcik\Desktop\Downloader\Unit1.pas</Transaction>
   </Transactions>
 </BorlandProject>

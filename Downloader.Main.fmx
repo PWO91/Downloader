@@ -1,7 +1,7 @@
 object DownloaderMain: TDownloaderMain
   Left = 0
   Top = 0
-  Caption = 'Form1'
+  Caption = 'Downloader'
   ClientHeight = 488
   ClientWidth = 975
   FormFactor.Width = 320
@@ -38,12 +38,12 @@ object DownloaderMain: TDownloaderMain
       Margins.Right = 10.000000000000000000
       Margins.Bottom = 10.000000000000000000
       Position.X = 10.000000000000000000
-      Position.Y = 143.000000000000000000
+      Position.Y = 239.000000000000000000
       Sides = [Top, Left, Bottom, Right]
       Size.Width = 101.000000000000000000
       Size.Height = 76.000000000000000000
       Size.PlatformDefault = False
-      TabOrder = 3
+      TabOrder = 4
       Text = 'Settings'
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -55,12 +55,12 @@ object DownloaderMain: TDownloaderMain
       Margins.Right = 10.000000000000000000
       Margins.Bottom = 10.000000000000000000
       Position.X = 10.000000000000000000
-      Position.Y = 239.000000000000000000
+      Position.Y = 335.000000000000000000
       Sides = [Top, Left, Bottom, Right]
       Size.Width = 101.000000000000000000
       Size.Height = 76.000000000000000000
       Size.PlatformDefault = False
-      TabOrder = 2
+      TabOrder = 3
       Text = 'About'
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -72,16 +72,33 @@ object DownloaderMain: TDownloaderMain
       Margins.Right = 10.000000000000000000
       Margins.Bottom = 10.000000000000000000
       Position.X = 10.000000000000000000
+      Position.Y = 143.000000000000000000
+      Sides = [Top, Left, Bottom, Right]
+      Size.Width = 101.000000000000000000
+      Size.Height = 76.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      Text = 'Browser'
+      XRadius = 3.000000000000000000
+      YRadius = 3.000000000000000000
+    end
+    object CornerButton4: TCornerButton
+      Action = AAddFileToDownload
+      Align = Top
+      Enabled = True
+      ImageIndex = -1
+      Margins.Left = 10.000000000000000000
+      Margins.Top = 20.000000000000000000
+      Margins.Right = 10.000000000000000000
+      Position.X = 10.000000000000000000
       Position.Y = 47.000000000000000000
       Sides = [Top, Left, Bottom, Right]
       Size.Width = 101.000000000000000000
       Size.Height = 76.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 1
-      Text = 'Browser'
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
-      OnClick = CornerButton3Click
     end
   end
   object TabControl1: TTabControl
@@ -108,20 +125,14 @@ object DownloaderMain: TDownloaderMain
       Text = 'TsDownload'
       ExplicitSize.cx = 8.000000000000000000
       ExplicitSize.cy = 8.000000000000000000
-      object Button1: TButton
-        Position.X = 448.000000000000000000
-        Position.Y = 320.000000000000000000
-        TabOrder = 0
-        Text = 'Button1'
-        OnClick = Button1Click
-      end
     end
   end
   object ActionList: TActionList
     Left = 920
     Top = 80
-    object Action1: TAction
-      Text = 'Action1'
+    object AAddFileToDownload: TAction
+      Text = 'Add'
+      OnExecute = AAddFileToDownloadExecute
     end
   end
   object ImageList1: TImageList

@@ -5,7 +5,7 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Layouts,
-  FMX.ListBox, FMX.Objects;
+  FMX.ListBox, FMX.Objects, Downloader.Common;
 
 type
   TDownloaderBrowser = class(TForm)
@@ -14,7 +14,7 @@ type
   private
     { Private declarations }
   public
-    procedure AddItem;
+    procedure AddItem(DFile: TFileSetting);
   end;
 
 var
@@ -29,14 +29,14 @@ uses
 
 { TDownloaderBrowser }
 
-procedure TDownloaderBrowser.AddItem;
+procedure TDownloaderBrowser.AddItem(DFile: TFileSetting);
 var
   LbItem: TListBoxItem;
   Item: TDownloaderItem;
 begin
   LbItem := TListBoxItem.Create(LBDownload);
   LbItem.Text := '';
-  Item:= TDownloaderItem.Create(LbItem);
+  Item:= TDownloaderItem.CreateItem(LbItem, DFile);
 
   Item.Rectangle1.Parent := LbItem;
   LbItem.Width := Item.Width;
