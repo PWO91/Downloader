@@ -11,7 +11,8 @@ uses
   Windows,
   FMX.Platform,
   Rtti,
-  RegularExpressions, FMX.Memo.Types, FMX.ScrollBox, FMX.Memo;
+  RegularExpressions, FMX.Memo.Types, FMX.ScrollBox, FMX.Memo,
+  System.Notification;
 
 type
   TDownloaderMain = class(TForm)
@@ -24,12 +25,16 @@ type
     CornerButton3: TCornerButton;
     ActionList: TActionList;
     ImageList1: TImageList;
-    AAddFileToDownload: TAction;
+    ADownloadPage: TAction;
     CornerButton4: TCornerButton;
     Timer1: TTimer;
+    TSParameters: TTabItem;
+    AParametersPage: TAction;
+    NotificationCenter: TNotificationCenter;
     procedure FormCreate(Sender: TObject);
-    procedure AAddFileToDownloadExecute(Sender: TObject);
+    procedure ADownloadPageExecute(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
+    procedure AParametersPageExecute(Sender: TObject);
   private
     LastClipboardValue: String;
     procedure ClipboardListener(Value: string);
@@ -43,18 +48,18 @@ var
 implementation
 
 uses
-  Downloader.Item, Downloader.Browser;
+  Downloader.Item, Downloader.Browser, Downloader.Parameters;
 
 {$R *.fmx}
 
-procedure TDownloaderMain.AAddFileToDownloadExecute(Sender: TObject);
-var
-  DFIle: TFileSetting;
+procedure TDownloaderMain.ADownloadPageExecute(Sender: TObject);
 begin
-  DFIle.Url := InputBox('Url', 'Url', '');
-  DFIle.Dest := 'C:\Downloads\';
-  if not DFIle.Url.IsEmpty then
-    DownloaderBrowser.AddItem(DFIle);
+  TabControl1.ActiveTab := TsDownload;
+end;
+
+procedure TDownloaderMain.AParametersPageExecute(Sender: TObject);
+begin
+  TabControl1.ActiveTab := TSParameters;
 end;
 
 procedure TDownloaderMain.ClipboardListener(Value: string);
@@ -83,9 +88,11 @@ end;
 
 procedure TDownloaderMain.InitGui;
 begin
-  DownloaderBrowser:= TDownloaderBrowser.Create(Self);
-  DownloaderBrowser.Container.Parent := TsDownload;
+  DownloaderBrowser                     := TDownloaderBrowser.Create(Self);
+  DownloaderBrowser.Container.Parent    := TsDownload;
 
+  DownloaderParameter                   := TDownloaderParameter.Create(Self);
+  DownloaderParameter.Container.Parent  := TsParameters;
 end;
 
 procedure TDownloaderMain.Timer1Timer(Sender: TObject);

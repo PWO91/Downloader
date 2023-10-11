@@ -27,6 +27,11 @@ object DownloaderBrowser: TDownloaderBrowser
       DefaultItemStyles.GroupFooterStyle = ''
       Viewport.Width = 636.000000000000000000
       Viewport.Height = 476.000000000000000000
+      object DropTarget1: TDropTarget
+        Align = Center
+        TabOrder = 0
+        Text = 'Drop file hear'
+      end
     end
   end
 end

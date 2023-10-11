@@ -9,7 +9,8 @@ uses
   System.Net.HttpClient, System.Net.HttpClientComponent, System.Actions,
   FMX.ActnList, FMX.StdCtrls,
   Threading, System.ImageList, FMX.ImgList, Downloader.Common, FMX.Effects,
-  IOUtils;
+  IOUtils,
+  Notification, System.Notification;
 
 type
   TDownloaderItem = class(TForm)
@@ -45,12 +46,16 @@ type
     FAbort: Boolean;
     FResumeDownload: Boolean;
     FSizeUnknow: Boolean;
+    procedure ShowNotification(Title, Msg: String);
   public
     property DFile: TFileSetting read FDFile write FDFile;
     constructor CreateItem(AOwner: TComponent; _DFile: TFileSetting);
   end;
 
 implementation
+
+uses
+  Downloader.Main;
 
 {$R *.fmx}
 
@@ -59,12 +64,13 @@ var
   aResponse: IHTTPResponse;
   LocalFilePath: string;
 begin
-  FSizeUnknow := True;
-  FABort    := False;
-  FDFile.InitialSize := 0;
+  FSizeUnknow         := True;
+  FABort              := False;
+  FDFile.InitialSize  := 0;
 
   try
     aResponse := NetHTTPClientInfo.Head(FDFile.Url);
+    FSizeUnknow := False;
   except
     FSizeUnknow := True;
   end;
@@ -105,6 +111,7 @@ begin
 
   //New download task
   //-----------------------------------------------------------------
+
   FDownloadTask := TTask.Create(
 
     procedure ()
@@ -112,6 +119,21 @@ begin
         if FResumeDownload then
           NetHTTPClient.GetRange(FDFile.Url,FDFile.InitialSize, aResponse.ContentLength, SFile) else
           NetHTTPClient.Get(FDFile.Url, SFile);
+
+          TThread.Synchronize(TThread.Current,
+
+          procedure()
+          begin
+            ShowNotification('Downloaded',FDFile.Url);
+            ADownloadFile.Enabled   := False;
+            ADownloadPause.Enabled  := False;
+            ADownloadAbort.Enabled  := False;
+            ProgressBar1.Visible    := False;
+            LbDownloadInfo.Text     := 'Downloaded';
+          end
+
+          );
+
       end
     );
 
@@ -143,13 +165,15 @@ end;
 procedure TDownloaderItem.NetHTTPClientReceiveData(const Sender: TObject;
   AContentLength, AReadCount: Int64; var AAbort: Boolean);
 begin
-  AAbort              := FAbort;
-  ProgressBar1.Value  := FDFile.InitialSize + AReadCount;
-  LbDownloadInfo.Text := 'Downloaded ' + IntToStr((AReadCount) div 1024 div 1024) + 'MB';
-  ADownloadPause.Enabled:= True;
-  ADownloadFile.Enabled:= False;
+  AAbort                  := FAbort;
+  ProgressBar1.Value      := FDFile.InitialSize + AReadCount;
+  LbDownloadInfo.Text     := 'Downloaded ' + IntToStr((FDFile.InitialSize + AReadCount) div 1024 div 1024) + 'MB';
+  ADownloadPause.Enabled  := True;
+  ADownloadFile.Enabled   := False;
   if FAbort then
   begin
+    ADownloadFile.Enabled   := True;
+    ADownloadPause.Enabled  := False;
     FDownloadTask.Cancel;
     SFile.Free;
   end;
@@ -160,11 +184,24 @@ procedure TDownloaderItem.NetHTTPClientRequestCompleted(const Sender: TObject;
 begin
   //Release file in case of download completed
   //-----------------------------------------------------------------
-  ADownloadFile.Enabled:= True;
-  ADownloadPause.Enabled := False;
-  ADownloadAbort.Enabled := False;
   if Assigned(SFile) then
     SFile.Free;
+end;
+
+procedure TDownloaderItem.ShowNotification(Title, Msg: String);
+var
+  MyNotification: TNotification;
+begin
+  MyNotification := DownloaderMain.NotificationCenter.CreateNotification;
+  try
+    MyNotification.Name := 'Downloader';
+    MyNotification.Title := Title;
+    MyNotification.AlertBody := Msg;
+
+    DownloaderMain.NotificationCenter.PresentNotification(MyNotification);
+  finally
+    MyNotification.Free;
+  end;
 end;
 
 end.

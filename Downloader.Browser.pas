@@ -5,12 +5,13 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Layouts,
-  FMX.ListBox, FMX.Objects, Downloader.Common;
+  FMX.ListBox, FMX.Objects, Downloader.Common, FMX.ExtCtrls;
 
 type
   TDownloaderBrowser = class(TForm)
     LBDownload: TListBox;
     Container: TLayout;
+    DropTarget1: TDropTarget;
   private
     { Private declarations }
   public

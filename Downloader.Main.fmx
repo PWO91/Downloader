@@ -32,7 +32,10 @@ object DownloaderMain: TDownloaderMain
       TabOrder = 0
     end
     object CornerButton1: TCornerButton
+      Action = AParametersPage
       Align = Top
+      Enabled = True
+      ImageIndex = -1
       Margins.Left = 10.000000000000000000
       Margins.Top = 10.000000000000000000
       Margins.Right = 10.000000000000000000
@@ -44,7 +47,6 @@ object DownloaderMain: TDownloaderMain
       Size.Height = 76.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 4
-      Text = 'Settings'
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
     end
@@ -83,7 +85,7 @@ object DownloaderMain: TDownloaderMain
       YRadius = 3.000000000000000000
     end
     object CornerButton4: TCornerButton
-      Action = AAddFileToDownload
+      Action = ADownloadPage
       Align = Top
       Enabled = True
       ImageIndex = -1
@@ -111,6 +113,8 @@ object DownloaderMain: TDownloaderMain
     TabPosition = None
     Sizes = (
       854s
+      488s
+      854s
       488s)
     object TsDownload: TTabItem
       CustomIcon = <
@@ -126,13 +130,34 @@ object DownloaderMain: TDownloaderMain
       ExplicitSize.cx = 8.000000000000000000
       ExplicitSize.cy = 8.000000000000000000
     end
+    object TSParameters: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 8.000000000000000000
+      Size.Height = 8.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'TSParameters'
+    end
+  end
+  object Timer1: TTimer
+    OnTimer = Timer1Timer
+    Left = 785
+    Top = 80
   end
   object ActionList: TActionList
     Left = 920
     Top = 80
-    object AAddFileToDownload: TAction
-      Text = 'Add'
-      OnExecute = AAddFileToDownloadExecute
+    object ADownloadPage: TAction
+      Text = 'Download'
+      OnExecute = ADownloadPageExecute
+    end
+    object AParametersPage: TAction
+      Text = 'Parameters'
+      OnExecute = AParametersPageExecute
     end
   end
   object ImageList1: TImageList
@@ -141,9 +166,8 @@ object DownloaderMain: TDownloaderMain
     Left = 848
     Top = 80
   end
-  object Timer1: TTimer
-    OnTimer = Timer1Timer
-    Left = 785
-    Top = 80
+  object NotificationCenter: TNotificationCenter
+    Left = 701
+    Top = 85
   end
 end

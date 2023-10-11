@@ -6,7 +6,8 @@ uses
   Downloader.Main in 'Downloader.Main.pas' {DownloaderMain},
   Downloader.Item in 'Downloader.Item.pas' {DownloaderItem},
   Downloader.Common in 'Downloader.Common.pas',
-  Downloader.Browser in 'Downloader.Browser.pas' {DownloaderBrowser};
+  Downloader.Browser in 'Downloader.Browser.pas' {DownloaderBrowser},
+  Downloader.Parameters in 'Downloader.Parameters.pas' {DownloaderParameter};
 
 {$R *.res}
 

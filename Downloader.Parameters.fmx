@@ -1,0 +1,229 @@
+object DownloaderParameter: TDownloaderParameter
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 480
+  ClientWidth = 640
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object Container: TLayout
+    Align = Client
+    Size.Width = 640.000000000000000000
+    Size.Height = 480.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object GridPanelLayout1: TGridPanelLayout
+      Align = Client
+      Size.Width = 640.000000000000000000
+      Size.Height = 480.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      ColumnCollection = <
+        item
+          Value = 83.333333333333330000
+        end
+        item
+          Value = 16.666666666666670000
+        end>
+      ControlCollection = <
+        item
+          Column = 1
+          Control = Switch1
+          Row = 0
+        end
+        item
+          Column = 0
+          Control = Label1
+          Row = 0
+        end
+        item
+          Column = 0
+          Control = Label2
+          Row = 1
+        end
+        item
+          Column = 1
+          Control = Edit1
+          Row = 1
+        end
+        item
+          Column = 0
+          Control = Label3
+          Row = 2
+        end
+        item
+          Column = 1
+          Control = Switch2
+          Row = 2
+        end
+        item
+          Column = 0
+          Control = Label4
+          Row = 3
+        end
+        item
+          Column = 1
+          Control = Switch3
+          Row = 3
+        end
+        item
+          Column = 0
+          Control = Label5
+          Row = 4
+        end
+        item
+          Column = 1
+          Control = Switch4
+          Row = 4
+        end>
+      RowCollection = <
+        item
+          Value = 9.999887197134777000
+        end
+        item
+          Value = 9.999903654735441000
+        end
+        item
+          Value = 9.999970476365244000
+        end
+        item
+          Value = 10.000032488370010000
+        end
+        item
+          Value = 10.000065852454570000
+        end
+        item
+          Value = 10.000068189425760000
+        end
+        item
+          Value = 10.000049392013930000
+        end
+        item
+          Value = 10.000023681441790000
+        end
+        item
+          Value = 10.000003478968020000
+        end
+        item
+          Value = 9.999995589090467000
+        end>
+      object Switch1: TSwitch
+        Align = Center
+        IsChecked = False
+        Margins.Left = 10.000000000000000000
+        Margins.Top = 10.000000000000000000
+        Margins.Right = 10.000000000000000000
+        Margins.Bottom = 10.000000000000000000
+        Size.Width = 86.666687011718750000
+        Size.Height = 27.999458312988280000
+        Size.PlatformDefault = False
+        TabOrder = 3
+      end
+      object Label1: TLabel
+        Align = Client
+        Margins.Left = 10.000000000000000000
+        Margins.Top = 10.000000000000000000
+        Margins.Right = 10.000000000000000000
+        Margins.Bottom = 10.000000000000000000
+        Size.Width = 513.333312988281300000
+        Size.Height = 27.999458312988280000
+        Size.PlatformDefault = False
+        Text = 'Scan clipboard to detect downlandable content'
+        TabOrder = 8
+      end
+      object Label2: TLabel
+        Align = Client
+        Margins.Left = 10.000000000000000000
+        Margins.Top = 10.000000000000000000
+        Margins.Right = 10.000000000000000000
+        Margins.Bottom = 10.000000000000000000
+        Size.Width = 513.333312988281300000
+        Size.Height = 27.999534606933590000
+        Size.PlatformDefault = False
+        Text = 'Cliboard file extensions'
+        TabOrder = 7
+      end
+      object Edit1: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Anchors = []
+        TabOrder = 9
+        Position.X = 536.666625976562500000
+        Position.Y = 60.999225616455080000
+      end
+      object Label3: TLabel
+        Align = Client
+        Margins.Left = 10.000000000000000000
+        Margins.Top = 10.000000000000000000
+        Margins.Right = 10.000000000000000000
+        Margins.Bottom = 10.000000000000000000
+        Size.Width = 513.333312988281300000
+        Size.Height = 27.999862670898440000
+        Size.PlatformDefault = False
+        Text = 'Automatic start download'
+        TabOrder = 6
+      end
+      object Switch2: TSwitch
+        Align = Center
+        IsChecked = False
+        Margins.Left = 10.000000000000000000
+        Margins.Top = 10.000000000000000000
+        Margins.Right = 10.000000000000000000
+        Margins.Bottom = 10.000000000000000000
+        Size.Width = 86.000000000000000000
+        Size.Height = 28.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 2
+      end
+      object Label4: TLabel
+        Align = Client
+        Margins.Left = 10.000000000000000000
+        Margins.Top = 10.000000000000000000
+        Margins.Right = 10.000000000000000000
+        Margins.Bottom = 10.000000000000000000
+        Size.Width = 513.333312988281300000
+        Size.Height = 28.000152587890630000
+        Size.PlatformDefault = False
+        Text = 'Push notifications'
+        TabOrder = 5
+      end
+      object Switch3: TSwitch
+        Align = Center
+        IsChecked = False
+        Margins.Left = 10.000000000000000000
+        Margins.Top = 10.000000000000000000
+        Margins.Right = 10.000000000000000000
+        Margins.Bottom = 10.000000000000000000
+        Size.Width = 86.000000000000000000
+        Size.Height = 28.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+      end
+      object Label5: TLabel
+        Align = Client
+        Margins.Left = 10.000000000000000000
+        Margins.Top = 10.000000000000000000
+        Margins.Right = 10.000000000000000000
+        Margins.Bottom = 10.000000000000000000
+        Size.Width = 513.333312988281300000
+        Size.Height = 28.000320434570310000
+        Size.PlatformDefault = False
+        Text = 'Hide to tray'
+        TabOrder = 4
+      end
+      object Switch4: TSwitch
+        Align = Center
+        IsChecked = False
+        Margins.Left = 10.000000000000000000
+        Margins.Top = 10.000000000000000000
+        Margins.Right = 10.000000000000000000
+        Margins.Bottom = 10.000000000000000000
+        Size.Width = 86.000000000000000000
+        Size.Height = 28.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+      end
+    end
+  end
+end
