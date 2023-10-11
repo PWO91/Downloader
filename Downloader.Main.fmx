@@ -141,4 +141,9 @@ object DownloaderMain: TDownloaderMain
     Left = 848
     Top = 80
   end
+  object Timer1: TTimer
+    OnTimer = Timer1Timer
+    Left = 785
+    Top = 80
+  end
 end

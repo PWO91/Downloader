@@ -30,6 +30,8 @@ type
     ADownloadAbort: TAction;
     GlowEffect1: TGlowEffect;
     NetHTTPClientInfo: TNetHTTPClient;
+    Panel1: TPanel;
+    LbDownloadInfo: TLabel;
     procedure ADownloadFileExecute(Sender: TObject);
     procedure NetHTTPClientReceiveData(const Sender: TObject; AContentLength,
       AReadCount: Int64; var AAbort: Boolean);
@@ -42,6 +44,7 @@ type
     FDownloadTask: ITask;
     FAbort: Boolean;
     FResumeDownload: Boolean;
+    FSizeUnknow: Boolean;
   public
     property DFile: TFileSetting read FDFile write FDFile;
     constructor CreateItem(AOwner: TComponent; _DFile: TFileSetting);
@@ -56,17 +59,23 @@ var
   aResponse: IHTTPResponse;
   LocalFilePath: string;
 begin
-
+  FSizeUnknow := True;
   FABort    := False;
-  aResponse := NetHTTPClientInfo.Head(FDFile.Url);
+  FDFile.InitialSize := 0;
 
+  try
+    aResponse := NetHTTPClientInfo.Head(FDFile.Url);
+  except
+    FSizeUnknow := True;
+  end;
   //Create local path for downloaded file
   //-----------------------------------------------------------------
   LocalFilePath := FDFile.Dest + ExtractUrlFileName(FDFile.Url);
 
+
   //Check if file exist
   //-----------------------------------------------------------------
-  if FileExists(LocalFilePath) then
+  if FileExists(LocalFilePath) and not FSizeUnknow then
   begin
     //Check exist and not compleated - resume download
     //-----------------------------------------------------------------
@@ -88,7 +97,7 @@ begin
   begin
     //If not exist - prepare for new download
     //-----------------------------------------------------------------
-    SFile               := TFileStream.Create(FDFile.Dest + ExtractUrlFileName(FDFile.Url), fmCreate);
+    SFile               := TFileStream.Create(LocalFilePath, fmCreate);
     ProgressBar1.Max    := aResponse.ContentLength;
     ProgressBar1.Value  := 0;
   end;
@@ -101,16 +110,22 @@ begin
     procedure ()
       begin
         if FResumeDownload then
-          NetHTTPClient.GetRange(FDFile.Url,SFile.Size, aResponse.ContentLength, SFile) else
+          NetHTTPClient.GetRange(FDFile.Url,FDFile.InitialSize, aResponse.ContentLength, SFile) else
           NetHTTPClient.Get(FDFile.Url, SFile);
       end
     );
 
   //Start task
   //-----------------------------------------------------------------
+
+  if(FSizeUnknow) then
+  begin
+    ProgressBar1.Visible:= False;
+  end;
+
   FDownloadTask.Start;
 
-  end;
+end;
 
 procedure TDownloaderItem.ADownloadPauseExecute(Sender: TObject);
 begin
@@ -130,7 +145,9 @@ procedure TDownloaderItem.NetHTTPClientReceiveData(const Sender: TObject;
 begin
   AAbort              := FAbort;
   ProgressBar1.Value  := FDFile.InitialSize + AReadCount;
-
+  LbDownloadInfo.Text := 'Downloaded ' + IntToStr((AReadCount) div 1024 div 1024) + 'MB';
+  ADownloadPause.Enabled:= True;
+  ADownloadFile.Enabled:= False;
   if FAbort then
   begin
     FDownloadTask.Cancel;
@@ -143,6 +160,9 @@ procedure TDownloaderItem.NetHTTPClientRequestCompleted(const Sender: TObject;
 begin
   //Release file in case of download completed
   //-----------------------------------------------------------------
+  ADownloadFile.Enabled:= True;
+  ADownloadPause.Enabled := False;
+  ADownloadAbort.Enabled := False;
   if Assigned(SFile) then
     SFile.Free;
 end;
