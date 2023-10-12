@@ -9,171 +9,180 @@ object DownloaderMain: TDownloaderMain
   FormFactor.Devices = [Desktop]
   OnCreate = FormCreate
   DesignerMasterStyle = 0
-  object Rectangle1: TRectangle
-    Align = Left
-    Fill.Color = xFF6F379C
-    Size.Width = 121.000000000000000000
-    Size.Height = 488.000000000000000000
-    Size.PlatformDefault = False
-    Stroke.Kind = None
-    object Label1: TLabel
-      Align = Top
-      StyledSettings = [Family]
-      Margins.Top = 10.000000000000000000
-      Position.Y = 10.000000000000000000
-      Size.Width = 121.000000000000000000
-      Size.Height = 17.000000000000000000
-      Size.PlatformDefault = False
-      TextSettings.Font.Size = 18.000000000000000000
-      TextSettings.Font.StyleExt = {00060000000000000004000000}
-      TextSettings.FontColor = claBisque
-      TextSettings.HorzAlign = Center
-      Text = 'Downloader'
-      TabOrder = 0
-    end
-    object CornerButton1: TCornerButton
-      Action = AParametersPage
-      Align = Top
-      Enabled = True
-      ImageIndex = -1
-      Margins.Left = 10.000000000000000000
-      Margins.Top = 10.000000000000000000
-      Margins.Right = 10.000000000000000000
-      Margins.Bottom = 10.000000000000000000
-      Position.X = 10.000000000000000000
-      Position.Y = 239.000000000000000000
-      Sides = [Top, Left, Bottom, Right]
-      Size.Width = 101.000000000000000000
-      Size.Height = 76.000000000000000000
-      Size.PlatformDefault = False
-      TabOrder = 4
-      XRadius = 3.000000000000000000
-      YRadius = 3.000000000000000000
-    end
-    object CornerButton2: TCornerButton
-      Align = Top
-      Margins.Left = 10.000000000000000000
-      Margins.Top = 10.000000000000000000
-      Margins.Right = 10.000000000000000000
-      Margins.Bottom = 10.000000000000000000
-      Position.X = 10.000000000000000000
-      Position.Y = 335.000000000000000000
-      Sides = [Top, Left, Bottom, Right]
-      Size.Width = 101.000000000000000000
-      Size.Height = 76.000000000000000000
-      Size.PlatformDefault = False
-      TabOrder = 3
-      Text = 'About'
-      XRadius = 3.000000000000000000
-      YRadius = 3.000000000000000000
-    end
-    object CornerButton3: TCornerButton
-      Action = AFilesPage
-      Align = Top
-      Enabled = True
-      ImageIndex = -1
-      Margins.Left = 10.000000000000000000
-      Margins.Top = 20.000000000000000000
-      Margins.Right = 10.000000000000000000
-      Margins.Bottom = 10.000000000000000000
-      Position.X = 10.000000000000000000
-      Position.Y = 143.000000000000000000
-      Sides = [Top, Left, Bottom, Right]
-      Size.Width = 101.000000000000000000
-      Size.Height = 76.000000000000000000
-      Size.PlatformDefault = False
-      TabOrder = 2
-      XRadius = 3.000000000000000000
-      YRadius = 3.000000000000000000
-    end
-    object CornerButton4: TCornerButton
-      Action = ADownloadPage
-      Align = Top
-      Enabled = True
-      ImageIndex = -1
-      Margins.Left = 10.000000000000000000
-      Margins.Top = 20.000000000000000000
-      Margins.Right = 10.000000000000000000
-      Position.X = 10.000000000000000000
-      Position.Y = 47.000000000000000000
-      Sides = [Top, Left, Bottom, Right]
-      Size.Width = 101.000000000000000000
-      Size.Height = 76.000000000000000000
-      Size.PlatformDefault = False
-      TabOrder = 1
-      XRadius = 3.000000000000000000
-      YRadius = 3.000000000000000000
-    end
-  end
-  object TabControl1: TTabControl
-    Align = Client
-    Size.Width = 854.000000000000000000
-    Size.Height = 488.000000000000000000
-    Size.PlatformDefault = False
-    TabIndex = 2
-    TabOrder = 1
-    TabPosition = None
-    Sizes = (
-      854s
-      488s
-      854s
-      488s
-      854s
-      488s)
-    object TsDownload: TTabItem
-      CustomIcon = <
-        item
-        end>
-      IsSelected = False
-      Size.Width = 8.000000000000000000
-      Size.Height = 8.000000000000000000
-      Size.PlatformDefault = False
-      StyleLookup = ''
-      TabOrder = 0
-      Text = 'TsDownload'
-      ExplicitSize.cx = 8.000000000000000000
-      ExplicitSize.cy = 8.000000000000000000
-    end
-    object TSParameters: TTabItem
-      CustomIcon = <
-        item
-        end>
-      IsSelected = False
-      Size.Width = 8.000000000000000000
-      Size.Height = 8.000000000000000000
-      Size.PlatformDefault = False
-      StyleLookup = ''
-      TabOrder = 0
-      Text = 'TSParameters'
-      ExplicitSize.cx = 8.000000000000000000
-      ExplicitSize.cy = 8.000000000000000000
-    end
-    object TSFiles: TTabItem
-      CustomIcon = <
-        item
-        end>
-      IsSelected = True
-      Size.Width = 8.000000000000000000
-      Size.Height = 8.000000000000000000
-      Size.PlatformDefault = False
-      StyleLookup = ''
-      TabOrder = 0
-      Text = 'TSFiles'
-      ExplicitSize.cx = 8.000000000000000000
-      ExplicitSize.cy = 8.000000000000000000
-    end
-  end
   object ClipboardMonitor: TTimer
     Enabled = False
     OnTimer = ClipboardMonitorTimer
-    Left = 785
-    Top = 80
+    Left = 369
+    Top = 96
+  end
+  object Container: TLayout
+    Align = Client
+    Size.Width = 975.000000000000000000
+    Size.Height = 423.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 5
+    object Rectangle1: TRectangle
+      Align = Left
+      Fill.Color = xFF6F379C
+      Size.Width = 121.000000000000000000
+      Size.Height = 423.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Kind = None
+      object CornerButton1: TCornerButton
+        Action = AParametersPage
+        Align = Top
+        Enabled = True
+        ImageIndex = -1
+        Margins.Left = 10.000000000000000000
+        Margins.Top = 10.000000000000000000
+        Margins.Right = 10.000000000000000000
+        Margins.Bottom = 10.000000000000000000
+        Position.X = 10.000000000000000000
+        Position.Y = 212.000000000000000000
+        Sides = [Top, Left, Bottom, Right]
+        Size.Width = 101.000000000000000000
+        Size.Height = 76.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 3
+        XRadius = 3.000000000000000000
+        YRadius = 3.000000000000000000
+      end
+      object CornerButton2: TCornerButton
+        Align = Top
+        Margins.Left = 10.000000000000000000
+        Margins.Top = 10.000000000000000000
+        Margins.Right = 10.000000000000000000
+        Margins.Bottom = 10.000000000000000000
+        Position.X = 10.000000000000000000
+        Position.Y = 308.000000000000000000
+        Sides = [Top, Left, Bottom, Right]
+        Size.Width = 101.000000000000000000
+        Size.Height = 76.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 2
+        Text = 'About'
+        XRadius = 3.000000000000000000
+        YRadius = 3.000000000000000000
+      end
+      object CornerButton3: TCornerButton
+        Action = AFilesPage
+        Align = Top
+        Enabled = True
+        ImageIndex = -1
+        Margins.Left = 10.000000000000000000
+        Margins.Top = 20.000000000000000000
+        Margins.Right = 10.000000000000000000
+        Margins.Bottom = 10.000000000000000000
+        Position.X = 10.000000000000000000
+        Position.Y = 116.000000000000000000
+        Sides = [Top, Left, Bottom, Right]
+        Size.Width = 101.000000000000000000
+        Size.Height = 76.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        XRadius = 3.000000000000000000
+        YRadius = 3.000000000000000000
+      end
+      object CornerButton4: TCornerButton
+        Action = ADownloadPage
+        Align = Top
+        Enabled = True
+        ImageIndex = -1
+        Margins.Left = 10.000000000000000000
+        Margins.Top = 20.000000000000000000
+        Margins.Right = 10.000000000000000000
+        Position.X = 10.000000000000000000
+        Position.Y = 20.000000000000000000
+        Sides = [Top, Left, Bottom, Right]
+        Size.Width = 101.000000000000000000
+        Size.Height = 76.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        XRadius = 3.000000000000000000
+        YRadius = 3.000000000000000000
+      end
+    end
+    object TabControl1: TTabControl
+      Align = Client
+      Size.Width = 854.000000000000000000
+      Size.Height = 423.000000000000000000
+      Size.PlatformDefault = False
+      TabIndex = 2
+      TabOrder = 1
+      TabPosition = None
+      Sizes = (
+        854s
+        423s
+        854s
+        423s
+        854s
+        423s)
+      object TsDownload: TTabItem
+        CustomIcon = <
+          item
+          end>
+        IsSelected = False
+        Size.Width = 8.000000000000000000
+        Size.Height = 8.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = ''
+        TabOrder = 0
+        Text = 'TsDownload'
+        ExplicitSize.cx = 8.000000000000000000
+        ExplicitSize.cy = 8.000000000000000000
+      end
+      object TSParameters: TTabItem
+        CustomIcon = <
+          item
+          end>
+        IsSelected = False
+        Size.Width = 8.000000000000000000
+        Size.Height = 8.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = ''
+        TabOrder = 0
+        Text = 'TSParameters'
+        ExplicitSize.cx = 8.000000000000000000
+        ExplicitSize.cy = 8.000000000000000000
+      end
+      object TSFiles: TTabItem
+        CustomIcon = <
+          item
+          end>
+        IsSelected = True
+        Size.Width = 8.000000000000000000
+        Size.Height = 8.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = ''
+        TabOrder = 0
+        Text = 'TSFiles'
+        ExplicitSize.cx = 8.000000000000000000
+        ExplicitSize.cy = 8.000000000000000000
+      end
+    end
+  end
+  object Header: TRectangle
+    Align = Top
+    Fill.Color = xFF482565
+    Size.Width = 975.000000000000000000
+    Size.Height = 57.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Thickness = 0.000000000000000000
+  end
+  object Separator1: TRectangle
+    Align = Top
+    Fill.Color = xFF450C75
+    Position.Y = 57.000000000000000000
+    Size.Width = 975.000000000000000000
+    Size.Height = 8.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Thickness = 0.000000000000000000
   end
   object ActionList: TActionList
-    Left = 920
-    Top = 80
+    Left = 184
+    Top = 168
     object ADownloadPage: TAction
-      Text = 'Download'
+      Text = 'Download'#13#10'center'
       OnExecute = ADownloadPageExecute
     end
     object AParametersPage: TAction
@@ -181,18 +190,18 @@ object DownloaderMain: TDownloaderMain
       OnExecute = AParametersPageExecute
     end
     object AFilesPage: TAction
-      Text = 'Files'
+      Text = 'Search file'
       OnExecute = AFilesPageExecute
     end
   end
-  object ImageList1: TImageList
+  object ImageList: TImageList
     Source = <>
     Destination = <>
-    Left = 848
-    Top = 80
+    Left = 272
+    Top = 96
   end
   object NotificationCenter: TNotificationCenter
-    Left = 701
-    Top = 85
+    Left = 181
+    Top = 93
   end
 end

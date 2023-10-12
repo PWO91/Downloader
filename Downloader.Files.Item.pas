@@ -18,10 +18,10 @@ type
     Rectangle1: TRectangle;
     procedure ADownloadFileExecute(Sender: TObject);
   private
-    FUrl: String;
-    FFileName: string;
+    FDFile: TFileSetting;
   public
-    constructor CreateItem(AOwner: TComponent; Url, FileName: String);
+    constructor CreateItem(AOwner: TComponent; Url, FileName: String); overload;
+    constructor CreateItem(AOwner: TComponent; DFile: TFileSetting); overload;
   end;
 
 implementation
@@ -32,22 +32,30 @@ uses
 {$R *.fmx}
 
 procedure TDownloaderFilesItem.ADownloadFileExecute(Sender: TObject);
-var
-  DFile: TFileSetting;
 begin
-  DFile.Dest := 'C:\Downloads\';
-  DFile.Url := 'http://' + FUrl + ':8899/?DownloadFile=' + FFileName;
-  DFile.FileName := FFileName;
-  DownloaderBrowser.AddItem(DFile);
+  DownloaderBrowser.AddItem(FDFile);
+  ADownloadFile.Enabled:= False;
 end;
 
 constructor TDownloaderFilesItem.CreateItem(AOwner: TComponent; Url,
   FileName: String);
 begin
+  //Constructor to create file in download page
+  //-----------------------------------------------------------------
   inherited Create(AOwner);
-  FUrl:= Url;
-  FFileName := FileName;
-  LbFileName.Text:= FFileName;
+  FDFile.Url:= Url;
+  FDFile.FileName := FileName;
+  LbFileName.Text:= FDFile.FileName;
+end;
+
+constructor TDownloaderFilesItem.CreateItem(AOwner: TComponent;
+  DFile: TFileSetting);
+begin
+  //Second constructor to create file in download page
+  //-----------------------------------------------------------------
+  inherited Create(AOwner);
+  FDFile := DFile;
+  LbFileName.Text:= FDFile.FileName;
 end;
 
 end.

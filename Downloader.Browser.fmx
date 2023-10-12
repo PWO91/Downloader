@@ -7,6 +7,7 @@ object DownloaderBrowser: TDownloaderBrowser
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
   DesignerMasterStyle = 0
   object Container: TLayout
     Align = Client
@@ -25,12 +26,19 @@ object DownloaderBrowser: TDownloaderBrowser
       DefaultItemStyles.ItemStyle = ''
       DefaultItemStyles.GroupHeaderStyle = ''
       DefaultItemStyles.GroupFooterStyle = ''
-      Viewport.Width = 636.000000000000000000
-      Viewport.Height = 476.000000000000000000
-      object DropTarget1: TDropTarget
-        Align = Center
+      Viewport.Width = 640.000000000000000000
+      Viewport.Height = 480.000000000000000000
+      object Label2: TLabel
+        Align = Client
+        StyledSettings = [Family, FontColor]
+        Size.Width = 636.000000000000000000
+        Size.Height = 476.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 24.000000000000000000
+        TextSettings.Font.StyleExt = {00060000000000000004000000}
+        TextSettings.HorzAlign = Center
+        Text = 'Downloads will appear here'
         TabOrder = 0
-        Text = 'Drop file hear'
       end
     end
   end

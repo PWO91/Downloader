@@ -10,7 +10,8 @@ uses
   FMX.ActnList, FMX.StdCtrls,
   Threading, System.ImageList, FMX.ImgList, Downloader.Common, FMX.Effects,
   IOUtils,
-  Notification, System.Notification;
+  Notification, System.Notification,
+  Fmx.ListBox;
 
 type
   TDownloaderItem = class(TForm)
@@ -33,12 +34,15 @@ type
     NetHTTPClientInfo: TNetHTTPClient;
     Panel1: TPanel;
     LbDownloadInfo: TLabel;
+    CornerButton4: TCornerButton;
+    ADeleteItem: TAction;
     procedure ADownloadFileExecute(Sender: TObject);
     procedure NetHTTPClientReceiveData(const Sender: TObject; AContentLength,
       AReadCount: Int64; var AAbort: Boolean);
     procedure ADownloadPauseExecute(Sender: TObject);
     procedure NetHTTPClientRequestCompleted(const Sender: TObject;
       const AResponse: IHTTPResponse);
+    procedure ADeleteItemExecute(Sender: TObject);
   private
     SFile: TFileStream;
     FDFile: TFileSetting;
@@ -58,6 +62,11 @@ uses
   Downloader.Main;
 
 {$R *.fmx}
+
+procedure TDownloaderItem.ADeleteItemExecute(Sender: TObject);
+begin
+  TListBox(Self.Owner.Owner).Items.Delete(TListBoxItem(Self.Owner).Index);
+end;
 
 procedure TDownloaderItem.ADownloadFileExecute(Sender: TObject);
 var

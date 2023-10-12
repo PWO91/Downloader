@@ -3,20 +3,21 @@ object DownloaderFiles: TDownloaderFiles
   Top = 0
   Caption = 'Form1'
   ClientHeight = 504
-  ClientWidth = 701
+  ClientWidth = 805
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
   DesignerMasterStyle = 0
   object Container: TLayout
     Align = Client
-    Size.Width = 701.000000000000000000
+    Size.Width = 805.000000000000000000
     Size.Height = 504.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 0
     object LBFiles: TListBox
       Align = Client
-      Size.Width = 701.000000000000000000
+      Size.Width = 805.000000000000000000
       Size.Height = 463.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 0
@@ -24,12 +25,24 @@ object DownloaderFiles: TDownloaderFiles
       DefaultItemStyles.ItemStyle = ''
       DefaultItemStyles.GroupHeaderStyle = ''
       DefaultItemStyles.GroupFooterStyle = ''
-      Viewport.Width = 701.000000000000000000
+      Viewport.Width = 805.000000000000000000
       Viewport.Height = 463.000000000000000000
+      object Label2: TLabel
+        Align = Client
+        StyledSettings = [Family, FontColor]
+        Size.Width = 801.000000000000000000
+        Size.Height = 459.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 24.000000000000000000
+        TextSettings.Font.StyleExt = {00060000000000000004000000}
+        TextSettings.HorzAlign = Center
+        Text = 'Avalible files will appear here'
+        TabOrder = 0
+      end
     end
     object Layout1: TLayout
       Align = Top
-      Size.Width = 701.000000000000000000
+      Size.Width = 805.000000000000000000
       Size.Height = 41.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 1
@@ -38,24 +51,45 @@ object DownloaderFiles: TDownloaderFiles
         Align = Client
         TabOrder = 0
         Text = 'localhost'
-        Size.Width = 701.000000000000000000
-        Size.Height = 41.000000000000000000
+        Margins.Left = 4.000000000000000000
+        Margins.Top = 4.000000000000000000
+        Margins.Right = 4.000000000000000000
+        Margins.Bottom = 4.000000000000000000
+        Size.Width = 797.000000000000000000
+        Size.Height = 33.000000000000000000
         Size.PlatformDefault = False
-      end
-      object CornerButton1: TCornerButton
-        Action = AGetFilesList
-        Anchors = [akTop, akRight]
-        Enabled = True
-        ImageIndex = -1
-        Position.X = 614.000000000000000000
-        Position.Y = 4.000000000000000000
-        Sides = [Top, Left, Bottom, Right]
-        Size.Width = 80.000000000000000000
-        Size.Height = 32.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 1
-        XRadius = 3.000000000000000000
-        YRadius = 3.000000000000000000
+        OnKeyDown = EdIPAdressKeyDown
+        object WorkIndicator: TAniIndicator
+          Align = Right
+          Margins.Left = 2.000000000000000000
+          Margins.Top = 2.000000000000000000
+          Margins.Right = 2.000000000000000000
+          Margins.Bottom = 2.000000000000000000
+          Position.X = 661.000000000000000000
+          Position.Y = 2.000000000000000000
+          Size.Width = 50.000000000000000000
+          Size.Height = 29.000000000000000000
+          Size.PlatformDefault = False
+        end
+        object CornerButton1: TCornerButton
+          Action = AGetFilesList
+          Align = Right
+          Enabled = True
+          ImageIndex = -1
+          Margins.Left = 2.000000000000000000
+          Margins.Top = 2.000000000000000000
+          Margins.Right = 2.000000000000000000
+          Margins.Bottom = 2.000000000000000000
+          Position.X = 715.000000000000000000
+          Position.Y = 2.000000000000000000
+          Sides = [Top, Left, Bottom, Right]
+          Size.Width = 80.000000000000000000
+          Size.Height = 29.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 1
+          XRadius = 3.000000000000000000
+          YRadius = 3.000000000000000000
+        end
       end
     end
   end
@@ -69,6 +103,7 @@ object DownloaderFiles: TDownloaderFiles
   end
   object NetHTTPClient: TNetHTTPClient
     UserAgent = 'Embarcadero URI Client/1.0'
+    OnRequestError = NetHTTPClientRequestError
     Left = 104
     Top = 57
   end

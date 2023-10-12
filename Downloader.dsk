@@ -1,32 +1,39 @@
 ﻿[Closed Files]
-File_0=TSourceModule,'c:\program files (x86)\embarcadero\studio\21.0\source\Indy10\Core\IdUDPServer.pas',0,1,264,1,277,0,0,,
-File_1=TSourceModule,'c:\program files (x86)\embarcadero\studio\21.0\source\Indy10\Core\IdThread.pas',0,1,417,1,431,0,0,,
-File_2=TSourceModule,'C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Parameters.pas',0,1,7,29,25,0,0,,
-File_3=TSourceModule,'C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Settings',0,1,1,1,1,0,0,,
-File_4=TSourceModule,'c:\program files (x86)\embarcadero\studio\21.0\source\rtl\common\System.Classes.pas',0,1,16163,1,16210,0,0,,
-File_5=TSourceModule,'c:\program files (x86)\embarcadero\studio\21.0\source\rtl\net\System.Net.HTTPClientComponent.pas',0,1,666,1,680,0,0,,
-File_6=TSourceModule,'c:\program files (x86)\embarcadero\studio\21.0\SOURCE\RTL\SYS\System.pas',0,1,589,23,572,0,0,,
-File_7=TSourceModule,'C:\Users\p.wojcik\Documents\Embarcadero\Studio\21.0\CatalogRepository\OmniThreadLibrary_3.07.8-Sydney\OtlEventMonitor.pas',0,1,91,9,105,0,0,,
-File_8=TSourceModule,'C:\Users\p.wojcik\Documents\Embarcadero\Studio\21.0\CatalogRepository\OmniThreadLibrary_3.07.8-Sydney\OtlTaskControl.pas',0,1,375,1,392,0,0,,
-File_9=TSourceModule,'C:\Users\p.wojcik\Documents\Embarcadero\Studio\21.0\CatalogRepository\OmniThreadLibrary_3.07.8-Sydney\OtlCommon.pas',0,1,1223,23,1236,0,0,,
-File_10=TSourceModule,'D:\Tensoft\Delphi104\Projekty\OGN 101\Slowniki\DMUniSlowniki_.pas',0,1,1,1,1,0,0,,
-File_11=TSourceModule,'D:\Tensoft\Delphi104\Projekty\Wspolne\Slowniki\DMSlownikiAA_.pas',0,1,1,1,1,0,0,,
+File_0=TSourceModule,'c:\program files (x86)\embarcadero\studio\21.0\source\rtl\common\System.Classes.pas',0,1,17659,1,17672,0,0,,
+File_1=TSourceModule,'c:\program files (x86)\embarcadero\studio\21.0\source\rtl\net\System.Net.HttpClient.Win.pas',0,1,1379,1,1425,0,0,,
+File_2=TSourceModule,'c:\program files (x86)\embarcadero\studio\21.0\source\Indy10\Core\IdUDPServer.pas',0,1,264,1,277,0,0,,
+File_3=TSourceModule,'c:\program files (x86)\embarcadero\studio\21.0\source\Indy10\Core\IdThread.pas',0,1,417,1,431,0,0,,
+File_4=TSourceModule,'C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Parameters.pas',0,1,7,29,25,0,0,,
+File_5=TSourceModule,'C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Settings',0,1,1,1,1,0,0,,
+File_6=TSourceModule,'c:\program files (x86)\embarcadero\studio\21.0\source\rtl\net\System.Net.HTTPClientComponent.pas',0,1,666,1,680,0,0,,
+File_7=TSourceModule,'c:\program files (x86)\embarcadero\studio\21.0\SOURCE\RTL\SYS\System.pas',0,1,589,23,572,0,0,,
+File_8=TSourceModule,'C:\Users\p.wojcik\Documents\Embarcadero\Studio\21.0\CatalogRepository\OmniThreadLibrary_3.07.8-Sydney\OtlEventMonitor.pas',0,1,91,9,105,0,0,,
+File_9=TSourceModule,'C:\Users\p.wojcik\Documents\Embarcadero\Studio\21.0\CatalogRepository\OmniThreadLibrary_3.07.8-Sydney\OtlTaskControl.pas',0,1,375,1,392,0,0,,
+File_10=TSourceModule,'C:\Users\p.wojcik\Documents\Embarcadero\Studio\21.0\CatalogRepository\OmniThreadLibrary_3.07.8-Sydney\OtlCommon.pas',0,1,1223,23,1236,0,0,,
+File_11=TSourceModule,'D:\Tensoft\Delphi104\Projekty\OGN 101\Slowniki\DMUniSlowniki_.pas',0,1,1,1,1,0,0,,
+File_12=TSourceModule,'D:\Tensoft\Delphi104\Projekty\Wspolne\Slowniki\DMSlownikiAA_.pas',0,1,1,1,1,0,0,,
 
 [Modules]
-Module0=C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Files.Item.pas
-Module1=C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Main.pas
-Module2=C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Browser.pas
-Module3=C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Files.pas
-Module4=C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Item.pas
-Module5=C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Common.pas
-Module6=C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Server.pas
+Module0=C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Main.pas
+Module1=C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Server.pas
+Module2=C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Common.pas
+Module3=C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Item.pas
+Module4=C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Browser.pas
+Module5=C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Files.pas
+Module6=C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Files.Item.pas
 Count=7
 EditWindowCount=1
 
-[C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Files.Item.pas]
+[C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Main.pas]
 ModuleType=TSourceModule
 
-[C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Main.pas]
+[C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Server.pas]
+ModuleType=TSourceModule
+
+[C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Common.pas]
+ModuleType=TSourceModule
+
+[C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Item.pas]
 ModuleType=TSourceModule
 
 [C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Browser.pas]
@@ -35,18 +42,12 @@ ModuleType=TSourceModule
 [C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Files.pas]
 ModuleType=TSourceModule
 
-[C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Item.pas]
-ModuleType=TSourceModule
-
-[C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Common.pas]
-ModuleType=TSourceModule
-
-[C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Server.pas]
+[C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Files.Item.pas]
 ModuleType=TSourceModule
 
 [EditWindow0]
 ViewCount=7
-CurrentEditView=C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Files.Item.pas
+CurrentEditView=C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Main.pas
 View0=0
 View1=1
 View2=2
@@ -81,64 +82,64 @@ BottomPanelClients=MessageView,DockSite1
 BottomPanelData=0000080001020100000009000000446F636B5369746531DE440000000000000226060000000000000100000000DE4400000F0000004D65737361676556696577466F726DFFFFFFFF
 BottomMiddlePanelSize=0
 BottomMiddlePanelClients=DockSite0,GraphDrawingModel
-BottomMiddelPanelData=0000080001020200000009000000446F636B536974653010000000477261706844726177696E67566965779F1D00000000000002F206000000000000FFFFFFFF
+BottomMiddelPanelData=0000080001020200000009000000446F636B536974653010000000477261706844726177696E67566965773C29000000000000026706000000000000FFFFFFFF
 
 [View0]
 CustomEditViewType=TEditView
 Module=C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Item.pas
-CursorX=31
-CursorY=79
-TopLine=70
+CursorX=16
+CursorY=124
+TopLine=107
 LeftCol=1
 Bookmarks=
 EditViewName=C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Item.pas
 
 [View1]
 CustomEditViewType=TEditView
-Module=C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Common.pas
-CursorX=22
-CursorY=13
-TopLine=1
-LeftCol=1
-Bookmarks=
-EditViewName=C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Common.pas
-
-[View2]
-CustomEditViewType=TEditView
-Module=C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Server.pas
-CursorX=39
-CursorY=70
-TopLine=60
-LeftCol=1
-Bookmarks=
-EditViewName=C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Server.pas
-
-[View3]
-CustomEditViewType=TEditView
-Module=C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Main.pas
-CursorX=41
-CursorY=106
-TopLine=104
+Module=C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Browser.pas
+CursorX=23
+CursorY=65
+TopLine=59
 LeftCol=1
 Bookmarks=
 EditViewName=Borland.FormDesignerView
 
-[View4]
+[View2]
 CustomEditViewType=TEditView
-Module=C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Browser.pas
-CursorX=33
-CursorY=40
-TopLine=28
+Module=C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Common.pas
+CursorX=22
+CursorY=13
+TopLine=40
 LeftCol=1
 Bookmarks=
-EditViewName=C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Browser.pas
+EditViewName=C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Common.pas
+
+[View3]
+CustomEditViewType=TEditView
+Module=C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Server.pas
+CursorX=39
+CursorY=70
+TopLine=72
+LeftCol=1
+Bookmarks=
+EditViewName=C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Server.pas
+
+[View4]
+CustomEditViewType=TEditView
+Module=C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Main.pas
+CursorX=1
+CursorY=105
+TopLine=102
+LeftCol=1
+Bookmarks=
+EditViewName=Borland.FormDesignerView
 
 [View5]
 CustomEditViewType=TEditView
 Module=C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Files.pas
-CursorX=71
-CursorY=52
-TopLine=44
+CursorX=27
+CursorY=137
+TopLine=132
 LeftCol=1
 Bookmarks=
 EditViewName=Borland.FormDesignerView
@@ -146,9 +147,9 @@ EditViewName=Borland.FormDesignerView
 [View6]
 CustomEditViewType=TEditView
 Module=C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Files.Item.pas
-CursorX=18
-CursorY=50
-TopLine=27
+CursorX=38
+CursorY=51
+TopLine=34
 LeftCol=1
 Bookmarks=
 EditViewName=Borland.FormDesignerView
@@ -167,11 +168,11 @@ State=0
 Left=0
 Top=0
 Width=3823
-Height=1143
+Height=1105
 MaxLeft=-1
 MaxTop=-1
 ClientWidth=3823
-ClientHeight=1143
+ClientHeight=1105
 TBDockHeight=213
 LRDockWidth=13604
 Dockable=1
@@ -291,8 +292,8 @@ SplitPos=111
 
 [PropInspDesignerSelection]
 ArrangeBy=Name
-SelectedItem=TextSettings.FontColor,OnDragEnter
-ExpandedItems=Anchors=1,DefaultItemStyles=0,LiveBindings=0,"LiveBindings Designer=0",Margins=1,Caret=0,Border=0,BorderIcons=0,Fill=0,Action=0,Action.LiveBindings=0,"Action.LiveBindings Designer=0",Action.UnsupportedArchitectures=0,Action.UnsupportedPlatforms=0,Corners=0,Stroke=1,Stroke.Bitmap=0,Stroke.Resource=0,TextSettings=1,TouchTargetExpansion=0,TextSettings.Font=0
+SelectedItem=Name,OnKeyDown
+ExpandedItems=Anchors=0,Action=1,Corners=0,Action.LiveBindings=0,LiveBindings=0,Caret=0,"Action.LiveBindings Designer=0",Action.UnsupportedArchitectures=0,Action.UnsupportedPlatforms=0,"LiveBindings Designer=0",Margins=1,AutomaticDecompression=0,RotationCenter=0,Images=0,TextSettings=1,TouchTargetExpansion=0,TextSettings.Font=0,Border=0,BorderIcons=0,Fill=0,Stroke=1,Stroke.Bitmap=0,Stroke.Resource=0,BitmapMargins=0
 
 [frmDesignPreview]
 PercentageSizes=1
@@ -303,11 +304,11 @@ State=0
 Left=0
 Top=0
 Width=2000
-Height=8450
+Height=6366
 MaxLeft=-1
 MaxTop=-1
 ClientWidth=2000
-ClientHeight=8450
+ClientHeight=6366
 TBDockHeight=5959
 LRDockWidth=2510
 Dockable=1
@@ -319,8 +320,8 @@ Create=1
 Visible=0
 Docked=1
 State=0
-Left=0
-Top=0
+Left=-1528
+Top=243
 Width=276
 Height=359
 MaxLeft=-1
@@ -344,11 +345,11 @@ State=0
 Left=0
 Top=0
 Width=3823
-Height=1143
+Height=1105
 MaxLeft=-1
 MaxTop=-1
 ClientWidth=3823
-ClientHeight=1143
+ClientHeight=1105
 TBDockHeight=407
 LRDockWidth=4953
 Dockable=1
@@ -363,11 +364,11 @@ State=0
 Left=0
 Top=0
 Width=3823
-Height=1143
+Height=1105
 MaxLeft=-1
 MaxTop=-1
 ClientWidth=3823
-ClientHeight=1143
+ClientHeight=1105
 TBDockHeight=213
 LRDockWidth=7406
 Dockable=1
@@ -386,11 +387,11 @@ State=0
 Left=0
 Top=0
 Width=3823
-Height=1143
+Height=1105
 MaxLeft=-1
 MaxTop=-1
 ClientWidth=3823
-ClientHeight=1143
+ClientHeight=1105
 TBDockHeight=1541
 LRDockWidth=3484
 Dockable=1
@@ -405,11 +406,11 @@ State=0
 Left=0
 Top=0
 Width=3823
-Height=1143
+Height=1105
 MaxLeft=-1
 MaxTop=-1
 ClientWidth=3823
-ClientHeight=1143
+ClientHeight=1105
 TBDockHeight=2064
 LRDockWidth=3484
 Dockable=1
@@ -424,11 +425,11 @@ State=0
 Left=0
 Top=0
 Width=2339
-Height=1211
+Height=1172
 MaxLeft=-1
 MaxTop=-1
 ClientWidth=2339
-ClientHeight=1211
+ClientHeight=1172
 TBDockHeight=2316
 LRDockWidth=2823
 Dockable=1
@@ -462,11 +463,11 @@ State=0
 Left=0
 Top=0
 Width=2339
-Height=1211
+Height=1172
 MaxLeft=-1
 MaxTop=-1
 ClientWidth=2339
-ClientHeight=1211
+ClientHeight=1172
 TBDockHeight=1153
 LRDockWidth=3677
 Dockable=1
@@ -489,11 +490,11 @@ State=0
 Left=0
 Top=0
 Width=2000
-Height=8450
+Height=6366
 MaxLeft=-1
 MaxTop=-1
 ClientWidth=2000
-ClientHeight=8450
+ClientHeight=6366
 TBDockHeight=4884
 LRDockWidth=7151
 Dockable=1
@@ -505,8 +506,8 @@ Create=1
 Visible=0
 Docked=1
 State=0
-Left=0
-Top=0
+Left=380
+Top=809
 Width=2854
 Height=3207
 MaxLeft=-1
@@ -525,7 +526,7 @@ Visible=0
 Docked=1
 State=0
 Left=-8
-Top=-8
+Top=-124
 Width=1849
 Height=3140
 MaxLeft=-1
@@ -546,11 +547,11 @@ State=0
 Left=0
 Top=0
 Width=2339
-Height=1211
+Height=1172
 MaxLeft=-1
 MaxTop=-1
 ClientWidth=2339
-ClientHeight=1211
+ClientHeight=1172
 TBDockHeight=4835
 LRDockWidth=3562
 Dockable=1
@@ -565,11 +566,11 @@ State=0
 Left=0
 Top=0
 Width=2339
-Height=1211
+Height=1172
 MaxLeft=-1
 MaxTop=-1
 ClientWidth=2339
-ClientHeight=1211
+ClientHeight=1172
 TBDockHeight=4835
 LRDockWidth=3562
 Dockable=1
@@ -584,11 +585,11 @@ State=0
 Left=0
 Top=0
 Width=3823
-Height=1143
+Height=1105
 MaxLeft=-1
 MaxTop=-1
 ClientWidth=3823
-ClientHeight=1143
+ClientHeight=1105
 TBDockHeight=1550
 LRDockWidth=8740
 Dockable=1
@@ -629,11 +630,11 @@ State=0
 Left=0
 Top=0
 Width=2000
-Height=8450
+Height=6366
 MaxLeft=-1
 MaxTop=-1
 ClientWidth=2000
-ClientHeight=8450
+ClientHeight=6366
 TBDockHeight=4884
 LRDockWidth=5307
 Dockable=1
@@ -648,11 +649,11 @@ State=0
 Left=0
 Top=0
 Width=1896
-Height=3876
+Height=2829
 MaxLeft=-1
 MaxTop=-1
 ClientWidth=1896
-ClientHeight=3876
+ClientHeight=2829
 TBDockHeight=3682
 LRDockWidth=1896
 Dockable=1
@@ -688,20 +689,20 @@ Create=1
 Visible=0
 Docked=1
 State=0
-Left=8
-Top=8
+Left=0
+Top=28
 Width=2339
-Height=1483
+Height=1444
 MaxLeft=-1
 MaxTop=-1
 ClientWidth=2339
-ClientHeight=1483
-TBDockHeight=1483
+ClientHeight=1444
+TBDockHeight=1444
 LRDockWidth=2339
 Dockable=1
 StayOnTop=0
 TabPosition=1
-ActiveTabID=RefactoringForm
+ActiveTabID=FindReferencsForm
 TabDockClients=RefactoringForm,FindReferencsForm,ToDo List,MetricsView,QAView
 
 [DockSite1]
@@ -712,15 +713,15 @@ Create=1
 Visible=0
 Docked=1
 State=0
-Left=8
-Top=8
+Left=952
+Top=28
 Width=3823
-Height=1415
+Height=1376
 MaxLeft=-1
 MaxTop=-1
 ClientWidth=3823
-ClientHeight=1415
-TBDockHeight=1415
+ClientHeight=1376
+TBDockHeight=1376
 LRDockWidth=3823
 Dockable=1
 StayOnTop=0

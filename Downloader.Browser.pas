@@ -5,13 +5,16 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Layouts,
-  FMX.ListBox, FMX.Objects, Downloader.Common, FMX.ExtCtrls;
+  FMX.ListBox, FMX.Objects, Downloader.Common, FMX.ExtCtrls,
+  FMX.Controls.Presentation, FMX.StdCtrls,
+  Threading;
 
 type
   TDownloaderBrowser = class(TForm)
     LBDownload: TListBox;
     Container: TLayout;
-    DropTarget1: TDropTarget;
+    Label2: TLabel;
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -37,18 +40,45 @@ var
 begin
   LbItem := TListBoxItem.Create(LBDownload);
   LbItem.Text := '';
-  Item:= TDownloaderItem.CreateItem(LbItem, DFile);
+  Item        := TDownloaderItem.CreateItem(LbItem, DFile);
 
-  Item.Rectangle1.Parent := LbItem;
-  LbItem.Width := Item.Width;
-  LbItem.Height:= 75;
+  Item.Rectangle1.Parent  := LbItem;
+  LbItem.Width            := Item.Width;
+  LbItem.Height           := 75;
+
   if LBDownload.Count = 0 then
-  LbItem.Margins.Top := 5;
-  LbItem.Margins.Left := 5;
-  LbItem.Margins.Right := 5;
-  LbItem.Margins.Bottom := 5;
+  LbItem.Margins.Top      := 5;
+
+  LbItem.Margins.Left     := 5;
+  LbItem.Margins.Right    := 5;
+  LbItem.Margins.Bottom   := 5;
 
   LBDownload.AddObject(LbItem);
+end;
+
+procedure TDownloaderBrowser.FormCreate(Sender: TObject);
+begin
+  TTask.Create(
+
+    procedure()
+    begin
+      while true do
+      begin
+        Sleep(500);
+        TThread.Synchronize(TThread.CurrentThread,
+
+
+          procedure()
+          begin
+            DownloaderBrowser.Label2.Visible := (DownloaderBrowser.LBDownload.Count = 0);
+          end
+
+        );
+    end;
+
+    end
+
+  ).Start;
 end;
 
 end.

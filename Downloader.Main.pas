@@ -12,19 +12,19 @@ uses
   FMX.Platform,
   Rtti,
   RegularExpressions, FMX.Memo.Types, FMX.ScrollBox, FMX.Memo,
-  System.Notification;
+  System.Notification,
+  Threading;
 
 type
   TDownloaderMain = class(TForm)
     Rectangle1: TRectangle;
     TabControl1: TTabControl;
     TsDownload: TTabItem;
-    Label1: TLabel;
     CornerButton1: TCornerButton;
     CornerButton2: TCornerButton;
     CornerButton3: TCornerButton;
     ActionList: TActionList;
-    ImageList1: TImageList;
+    ImageList: TImageList;
     ADownloadPage: TAction;
     CornerButton4: TCornerButton;
     ClipboardMonitor: TTimer;
@@ -33,6 +33,9 @@ type
     NotificationCenter: TNotificationCenter;
     TSFiles: TTabItem;
     AFilesPage: TAction;
+    Container: TLayout;
+    Header: TRectangle;
+    Separator1: TRectangle;
     procedure FormCreate(Sender: TObject);
     procedure ADownloadPageExecute(Sender: TObject);
     procedure ClipboardMonitorTimer(Sender: TObject);
@@ -40,6 +43,7 @@ type
     procedure AFilesPageExecute(Sender: TObject);
   private
     LastClipboardValue: String;
+    TaskGui: TTask;
     procedure ClipboardListener(Value: string);
   public
     procedure InitGui;
@@ -92,6 +96,7 @@ procedure TDownloaderMain.FormCreate(Sender: TObject);
 begin
 
   InitGui;
+
 end;
 
 procedure TDownloaderMain.InitGui;
