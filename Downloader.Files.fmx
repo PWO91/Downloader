@@ -1,0 +1,75 @@
+object DownloaderFiles: TDownloaderFiles
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 504
+  ClientWidth = 701
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object Container: TLayout
+    Align = Client
+    Size.Width = 701.000000000000000000
+    Size.Height = 504.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object LBFiles: TListBox
+      Align = Client
+      Size.Width = 701.000000000000000000
+      Size.Height = 463.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      DisableFocusEffect = True
+      DefaultItemStyles.ItemStyle = ''
+      DefaultItemStyles.GroupHeaderStyle = ''
+      DefaultItemStyles.GroupFooterStyle = ''
+      Viewport.Width = 701.000000000000000000
+      Viewport.Height = 463.000000000000000000
+    end
+    object Layout1: TLayout
+      Align = Top
+      Size.Width = 701.000000000000000000
+      Size.Height = 41.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      object EdIPAdress: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Align = Client
+        TabOrder = 0
+        Text = 'localhost'
+        Size.Width = 701.000000000000000000
+        Size.Height = 41.000000000000000000
+        Size.PlatformDefault = False
+      end
+      object CornerButton1: TCornerButton
+        Action = AGetFilesList
+        Anchors = [akTop, akRight]
+        Enabled = True
+        ImageIndex = -1
+        Position.X = 614.000000000000000000
+        Position.Y = 4.000000000000000000
+        Sides = [Top, Left, Bottom, Right]
+        Size.Width = 80.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        XRadius = 3.000000000000000000
+        YRadius = 3.000000000000000000
+      end
+    end
+  end
+  object ActionList: TActionList
+    Left = 24
+    Top = 57
+    object AGetFilesList: TAction
+      Text = 'Browse'
+      OnExecute = AGetFilesListExecute
+    end
+  end
+  object NetHTTPClient: TNetHTTPClient
+    UserAgent = 'Embarcadero URI Client/1.0'
+    Left = 104
+    Top = 57
+  end
+end

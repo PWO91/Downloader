@@ -7,12 +7,16 @@ uses
   Downloader.Item in 'Downloader.Item.pas' {DownloaderItem},
   Downloader.Common in 'Downloader.Common.pas',
   Downloader.Browser in 'Downloader.Browser.pas' {DownloaderBrowser},
-  Downloader.Parameters in 'Downloader.Parameters.pas' {DownloaderParameter};
+  Downloader.Parameters in 'Downloader.Parameters.pas' {DownloaderParameter},
+  Downloader.Server in 'Downloader.Server.pas' {DownloaderServer: TDataModule},
+  Downloader.Files in 'Downloader.Files.pas' {DownloaderFiles},
+  Downloader.Files.Item in 'Downloader.Files.Item.pas' {DownloaderFilesItem};
 
 {$R *.res}
 
 begin
   Application.Initialize;
   Application.CreateForm(TDownloaderMain, DownloaderMain);
+  Application.CreateForm(TDownloaderServer, DownloaderServer);
   Application.Run;
 end.

@@ -1,0 +1,33 @@
+object DownloaderServer: TDownloaderServer
+  OldCreateOrder = False
+  OnCreate = DataModuleCreate
+  Height = 422
+  Width = 561
+  object IdHTTPServer: TIdHTTPServer
+    Active = True
+    Bindings = <>
+    DefaultPort = 8899
+    AutoStartSession = True
+    OnCommandGet = IdHTTPServerCommandGet
+    Left = 40
+    Top = 24
+  end
+  object IdUDPServer: TIdUDPServer
+    Active = True
+    Bindings = <>
+    DefaultPort = 8898
+    ThreadedEvent = True
+    OnUDPRead = IdUDPServerUDPRead
+    Left = 200
+    Top = 24
+  end
+  object IdUDPClient: TIdUDPClient
+    OnStatus = IdUDPClientStatus
+    Active = True
+    BroadcastEnabled = True
+    Host = '192.168.0.198'
+    Port = 8898
+    Left = 128
+    Top = 24
+  end
+end

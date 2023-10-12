@@ -68,7 +68,10 @@ object DownloaderMain: TDownloaderMain
       YRadius = 3.000000000000000000
     end
     object CornerButton3: TCornerButton
+      Action = AFilesPage
       Align = Top
+      Enabled = True
+      ImageIndex = -1
       Margins.Left = 10.000000000000000000
       Margins.Top = 20.000000000000000000
       Margins.Right = 10.000000000000000000
@@ -80,7 +83,6 @@ object DownloaderMain: TDownloaderMain
       Size.Height = 76.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 2
-      Text = 'Browser'
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
     end
@@ -108,10 +110,12 @@ object DownloaderMain: TDownloaderMain
     Size.Width = 854.000000000000000000
     Size.Height = 488.000000000000000000
     Size.PlatformDefault = False
-    TabIndex = 0
+    TabIndex = 2
     TabOrder = 1
     TabPosition = None
     Sizes = (
+      854s
+      488s
       854s
       488s
       854s
@@ -120,7 +124,7 @@ object DownloaderMain: TDownloaderMain
       CustomIcon = <
         item
         end>
-      IsSelected = True
+      IsSelected = False
       Size.Width = 8.000000000000000000
       Size.Height = 8.000000000000000000
       Size.PlatformDefault = False
@@ -141,10 +145,27 @@ object DownloaderMain: TDownloaderMain
       StyleLookup = ''
       TabOrder = 0
       Text = 'TSParameters'
+      ExplicitSize.cx = 8.000000000000000000
+      ExplicitSize.cy = 8.000000000000000000
+    end
+    object TSFiles: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = True
+      Size.Width = 8.000000000000000000
+      Size.Height = 8.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'TSFiles'
+      ExplicitSize.cx = 8.000000000000000000
+      ExplicitSize.cy = 8.000000000000000000
     end
   end
-  object Timer1: TTimer
-    OnTimer = Timer1Timer
+  object ClipboardMonitor: TTimer
+    Enabled = False
+    OnTimer = ClipboardMonitorTimer
     Left = 785
     Top = 80
   end
@@ -158,6 +179,10 @@ object DownloaderMain: TDownloaderMain
     object AParametersPage: TAction
       Text = 'Parameters'
       OnExecute = AParametersPageExecute
+    end
+    object AFilesPage: TAction
+      Text = 'Files'
+      OnExecute = AFilesPageExecute
     end
   end
   object ImageList1: TImageList

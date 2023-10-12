@@ -27,14 +27,17 @@ type
     ImageList1: TImageList;
     ADownloadPage: TAction;
     CornerButton4: TCornerButton;
-    Timer1: TTimer;
+    ClipboardMonitor: TTimer;
     TSParameters: TTabItem;
     AParametersPage: TAction;
     NotificationCenter: TNotificationCenter;
+    TSFiles: TTabItem;
+    AFilesPage: TAction;
     procedure FormCreate(Sender: TObject);
     procedure ADownloadPageExecute(Sender: TObject);
-    procedure Timer1Timer(Sender: TObject);
+    procedure ClipboardMonitorTimer(Sender: TObject);
     procedure AParametersPageExecute(Sender: TObject);
+    procedure AFilesPageExecute(Sender: TObject);
   private
     LastClipboardValue: String;
     procedure ClipboardListener(Value: string);
@@ -48,13 +51,18 @@ var
 implementation
 
 uses
-  Downloader.Item, Downloader.Browser, Downloader.Parameters;
+  Downloader.Item, Downloader.Browser, Downloader.Parameters, Downloader.Server, Downloader.Files;
 
 {$R *.fmx}
 
 procedure TDownloaderMain.ADownloadPageExecute(Sender: TObject);
 begin
   TabControl1.ActiveTab := TsDownload;
+end;
+
+procedure TDownloaderMain.AFilesPageExecute(Sender: TObject);
+begin
+  TabControl1.ActiveTab := TsFiles;
 end;
 
 procedure TDownloaderMain.AParametersPageExecute(Sender: TObject);
@@ -93,9 +101,13 @@ begin
 
   DownloaderParameter                   := TDownloaderParameter.Create(Self);
   DownloaderParameter.Container.Parent  := TsParameters;
+
+  DownloaderFiles                       := TDownloaderFiles.Create(Self);
+  DownloaderFiles.Container.Parent      := TsFiles;
+
 end;
 
-procedure TDownloaderMain.Timer1Timer(Sender: TObject);
+procedure TDownloaderMain.ClipboardMonitorTimer(Sender: TObject);
 var
   uClipBoard : IFMXClipboardService;
   Value: TValue;

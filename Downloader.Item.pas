@@ -76,7 +76,7 @@ begin
   end;
   //Create local path for downloaded file
   //-----------------------------------------------------------------
-  LocalFilePath := FDFile.Dest + ExtractUrlFileName(FDFile.Url);
+  LocalFilePath := FDFile.Dest + FDFile.FileName;
 
 
   //Check if file exist
@@ -88,7 +88,7 @@ begin
     if GetFileSize(LocalFilePath) < aResponse.ContentLength then
     begin
       FResumeDownload     := True;
-      SFile               := TFileStream.Create(FDFile.Dest + ExtractUrlFileName(FDFile.Url), fmOpenReadWrite);
+      SFile               := TFileStream.Create(FDFile.Dest + FDFile.FileName, fmOpenReadWrite);
       FDFile.InitialSize  := SFile.Size;
       SFile.Position      := FDFile.InitialSize;
       ProgressBar1.Max    := aResponse.ContentLength;

@@ -3,17 +3,20 @@ unit Downloader.Common;
 interface
 
 uses
-  SysUtils;
+  SysUtils, IdHashMessageDigest, idHash,
+  Classes;
 
 type
   TFileSetting = record
     Url: string;
     Dest: string;
+    FileName: String;
     InitialSize: Int64;
   end;
 
  function ExtractUrlFileName(const AUrl: string): string;
  function GetFileSize(p_sFilePath : string) : Int64;
+ function MD5(const fileName : string) : string;
 
 implementation
 
@@ -38,5 +41,22 @@ begin
     CloseFile(oFile);
   end;
 end;
+
+
+function MD5(const fileName : string) : string;
+ var
+   idmd5 : TIdHashMessageDigest5;
+   fs : TFileStream;
+   hash : T4x4LongWordRecord;
+ begin
+   idmd5 := TIdHashMessageDigest5.Create;
+   fs := TFileStream.Create(fileName, fmOpenRead OR fmShareDenyWrite) ;
+   try
+     Result := idmd5.HashStreamAsHex(fs);
+   finally
+     fs.Free;
+     idmd5.Free;
+   end;
+ end;
 
 end.

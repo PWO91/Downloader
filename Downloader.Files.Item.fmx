@@ -1,0 +1,65 @@
+object DownloaderFilesItem: TDownloaderFilesItem
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 61
+  ClientWidth = 783
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object Container: TLayout
+    Align = Client
+    Size.Width = 783.000000000000000000
+    Size.Height = 61.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object Rectangle1: TRectangle
+      Align = Client
+      Fill.Color = xFF5D48AE
+      Size.Width = 783.000000000000000000
+      Size.Height = 61.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Thickness = 0.200000002980232200
+      object CornerButton1: TCornerButton
+        Action = ADownloadFile
+        Align = Right
+        Enabled = True
+        ImageIndex = -1
+        Margins.Left = 10.000000000000000000
+        Margins.Top = 10.000000000000000000
+        Margins.Right = 10.000000000000000000
+        Margins.Bottom = 10.000000000000000000
+        Position.X = 664.000000000000000000
+        Position.Y = 10.000000000000000000
+        Sides = [Top, Left, Bottom, Right]
+        Size.Width = 109.000000000000000000
+        Size.Height = 41.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        XRadius = 3.000000000000000000
+        YRadius = 3.000000000000000000
+      end
+      object LbFileName: TLabel
+        Align = Left
+        StyledSettings = [Family, Size, Style]
+        Margins.Left = 10.000000000000000000
+        Position.X = 10.000000000000000000
+        Size.Width = 660.000000000000000000
+        Size.Height = 61.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.FontColor = claAliceblue
+        Text = 'LbFileName'
+        TabOrder = 1
+      end
+    end
+  end
+  object ActionList: TActionList
+    Left = 624
+    Top = 16
+    object ADownloadFile: TAction
+      Text = 'Add to download'
+      OnExecute = ADownloadFileExecute
+    end
+  end
+end

@@ -4,7 +4,7 @@
         <ProjectVersion>19.2</ProjectVersion>
         <FrameworkType>FMX</FrameworkType>
         <Base>True</Base>
-        <Config Condition="'$(Config)'==''">Debug</Config>
+        <Config Condition="'$(Config)'==''">Release</Config>
         <Platform Condition="'$(Platform)'==''">Win32</Platform>
         <TargetedPlatforms>32787</TargetedPlatforms>
         <AppType>Application</AppType>
@@ -208,6 +208,19 @@
         </DCCReference>
         <DCCReference Include="Downloader.Parameters.pas">
             <Form>DownloaderParameter</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="Downloader.Server.pas">
+            <Form>DownloaderServer</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Downloader.Files.pas">
+            <Form>DownloaderFiles</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="Downloader.Files.Item.pas">
+            <Form>DownloaderFilesItem</Form>
             <FormType>fmx</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">
