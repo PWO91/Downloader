@@ -5,22 +5,35 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.StdCtrls,
-  FMX.Layouts, FMX.Controls.Presentation, FMX.Edit;
+  FMX.Layouts, FMX.Controls.Presentation, FMX.Edit, FireDAC.Stan.Intf,
+  FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
+  FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.StorageBin, Data.DB,
+  FireDAC.Comp.DataSet, FireDAC.Comp.Client, System.Rtti,
+  System.Bindings.Outputs, Fmx.Bind.Editors, Data.Bind.EngExt,
+  Fmx.Bind.DBEngExt, Data.Bind.Components, Data.Bind.DBScope, JSON,
+  FireDAC.Stan.StorageJSON, FMX.ListBox;
 
 type
   TDownloaderParameter = class(TForm)
     Container: TLayout;
-    Switch1: TSwitch;
     GridPanelLayout1: TGridPanelLayout;
     Label1: TLabel;
     Label2: TLabel;
-    Edit1: TEdit;
     Label3: TLabel;
-    Switch2: TSwitch;
     Label4: TLabel;
-    Switch3: TSwitch;
     Label5: TLabel;
-    Switch4: TSwitch;
+    FDParameters: TFDMemTable;
+    BindingsList1: TBindingsList;
+    FDStanStorageJSONLink: TFDStanStorageJSONLink;
+    FDParametersDownloadPath: TStringField;
+    FDParametersScanClipboard: TStringField;
+    DSParameters: TDataSource;
+    Edit2: TEdit;
+    BindSourceDB1: TBindSourceDB;
+    LinkControlToField1: TLinkControlToField;
+    ComboBox1: TComboBox;
+    LinkFillControlToField1: TLinkFillControlToField;
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -33,5 +46,18 @@ var
 implementation
 
 {$R *.fmx}
+
+procedure TDownloaderParameter.FormCreate(Sender: TObject);
+begin
+  if FileExists('parameters.json') then
+  begin
+    try
+      FDParameters.LoadFromFile('parameters.json', sfJSON);
+    except
+
+    end;
+  end;
+
+end;
 
 end.

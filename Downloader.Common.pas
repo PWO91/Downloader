@@ -11,12 +11,14 @@ type
     Url: string;
     Dest: string;
     FileName: String;
+    Path: String;
     InitialSize: Int64;
   end;
 
  function ExtractUrlFileName(const AUrl: string): string;
  function GetFileSize(p_sFilePath : string) : Int64;
  function MD5(const fileName : string) : string;
+ function NewFile(Url, Dest, FileName, Path: String): TFileSetting;
 
 implementation
 
@@ -58,5 +60,14 @@ function MD5(const fileName : string) : string;
      idmd5.Free;
    end;
  end;
+
+
+function NewFile(Url, Dest, FileName, Path: String): TFileSetting;
+begin
+  Result.Url      := Url;
+  Result.Dest     := Dest;
+  Result.FileName := FileName;
+  Result.Path     := Path;
+end;
 
 end.

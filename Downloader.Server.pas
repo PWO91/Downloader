@@ -41,7 +41,7 @@ var
 implementation
 
 uses
-  Downloader.Files;
+  Downloader.Files, Downloader.Repository;
 
 {%CLASSGROUP 'FMX.Controls.TControl'}
 
@@ -107,7 +107,7 @@ begin
     //-----------------------------------------------------------------
     if ARequestInfo.Params.Names[0] = 'GetFiles' then
     begin
-        AResponseInfo.ContentText := GetFilesList;
+        AResponseInfo.ContentText := DownloaderRepository.RepositoryToJSon;
     end;
 
     if ARequestInfo.Params.Names[0] = 'GetInfo' then
@@ -119,7 +119,7 @@ begin
     //-----------------------------------------------------------------
     if ARequestInfo.Params.Names[0] = 'DownloadFile' then
     begin
-        Path := SHARE_FOLDER +  ARequestInfo.Params.ValueFromIndex[0];
+        Path := DownloaderRepository.GetFilePathByName(ARequestInfo.Params.ValueFromIndex[0]);
         AResponseInfo.ContentStream := TFileStream.Create(Path, fmOpenRead or fmShareCompat);
         AResponseInfo.ContentLength := AResponseInfo.ContentStream.Size;
         AResponseInfo.WriteHeader;

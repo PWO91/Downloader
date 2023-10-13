@@ -59,7 +59,7 @@ type
 implementation
 
 uses
-  Downloader.Main;
+  Downloader.Main, Downloader.Parameters;
 
 {$R *.fmx}
 
@@ -85,7 +85,7 @@ begin
   end;
   //Create local path for downloaded file
   //-----------------------------------------------------------------
-  LocalFilePath := FDFile.Dest + FDFile.FileName;
+  LocalFilePath := DownloaderParameter.FDParametersDownloadPath.AsString + FDFile.FileName;
 
 
   //Check if file exist
@@ -133,7 +133,7 @@ begin
 
           procedure()
           begin
-            ShowNotification('Downloaded',FDFile.Url);
+            ShowNotification('Downloaded',FDFile.FileName);
             ADownloadFile.Enabled   := False;
             ADownloadPause.Enabled  := False;
             ADownloadAbort.Enabled  := False;

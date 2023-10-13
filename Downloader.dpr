@@ -10,7 +10,9 @@ uses
   Downloader.Parameters in 'Downloader.Parameters.pas' {DownloaderParameter},
   Downloader.Server in 'Downloader.Server.pas' {DownloaderServer: TDataModule},
   Downloader.Files in 'Downloader.Files.pas' {DownloaderFiles},
-  Downloader.Files.Item in 'Downloader.Files.Item.pas' {DownloaderFilesItem};
+  Downloader.Files.Item in 'Downloader.Files.Item.pas' {DownloaderFilesItem},
+  Downloader.Repository in 'Downloader.Repository.pas' {DownloaderRepository},
+  Downloader.Repository.Item in 'Downloader.Repository.Item.pas' {DownloaderRepositoryItem};
 
 {$R *.res}
 

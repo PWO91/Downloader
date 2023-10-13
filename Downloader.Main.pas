@@ -36,11 +36,19 @@ type
     Container: TLayout;
     Header: TRectangle;
     Separator1: TRectangle;
+    CornerButton5: TCornerButton;
+    ARepositoryPage: TAction;
+    TsRepository: TTabItem;
+    TsABout: TTabItem;
+    Label1: TLabel;
+    Rectangle2: TRectangle;
+    StyleBook1: TStyleBook;
     procedure FormCreate(Sender: TObject);
     procedure ADownloadPageExecute(Sender: TObject);
     procedure ClipboardMonitorTimer(Sender: TObject);
     procedure AParametersPageExecute(Sender: TObject);
     procedure AFilesPageExecute(Sender: TObject);
+    procedure ARepositoryPageExecute(Sender: TObject);
   private
     LastClipboardValue: String;
     TaskGui: TTask;
@@ -55,8 +63,8 @@ var
 implementation
 
 uses
-  Downloader.Item, Downloader.Browser, Downloader.Parameters, Downloader.Server, Downloader.Files;
-
+  Downloader.Item, Downloader.Browser, Downloader.Parameters, Downloader.Server, Downloader.Files,
+  Downloader.Repository;
 {$R *.fmx}
 
 procedure TDownloaderMain.ADownloadPageExecute(Sender: TObject);
@@ -72,6 +80,11 @@ end;
 procedure TDownloaderMain.AParametersPageExecute(Sender: TObject);
 begin
   TabControl1.ActiveTab := TSParameters;
+end;
+
+procedure TDownloaderMain.ARepositoryPageExecute(Sender: TObject);
+begin
+  TabControl1.ActiveTab := TsRepository;
 end;
 
 procedure TDownloaderMain.ClipboardListener(Value: string);
@@ -109,6 +122,9 @@ begin
 
   DownloaderFiles                       := TDownloaderFiles.Create(Self);
   DownloaderFiles.Container.Parent      := TsFiles;
+
+  DownloaderRepository                  := TDownloaderRepository.Create(Self);
+  DownloaderRepository.Container.Parent := TsRepository;
 
 end;
 

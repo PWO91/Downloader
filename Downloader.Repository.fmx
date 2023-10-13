@@ -1,0 +1,43 @@
+object DownloaderRepository: TDownloaderRepository
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 522
+  ClientWidth = 794
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object Container: TLayout
+    Align = Client
+    Size.Width = 794.000000000000000000
+    Size.Height = 522.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    object LbFiles: TListBox
+      Align = Client
+      Size.Width = 794.000000000000000000
+      Size.Height = 402.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      DisableFocusEffect = True
+      DefaultItemStyles.ItemStyle = ''
+      DefaultItemStyles.GroupHeaderStyle = ''
+      DefaultItemStyles.GroupFooterStyle = ''
+      Viewport.Width = 790.000000000000000000
+      Viewport.Height = 398.000000000000000000
+    end
+    object DropTarget1: TDropTarget
+      Align = Bottom
+      Position.Y = 402.000000000000000000
+      Size.Width = 794.000000000000000000
+      Size.Height = 120.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      Text = 'Drop files to share'
+      OnDragOver = DropTarget1DragOver
+      OnDropped = DropTarget1Dropped
+      OnClick = DropTarget1Click
+    end
+  end
+end

@@ -27,7 +27,7 @@ type
 implementation
 
 uses
-   Downloader.Browser;
+   Downloader.Browser, Downloader.Parameters;
 
 {$R *.fmx}
 
