@@ -24,6 +24,7 @@ type
     NetHTTPClient: TNetHTTPClient;
     WorkIndicator: TAniIndicator;
     Label2: TLabel;
+    StyleBook1: TStyleBook;
     procedure Button1Click(Sender: TObject);
     procedure AGetFilesListExecute(Sender: TObject);
     procedure NetHTTPClientRequestError(const Sender: TObject;

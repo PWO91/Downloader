@@ -13,7 +13,7 @@ uses
   Rtti,
   RegularExpressions, FMX.Memo.Types, FMX.ScrollBox, FMX.Memo,
   System.Notification,
-  Threading;
+  Threading, FMX.Menus;
 
 type
   TDownloaderMain = class(TForm)
@@ -43,12 +43,24 @@ type
     Label1: TLabel;
     Rectangle2: TRectangle;
     StyleBook1: TStyleBook;
+    Label2: TLabel;
+    AAbout: TAction;
+    MainMenu1: TMainMenu;
+    MMProgram: TMenuItem;
+    MenuItem1: TMenuItem;
+    AExitProgram: TAction;
+    MenuItem2: TMenuItem;
+    MenuItem3: TMenuItem;
+    ADownloadFileFromInternet: TAction;
     procedure FormCreate(Sender: TObject);
     procedure ADownloadPageExecute(Sender: TObject);
     procedure ClipboardMonitorTimer(Sender: TObject);
     procedure AParametersPageExecute(Sender: TObject);
     procedure AFilesPageExecute(Sender: TObject);
     procedure ARepositoryPageExecute(Sender: TObject);
+    procedure AAboutExecute(Sender: TObject);
+    procedure AExitProgramExecute(Sender: TObject);
+    procedure ADownloadFileFromInternetExecute(Sender: TObject);
   private
     LastClipboardValue: String;
     TaskGui: TTask;
@@ -67,9 +79,24 @@ uses
   Downloader.Repository;
 {$R *.fmx}
 
+procedure TDownloaderMain.AAboutExecute(Sender: TObject);
+begin
+  TabControl1.ActiveTab := TsAbout;
+end;
+
+procedure TDownloaderMain.ADownloadFileFromInternetExecute(Sender: TObject);
+begin
+  //
+end;
+
 procedure TDownloaderMain.ADownloadPageExecute(Sender: TObject);
 begin
   TabControl1.ActiveTab := TsDownload;
+end;
+
+procedure TDownloaderMain.AExitProgramExecute(Sender: TObject);
+begin
+  Application.Terminate;
 end;
 
 procedure TDownloaderMain.AFilesPageExecute(Sender: TObject);
@@ -79,6 +106,8 @@ end;
 
 procedure TDownloaderMain.AParametersPageExecute(Sender: TObject);
 begin
+  DownloaderParameter.FDParameters.Open;
+  DownloaderParameter.FDParameters.Edit;
   TabControl1.ActiveTab := TSParameters;
 end;
 

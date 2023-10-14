@@ -26,14 +26,21 @@ type
     BindingsList1: TBindingsList;
     FDStanStorageJSONLink: TFDStanStorageJSONLink;
     FDParametersDownloadPath: TStringField;
-    FDParametersScanClipboard: TStringField;
     DSParameters: TDataSource;
     Edit2: TEdit;
     BindSourceDB1: TBindSourceDB;
     LinkControlToField1: TLinkControlToField;
     ComboBox1: TComboBox;
-    LinkFillControlToField1: TLinkFillControlToField;
+    FDParametersScanClipboard: TIntegerField;
+    CornerButton1: TCornerButton;
+    ComboBox2: TComboBox;
+    FDParametersAutomaticDownload: TIntegerField;
+    LinkPropertyToFieldItemIndex2: TLinkPropertyToField;
+    Edit1: TEdit;
+    LinkControlToField2: TLinkControlToField;
+    LinkPropertyToFieldListBoxIndex: TLinkPropertyToField;
     procedure FormCreate(Sender: TObject);
+    procedure CornerButton1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -47,6 +54,15 @@ implementation
 
 {$R *.fmx}
 
+procedure TDownloaderParameter.CornerButton1Click(Sender: TObject);
+begin
+  FDParameters.Post;
+  FDParameters.SaveToFile('parameters.json', sfJSON);
+  FDParameters.Open;
+  FDParameters.First;
+  FDParameters.Edit;
+end;
+
 procedure TDownloaderParameter.FormCreate(Sender: TObject);
 begin
   if FileExists('parameters.json') then
@@ -57,7 +73,8 @@ begin
 
     end;
   end;
-
+  FDParameters.Open;
+   FDParameters.Edit;
 end;
 
 end.

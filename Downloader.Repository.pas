@@ -8,18 +8,22 @@ uses
   FMX.ListBox, FMX.ExtCtrls,
   Downloader.Common,
   IOUtils,
-  JSON;
+  JSON, FMX.Controls.Presentation, FMX.StdCtrls,
+  Threading;
 
 type
   TDownloaderRepository = class(TForm)
     Container: TLayout;
     LbFiles: TListBox;
     DropTarget1: TDropTarget;
+    Layout1: TLayout;
+    Label2: TLabel;
     procedure DropTarget1Dropped(Sender: TObject; const Data: TDragObject;
       const Point: TPointF);
     procedure DropTarget1DragOver(Sender: TObject; const Data: TDragObject;
       const Point: TPointF; var Operation: TDragOperation);
     procedure DropTarget1Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -82,6 +86,31 @@ begin
   for FilePath in Data.Files do
     if TPath.GetExtension(FilePath) <> '' then
      AddItem(NewFile('', '', ExtractFileName(FilePath),FilePath));
+end;
+
+procedure TDownloaderRepository.FormCreate(Sender: TObject);
+begin
+  TTask.Create(
+
+    procedure()
+    begin
+      while true do
+      begin
+        Sleep(500);
+        TThread.Synchronize(TThread.CurrentThread,
+
+
+          procedure()
+          begin
+            Label2.Visible := (LbFiles.Count = 0);
+          end
+
+        );
+    end;
+
+    end
+
+  ).Start;
 end;
 
 function TDownloaderRepository.GetFilePathByName(FileName: String): String;

@@ -44,7 +44,7 @@ begin
 
   Item.Rectangle1.Parent  := LbItem;
   LbItem.Width            := Item.Width;
-  LbItem.Height           := 75;
+  LbItem.Height           := 50;
 
   if LBDownload.Count = 0 then
   LbItem.Margins.Top      := 5;

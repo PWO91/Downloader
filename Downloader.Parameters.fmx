@@ -63,6 +63,23 @@ object DownloaderParameter: TDownloaderParameter
           Column = 1
           Control = ComboBox1
           Row = 0
+        end
+        item
+          Column = 0
+          ColumnSpan = 2
+          Control = CornerButton1
+          Row = 9
+          RowSpan = 2
+        end
+        item
+          Column = 1
+          Control = ComboBox2
+          Row = 2
+        end
+        item
+          Column = 1
+          Control = Edit1
+          Row = 3
         end>
       RowCollection = <
         item
@@ -94,6 +111,9 @@ object DownloaderParameter: TDownloaderParameter
         end
         item
           Value = 9.999995589090467000
+        end
+        item
+          SizeStyle = Auto
         end>
       object Label1: TLabel
         Align = Client
@@ -169,22 +189,39 @@ object DownloaderParameter: TDownloaderParameter
           'No')
         Position.X = 536.666625976562500000
         Position.Y = 12.999729156494140000
+        TabOrder = 7
+      end
+      object CornerButton1: TCornerButton
+        Anchors = []
+        Position.X = 280.000000000000000000
+        Position.Y = 445.000061035156300000
+        Sides = [Top, Left, Bottom, Right]
+        TabOrder = 8
+        Text = 'Save'
+        XRadius = 3.000000000000000000
+        YRadius = 3.000000000000000000
+        OnClick = CornerButton1Click
+      end
+      object ComboBox2: TComboBox
+        Anchors = []
+        Items.Strings = (
+          'Yes'
+          'No')
+        Position.X = 536.666625976562500000
+        Position.Y = 108.998924255371100000
         TabOrder = 6
+      end
+      object Edit1: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Anchors = []
+        TabOrder = 9
+        Position.X = 536.666625976562500000
+        Position.Y = 156.998931884765600000
       end
     end
   end
   object FDParameters: TFDMemTable
-    FieldDefs = <
-      item
-        Name = 'ScanClipboard'
-        DataType = ftString
-        Size = 1
-      end
-      item
-        Name = 'DownloadPath'
-        DataType = ftString
-        Size = 255
-      end>
+    FieldDefs = <>
     IndexDefs = <>
     FetchOptions.AssignedValues = [evMode]
     FetchOptions.Mode = fmAll
@@ -204,10 +241,11 @@ object DownloaderParameter: TDownloaderParameter
       FieldName = 'DownloadPath'
       Size = 255
     end
-    object FDParametersScanClipboard: TStringField
-      FieldKind = fkCalculated
+    object FDParametersScanClipboard: TIntegerField
       FieldName = 'ScanClipboard'
-      Calculated = True
+    end
+    object FDParametersAutomaticDownload: TIntegerField
+      FieldName = 'AutomaticDownload'
     end
   end
   object BindingsList1: TBindingsList
@@ -222,16 +260,26 @@ object DownloaderParameter: TDownloaderParameter
       Control = Edit2
       Track = False
     end
-    object LinkFillControlToField1: TLinkFillControlToField
+    object LinkPropertyToFieldItemIndex2: TLinkPropertyToField
       Category = 'Quick Bindings'
-      Control = ComboBox1
-      Track = True
-      FillDataSource = BindSourceDB1
-      FillDisplayFieldName = 'ScanClipboard'
-      AutoFill = True
-      FillExpressions = <>
-      FillHeaderExpressions = <>
-      FillBreakGroups = <>
+      DataSource = BindSourceDB1
+      FieldName = 'AutomaticDownload'
+      Component = ComboBox2
+      ComponentProperty = 'ItemIndex'
+    end
+    object LinkControlToField2: TLinkControlToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB1
+      FieldName = 'ScanClipboard'
+      Control = Edit1
+      Track = False
+    end
+    object LinkPropertyToFieldListBoxIndex: TLinkPropertyToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB1
+      FieldName = 'ScanClipboard'
+      Component = ComboBox1
+      ComponentProperty = 'ListBox.Index'
     end
   end
   object FDStanStorageJSONLink: TFDStanStorageJSONLink
@@ -247,6 +295,6 @@ object DownloaderParameter: TDownloaderParameter
     DataSet = FDParameters
     ScopeMappings = <>
     Left = 304
-    Top = 224
+    Top = 328
   end
 end

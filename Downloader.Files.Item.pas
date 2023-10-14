@@ -16,6 +16,7 @@ type
     CornerButton1: TCornerButton;
     ADownloadFile: TAction;
     Rectangle1: TRectangle;
+    StyleBook1: TStyleBook;
     procedure ADownloadFileExecute(Sender: TObject);
   private
     FDFile: TFileSetting;

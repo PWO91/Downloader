@@ -24,18 +24,18 @@ type
     ProgressBar1: TProgressBar;
     SaveDialog: TSaveDialog;
     LbUrl: TLabel;
-    CornerButton1: TCornerButton;
-    CornerButton2: TCornerButton;
-    CornerButton3: TCornerButton;
+    BtDownload: TCornerButton;
+    BtPause: TCornerButton;
+    BtAbort: TCornerButton;
     ADownloadPause: TAction;
     ImageList: TImageList;
     ADownloadAbort: TAction;
     GlowEffect1: TGlowEffect;
     NetHTTPClientInfo: TNetHTTPClient;
-    Panel1: TPanel;
     LbDownloadInfo: TLabel;
-    CornerButton4: TCornerButton;
+    BtHide: TCornerButton;
     ADeleteItem: TAction;
+    StyleBook1: TStyleBook;
     procedure ADownloadFileExecute(Sender: TObject);
     procedure NetHTTPClientReceiveData(const Sender: TObject; AContentLength,
       AReadCount: Int64; var AAbort: Boolean);
@@ -73,6 +73,8 @@ var
   aResponse: IHTTPResponse;
   LocalFilePath: string;
 begin
+  //Prepare download operation
+  //-----------------------------------------------------------------
   FSizeUnknow         := True;
   FABort              := False;
   FDFile.InitialSize  := 0;
@@ -131,13 +133,14 @@ begin
 
           TThread.Synchronize(TThread.Current,
 
+           //Download complete or aborted - show notification adn update gui
+           //-----------------------------------------------------------------
           procedure()
           begin
             ShowNotification('Downloaded',FDFile.FileName);
             ADownloadFile.Enabled   := False;
             ADownloadPause.Enabled  := False;
             ADownloadAbort.Enabled  := False;
-            ProgressBar1.Visible    := False;
             LbDownloadInfo.Text     := 'Downloaded';
           end
 
@@ -146,20 +149,22 @@ begin
       end
     );
 
-  //Start task
-  //-----------------------------------------------------------------
+
 
   if(FSizeUnknow) then
   begin
-    ProgressBar1.Visible:= False;
+    //ProgressBar1.Visible:= False;
   end;
 
+  //Start task
+  //-----------------------------------------------------------------
   FDownloadTask.Start;
-
 end;
 
 procedure TDownloaderItem.ADownloadPauseExecute(Sender: TObject);
 begin
+  //Abort downloading
+  //-----------------------------------------------------------------
   if FDownloadTask.Status = TTaskStatus.Running then
     FAbort := True;
 end;
@@ -174,6 +179,8 @@ end;
 procedure TDownloaderItem.NetHTTPClientReceiveData(const Sender: TObject;
   AContentLength, AReadCount: Int64; var AAbort: Boolean);
 begin
+  //Operation during download
+  //-----------------------------------------------------------------
   AAbort                  := FAbort;
   ProgressBar1.Value      := FDFile.InitialSize + AReadCount;
   LbDownloadInfo.Text     := 'Downloaded ' + IntToStr((FDFile.InitialSize + AReadCount) div 1024 div 1024) + 'MB';
@@ -181,6 +188,8 @@ begin
   ADownloadFile.Enabled   := False;
   if FAbort then
   begin
+     //User download abort
+     //-----------------------------------------------------------------
     ADownloadFile.Enabled   := True;
     ADownloadPause.Enabled  := False;
     FDownloadTask.Cancel;
@@ -201,6 +210,8 @@ procedure TDownloaderItem.ShowNotification(Title, Msg: String);
 var
   MyNotification: TNotification;
 begin
+  //Create Windows notification
+  //-----------------------------------------------------------------
   MyNotification := DownloaderMain.NotificationCenter.CreateNotification;
   try
     MyNotification.Name := 'Downloader';
