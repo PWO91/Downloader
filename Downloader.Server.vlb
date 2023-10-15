@@ -1,0 +1,9 @@
+﻿[IdUDPServer]
+Coordinates=0,0,77,33
+
+[IdHTTPServer]
+Coordinates=96,1,82,33
+
+[IdUDPClient]
+Coordinates=77,52,73,33
+

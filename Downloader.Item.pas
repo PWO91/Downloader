@@ -87,7 +87,7 @@ begin
   end;
   //Create local path for downloaded file
   //-----------------------------------------------------------------
-  LocalFilePath := DownloaderParameter.FDParametersDownloadPath.AsString + FDFile.FileName;
+  LocalFilePath := DownloaderParameter.ProgramParDownloadPath + FDFile.FileName;
 
 
   //Check if file exist
@@ -108,6 +108,7 @@ begin
     begin
       //Or do nothing
       //-----------------------------------------------------------------
+      ShowMessage('This file already exist in ' + FDFile.Dest);
       Exit;
     end;
   end else

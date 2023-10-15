@@ -10,11 +10,11 @@
     <Transaction>1899.12.30 00:00:00.000.094,=C:\Users\p.wojcik\Desktop\Downloader\Src\Unit1.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.654,=C:\Users\p.wojcik\Desktop\Downloader\Src\Unit1.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.245,=C:\Users\p.wojcik\Desktop\Downloader\Src\Unit1.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.022,=C:\Users\p.wojcik\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.097,C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Settings=</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.924,C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.fmx=C:\Users\p.wojcik\Desktop\Downloader\Src\Unit1.fmx</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.676,C:\Users\p.wojcik\Desktop\Downloader\Downloader.Main.fmx=C:\Users\p.wojcik\Documents\Embarcadero\Studio\Projects\Unit1.fmx</Transaction>
     <Transaction>1899.12.30 00:00:00.000.721,=C:\Users\p.wojcik\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.097,C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Settings=</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.963,C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Parameters.fmx=C:\Users\p.wojcik\Desktop\Downloader\Src\Unit1.fmx</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.676,C:\Users\p.wojcik\Desktop\Downloader\Downloader.Main.fmx=C:\Users\p.wojcik\Documents\Embarcadero\Studio\Projects\Unit1.fmx</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.022,=C:\Users\p.wojcik\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.429,C:\Users\p.wojcik\Desktop\Downloader\Src\Unit1.dfm=C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Server.dfm</Transaction>
     <Transaction>1899.12.30 00:00:00.000.100,=C:\Users\p.wojcik\Desktop\Downloader\Unit1.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.505,=C:\Users\p.wojcik\Desktop\Downloader\Unit1.pas</Transaction>
@@ -24,7 +24,7 @@
     <Transaction>1899.12.30 00:00:00.000.857,C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Repository.pas=C:\Users\p.wojcik\Desktop\Downloader\Src\Unit1.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.025,C:\Users\p.wojcik\Desktop\Downloader\Src\Unit1.fmx=C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Browser.fmx</Transaction>
     <Transaction>1899.12.30 00:00:00.000.676,C:\Users\p.wojcik\Desktop\Downloader\Downloader.Main.pas=C:\Users\p.wojcik\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.963,C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Parameters.fmx=C:\Users\p.wojcik\Desktop\Downloader\Src\Unit1.fmx</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.924,C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.fmx=C:\Users\p.wojcik\Desktop\Downloader\Src\Unit1.fmx</Transaction>
     <Transaction>1899.12.30 00:00:00.000.373,C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Files.pas=C:\Users\p.wojcik\Desktop\Downloader\Src\Unit1.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.924,C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.pas=C:\Users\p.wojcik\Desktop\Downloader\Src\Unit1.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.373,C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Files.fmx=C:\Users\p.wojcik\Desktop\Downloader\Src\Unit1.fmx</Transaction>

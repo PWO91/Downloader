@@ -7,7 +7,6 @@ object DownloaderParameter: TDownloaderParameter
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
-  OnCreate = FormCreate
   DesignerMasterStyle = 0
   object Container: TLayout
     Align = Client
@@ -181,6 +180,7 @@ object DownloaderParameter: TDownloaderParameter
         TabOrder = 5
         Position.X = 536.666625976562500000
         Position.Y = 60.999225616455080000
+        OnChange = Edit2Change
       end
       object ComboBox1: TComboBox
         Anchors = []
@@ -190,6 +190,7 @@ object DownloaderParameter: TDownloaderParameter
         Position.X = 536.666625976562500000
         Position.Y = 12.999729156494140000
         TabOrder = 7
+        OnChange = ComboBox1Change
       end
       object CornerButton1: TCornerButton
         Anchors = []
@@ -220,81 +221,10 @@ object DownloaderParameter: TDownloaderParameter
       end
     end
   end
-  object FDParameters: TFDMemTable
-    FieldDefs = <>
-    IndexDefs = <>
-    FetchOptions.AssignedValues = [evMode]
-    FetchOptions.Mode = fmAll
-    FormatOptions.AssignedValues = [fvMaxBcdPrecision, fvMaxBcdScale]
-    FormatOptions.MaxBcdPrecision = 2147483647
-    FormatOptions.MaxBcdScale = 1073741823
-    ResourceOptions.AssignedValues = [rvPersistent, rvSilentMode]
-    ResourceOptions.Persistent = True
-    ResourceOptions.SilentMode = True
-    UpdateOptions.AssignedValues = [uvCheckRequired, uvAutoCommitUpdates]
-    UpdateOptions.CheckRequired = False
-    UpdateOptions.AutoCommitUpdates = True
-    StoreDefs = True
-    Left = 472
-    Top = 328
-    object FDParametersDownloadPath: TStringField
-      FieldName = 'DownloadPath'
-      Size = 255
-    end
-    object FDParametersScanClipboard: TIntegerField
-      FieldName = 'ScanClipboard'
-    end
-    object FDParametersAutomaticDownload: TIntegerField
-      FieldName = 'AutomaticDownload'
-    end
-  end
   object BindingsList1: TBindingsList
     Methods = <>
     OutputConverters = <>
     Left = 20
     Top = 5
-    object LinkControlToField1: TLinkControlToField
-      Category = 'Quick Bindings'
-      DataSource = BindSourceDB1
-      FieldName = 'DownloadPath'
-      Control = Edit2
-      Track = False
-    end
-    object LinkPropertyToFieldItemIndex2: TLinkPropertyToField
-      Category = 'Quick Bindings'
-      DataSource = BindSourceDB1
-      FieldName = 'AutomaticDownload'
-      Component = ComboBox2
-      ComponentProperty = 'ItemIndex'
-    end
-    object LinkControlToField2: TLinkControlToField
-      Category = 'Quick Bindings'
-      DataSource = BindSourceDB1
-      FieldName = 'ScanClipboard'
-      Control = Edit1
-      Track = False
-    end
-    object LinkPropertyToFieldListBoxIndex: TLinkPropertyToField
-      Category = 'Quick Bindings'
-      DataSource = BindSourceDB1
-      FieldName = 'ScanClipboard'
-      Component = ComboBox1
-      ComponentProperty = 'ListBox.Index'
-    end
-  end
-  object FDStanStorageJSONLink: TFDStanStorageJSONLink
-    Left = 472
-    Top = 392
-  end
-  object DSParameters: TDataSource
-    DataSet = FDParameters
-    Left = 384
-    Top = 328
-  end
-  object BindSourceDB1: TBindSourceDB
-    DataSet = FDParameters
-    ScopeMappings = <>
-    Left = 304
-    Top = 328
   end
 end

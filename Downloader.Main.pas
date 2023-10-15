@@ -106,8 +106,6 @@ end;
 
 procedure TDownloaderMain.AParametersPageExecute(Sender: TObject);
 begin
-  DownloaderParameter.FDParameters.Open;
-  DownloaderParameter.FDParameters.Edit;
   TabControl1.ActiveTab := TSParameters;
 end;
 
@@ -148,6 +146,7 @@ begin
 
   DownloaderParameter                   := TDownloaderParameter.Create(Self);
   DownloaderParameter.Container.Parent  := TsParameters;
+  DownloaderParameter.Container.Repaint;
 
   DownloaderFiles                       := TDownloaderFiles.Create(Self);
   DownloaderFiles.Container.Parent      := TsFiles;
@@ -155,6 +154,8 @@ begin
   DownloaderRepository                  := TDownloaderRepository.Create(Self);
   DownloaderRepository.Container.Parent := TsRepository;
 
+
+  DownloaderParameter.LoadParameters;
 end;
 
 procedure TDownloaderMain.ClipboardMonitorTimer(Sender: TObject);

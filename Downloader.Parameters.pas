@@ -22,29 +22,23 @@ type
     Label3: TLabel;
     Label4: TLabel;
     Label5: TLabel;
-    FDParameters: TFDMemTable;
     BindingsList1: TBindingsList;
-    FDStanStorageJSONLink: TFDStanStorageJSONLink;
-    FDParametersDownloadPath: TStringField;
-    DSParameters: TDataSource;
     Edit2: TEdit;
-    BindSourceDB1: TBindSourceDB;
-    LinkControlToField1: TLinkControlToField;
     ComboBox1: TComboBox;
-    FDParametersScanClipboard: TIntegerField;
     CornerButton1: TCornerButton;
     ComboBox2: TComboBox;
-    FDParametersAutomaticDownload: TIntegerField;
-    LinkPropertyToFieldItemIndex2: TLinkPropertyToField;
     Edit1: TEdit;
-    LinkControlToField2: TLinkControlToField;
-    LinkPropertyToFieldListBoxIndex: TLinkPropertyToField;
-    procedure FormCreate(Sender: TObject);
     procedure CornerButton1Click(Sender: TObject);
+    procedure ComboBox1Change(Sender: TObject);
+    procedure Edit2Change(Sender: TObject);
   private
-    { Private declarations }
+    FParScanClipboard : String;
+    FParDownloadPath  : String;
   public
-    { Public declarations }
+    procedure SaveParameters;
+    procedure LoadParameters;
+    property ProgramParScanClipboard: String read FParScanClipboard write FParScanClipboard;
+    property ProgramParDownloadPath: String read FParDownloadPath write FParDownloadPath;
   end;
 
 var
@@ -54,27 +48,78 @@ implementation
 
 {$R *.fmx}
 
-procedure TDownloaderParameter.CornerButton1Click(Sender: TObject);
+procedure TDownloaderParameter.ComboBox1Change(Sender: TObject);
 begin
-  FDParameters.Post;
-  FDParameters.SaveToFile('parameters.json', sfJSON);
-  FDParameters.Open;
-  FDParameters.First;
-  FDParameters.Edit;
+  FParScanClipboard := TComboBox(Sender).Selected.Text;
 end;
 
-procedure TDownloaderParameter.FormCreate(Sender: TObject);
+procedure TDownloaderParameter.CornerButton1Click(Sender: TObject);
 begin
-  if FileExists('parameters.json') then
-  begin
-    try
-      FDParameters.LoadFromFile('parameters.json', sfJSON);
-    except
+  SaveParameters;
+end;
 
-    end;
+procedure TDownloaderParameter.Edit2Change(Sender: TObject);
+begin
+  FParDownloadPath := TEdit(Sender).Text;
+end;
+
+procedure TDownloaderParameter.LoadParameters;
+var
+  Ctx: TRTTIContext;
+  F : TRTTIField;
+  T: TRttiType;
+  P: TRttiProperty;
+  SL: TStringList;
+  JSON: TJSONObject;
+  JSONPair : TJSONPair;
+begin
+  JSON := TJSONObject.Create;
+  Ctx := TRTTIContext.Create();
+  SL:= TStringList.Create;
+  T := Ctx.GetType(DownloaderParameter.ClassInfo);
+  try
+    SL.LoadFromFile('parameters.json');
+    JSON := TJSonObject.ParseJSONValue(SL.Text) as TJSONObject;
+
+    for JSONPair in JSON do
+      T.GetProperty(JSONPair.JsonString.Value).SetValue(DownloaderParameter, JSONPair.JsonValue.Value);
+
+  finally
+    JSON.Free;
+    SL.Free;
   end;
-  FDParameters.Open;
-   FDParameters.Edit;
+
+  ComboBox1.Items.Text:= FParScanClipboard;
+  Edit2.Text := FParDownloadPath;
+
+end;
+
+procedure TDownloaderParameter.SaveParameters;
+var
+  Ctx: TRTTIContext;
+  F : TRTTIField;
+  T: TRttiType;
+  P: TRttiProperty;
+  SL: TStringList;
+var
+  JSON: TJSONObject;
+begin
+  JSON := TJSONObject.Create;
+  Ctx := TRTTIContext.Create();
+  SL:= TStringList.Create;
+  T := Ctx.GetType(DownloaderParameter.ClassInfo);
+  try
+
+    for P In T.GetProperties do
+      if P.Name.StartsWith('ProgramPar') then
+      JSON.AddPair(P.Name,P.GetValue(DownloaderParameter).AsString);
+
+    SL.Text:= JSON.ToString;
+    SL.SaveToFile('parameters.json');
+  finally
+    JSON.Free;
+    SL.Free;
+  end;
 end;
 
 end.

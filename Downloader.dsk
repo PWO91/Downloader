@@ -1,27 +1,24 @@
 ﻿[Closed Files]
-File_0=TSourceModule,'C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Parameters.pas',0,1,57,22,77,0,0,,
-File_1=TSourceModule,'C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Server.pas',0,1,1,3,9,0,0,,
-File_2=TSourceModule,'C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Common.pas',0,1,49,19,70,0,0,,
-File_3=TSourceModule,'c:\program files (x86)\embarcadero\studio\21.0\source\fmx\FMX.ListBox.pas',0,1,2646,1,2659,0,0,,
-File_4=TSourceModule,'c:\program files (x86)\embarcadero\studio\21.0\source\rtl\common\System.Classes.pas',0,1,17659,1,17672,0,0,,
-File_5=TSourceModule,'c:\program files (x86)\embarcadero\studio\21.0\source\rtl\net\System.Net.HttpClient.Win.pas',0,1,1379,1,1425,0,0,,
-File_6=TSourceModule,'c:\program files (x86)\embarcadero\studio\21.0\source\Indy10\Core\IdUDPServer.pas',0,1,264,1,277,0,0,,
-File_7=TSourceModule,'c:\program files (x86)\embarcadero\studio\21.0\source\Indy10\Core\IdThread.pas',0,1,417,1,431,0,0,,
-File_8=TSourceModule,'C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Settings',0,1,1,1,1,0,0,,
+File_0=TSourceModule,'C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Parameters.pas',0,1,61,4,67,0,0,,
+File_1=TSourceModule,'C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Repository.pas',0,1,61,32,103,0,0,,
+File_2=TSourceModule,'C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Files.Item.pas',0,1,23,46,31,0,0,,
+File_3=TSourceModule,'C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Item.pas',0,1,1,64,111,0,0,,
+File_4=TSourceModule,'C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Repository.Item.pas',0,1,22,3,14,0,0,,
+File_5=TSourceModule,'c:\program files (x86)\embarcadero\studio\21.0\source\rtl\common\System.Rtti.pas',0,1,6660,1,6673,0,0,,
+File_6=TSourceModule,'c:\program files (x86)\embarcadero\studio\21.0\source\fmx\FMX.ListBox.pas',0,1,2646,1,2659,0,0,,
+File_7=TSourceModule,'c:\program files (x86)\embarcadero\studio\21.0\SOURCE\RTL\SYS\System.pas',0,1,15395,13,17927,0,0,,
+File_8=TSourceModule,'C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Common.pas',0,1,49,19,70,0,0,,
+File_9=TSourceModule,'c:\program files (x86)\embarcadero\studio\21.0\source\rtl\common\System.Classes.pas',0,1,17659,1,17672,0,0,,
+File_10=TSourceModule,'c:\program files (x86)\embarcadero\studio\21.0\source\rtl\net\System.Net.HttpClient.Win.pas',0,1,1379,1,1425,0,0,,
+File_11=TSourceModule,'c:\program files (x86)\embarcadero\studio\21.0\source\Indy10\Core\IdUDPServer.pas',0,1,264,1,277,0,0,,
 
 [Modules]
-Module0=C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Repository.pas
-Module1=C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Files.pas
-Module2=C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Browser.pas
-Module3=C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Item.pas
-Module4=C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Main.pas
-Module5=C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Files.Item.pas
-Module6=C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Repository.Item.pas
-Count=7
+Module0=C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Files.pas
+Module1=C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Browser.pas
+Module2=C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Main.pas
+Module3=C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Server.pas
+Count=4
 EditWindowCount=1
-
-[C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Repository.pas]
-ModuleType=TSourceModule
 
 [C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Files.pas]
 ModuleType=TSourceModule
@@ -29,28 +26,19 @@ ModuleType=TSourceModule
 [C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Browser.pas]
 ModuleType=TSourceModule
 
-[C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Item.pas]
-ModuleType=TSourceModule
-
 [C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Main.pas]
 ModuleType=TSourceModule
 
-[C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Files.Item.pas]
-ModuleType=TSourceModule
-
-[C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Repository.Item.pas]
+[C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Server.pas]
 ModuleType=TSourceModule
 
 [EditWindow0]
-ViewCount=7
-CurrentEditView=C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Repository.pas
+ViewCount=4
+CurrentEditView=C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Files.pas
 View0=0
 View1=1
 View2=2
 View3=3
-View4=4
-View5=5
-View6=6
 PercentageSizes=1
 Create=1
 Visible=1
@@ -82,73 +70,43 @@ BottomMiddelPanelData=0000080001020200000009000000446F636B5369746530100000004772
 
 [View0]
 CustomEditViewType=TEditView
-Module=C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Repository.Item.pas
-CursorX=3
-CursorY=14
-TopLine=7
+Module=C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Main.pas
+CursorX=1
+CursorY=164
+TopLine=161
 LeftCol=1
 Bookmarks=
-EditViewName=C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Repository.Item.pas
+EditViewName=Borland.FormDesignerView
 
 [View1]
 CustomEditViewType=TEditView
-Module=C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Main.pas
-CursorX=5
-CursorY=89
-TopLine=78
+Module=C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Browser.pas
+CursorX=11
+CursorY=81
+TopLine=54
 LeftCol=1
 Bookmarks=
 EditViewName=Borland.FormDesignerView
 
 [View2]
 CustomEditViewType=TEditView
-Module=C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Browser.pas
-CursorX=11
-CursorY=81
-TopLine=59
+Module=C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Server.pas
+CursorX=25
+CursorY=161
+TopLine=145
 LeftCol=1
 Bookmarks=
-EditViewName=C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Browser.pas
+EditViewName=Borland.FormDesignerView
 
 [View3]
 CustomEditViewType=TEditView
-Module=C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Item.pas
-CursorX=70
-CursorY=77
-TopLine=28
-LeftCol=1
-Bookmarks=
-EditViewName=Borland.FormDesignerView
-
-[View4]
-CustomEditViewType=TEditView
-Module=C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Files.Item.pas
-CursorX=46
-CursorY=31
-TopLine=23
-LeftCol=1
-Bookmarks=
-EditViewName=Borland.FormDesignerView
-
-[View5]
-CustomEditViewType=TEditView
 Module=C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Files.pas
-CursorX=1
-CursorY=144
-TopLine=142
+CursorX=62
+CursorY=185
+TopLine=175
 LeftCol=1
 Bookmarks=
-EditViewName=Borland.FormDesignerView
-
-[View6]
-CustomEditViewType=TEditView
-Module=C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Repository.pas
-CursorX=82
-CursorY=96
-TopLine=91
-LeftCol=1
-Bookmarks=
-EditViewName=C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Repository.pas
+EditViewName=C:\Users\p.wojcik\Desktop\Downloader\Src\Downloader.Files.pas
 
 [Watches]
 Count=0
@@ -288,8 +246,8 @@ SplitPos=111
 
 [PropInspDesignerSelection]
 ArrangeBy=Name
-SelectedItem=Action,Action
-ExpandedItems=Border=0,BorderIcons=0,Fill=1,FormFactor=0,"LiveBindings Designer=0",Padding=0,Margins=1,Anchors=1,Corners=0,LiveBindings=0,Stroke=1,Stroke.Bitmap=0,Stroke.Color=0,Stroke.Resource=0,Fill.Bitmap=0,Fill.Resource=0,RotationCenter=0,TextSettings=1,TextSettings.Font=0,Scale=0,Size=0,StyledSettings=0,Action=0,Caret=0,Position=0,TouchTargetExpansion=0
+SelectedItem=Action,OnDblClick
+ExpandedItems=Action=1,Anchors=0,Corners=0,"LiveBindings Designer=0",UnsupportedArchitectures=0,UnsupportedPlatforms=0,Images=0,LiveBindings=0,Margins=1,Padding=0,Position=1,RotationCenter=0,Scale=0,Sides=1,Size=1,StyledSettings=0,TextSettings=0,Touch=0,Border=0,BorderIcons=0,Fill=0,FormFactor=0,Action.LiveBindings=0,"Action.LiveBindings Designer=0",Action.UnsupportedArchitectures=0,Action.UnsupportedPlatforms=0
 
 [frmDesignPreview]
 PercentageSizes=1

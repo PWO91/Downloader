@@ -12,102 +12,144 @@ object DownloaderFiles: TDownloaderFiles
   DesignerMasterStyle = 0
   object Container: TLayout
     Align = Client
+    Margins.Top = 4.000000000000000000
+    Margins.Bottom = 4.000000000000000000
     Size.Width = 805.000000000000000000
-    Size.Height = 504.000000000000000000
+    Size.Height = 496.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 0
-    object LBFiles: TListBox
+    object Main: TLayout
       Align = Client
-      Size.Width = 805.000000000000000000
-      Size.Height = 463.000000000000000000
+      Margins.Right = 4.000000000000000000
+      Size.Width = 573.000000000000000000
+      Size.Height = 496.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 0
-      DisableFocusEffect = True
-      DefaultItemStyles.ItemStyle = ''
-      DefaultItemStyles.GroupHeaderStyle = ''
-      DefaultItemStyles.GroupFooterStyle = ''
-      Viewport.Width = 805.000000000000000000
-      Viewport.Height = 463.000000000000000000
-      object Label2: TLabel
+      object Layout1: TLayout
         Align = Client
-        StyledSettings = [Family, FontColor]
-        Size.Width = 801.000000000000000000
-        Size.Height = 459.000000000000000000
+        Size.Width = 573.000000000000000000
+        Size.Height = 496.000000000000000000
         Size.PlatformDefault = False
-        TextSettings.Font.Size = 24.000000000000000000
-        TextSettings.Font.StyleExt = {00060000000000000004000000}
-        TextSettings.HorzAlign = Center
-        Text = 'Avalible files will appear here'
-        TabOrder = 0
+        TabOrder = 1
+        object EdIPAdress: TEdit
+          Touch.InteractiveGestures = [LongTap, DoubleTap]
+          Align = Top
+          TabOrder = 1
+          Text = 'localhost'
+          Position.Y = 4.000000000000000000
+          Margins.Top = 4.000000000000000000
+          Margins.Bottom = 4.000000000000000000
+          Size.Width = 573.000000000000000000
+          Size.Height = 29.000000000000000000
+          Size.PlatformDefault = False
+          OnKeyDown = EdIPAdressKeyDown
+          object WorkIndicator: TAniIndicator
+            Align = Right
+            Margins.Left = 2.000000000000000000
+            Margins.Top = 2.000000000000000000
+            Margins.Right = 2.000000000000000000
+            Margins.Bottom = 2.000000000000000000
+            Position.X = 437.000000000000000000
+            Position.Y = 2.000000000000000000
+            Size.Width = 50.000000000000000000
+            Size.Height = 25.000000000000000000
+            Size.PlatformDefault = False
+          end
+          object CornerButton1: TCornerButton
+            Action = AGetFilesList
+            Align = Right
+            Enabled = True
+            ImageIndex = -1
+            Margins.Left = 2.000000000000000000
+            Margins.Top = 2.000000000000000000
+            Margins.Right = 2.000000000000000000
+            Margins.Bottom = 2.000000000000000000
+            Position.X = 491.000000000000000000
+            Position.Y = 2.000000000000000000
+            Sides = [Top, Left, Bottom, Right]
+            Size.Width = 80.000000000000000000
+            Size.Height = 25.000000000000000000
+            Size.PlatformDefault = False
+            StyleLookup = 'CustomButton'
+            TabOrder = 1
+            XRadius = 3.000000000000000000
+            YRadius = 3.000000000000000000
+          end
+        end
+        object LBFiles: TListBox
+          Align = Client
+          Size.Width = 573.000000000000000000
+          Size.Height = 459.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          DisableFocusEffect = True
+          DefaultItemStyles.ItemStyle = ''
+          DefaultItemStyles.GroupHeaderStyle = ''
+          DefaultItemStyles.GroupFooterStyle = ''
+          Viewport.Width = 569.000000000000000000
+          Viewport.Height = 455.000000000000000000
+          object Label2: TLabel
+            Align = Client
+            StyledSettings = [Family, FontColor]
+            Size.Width = 569.000000000000000000
+            Size.Height = 455.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Size = 24.000000000000000000
+            TextSettings.Font.StyleExt = {00060000000000000004000000}
+            TextSettings.HorzAlign = Center
+            Text = 'Avalible files will appear here'
+            TabOrder = 0
+          end
+        end
       end
     end
-    object Layout1: TLayout
-      Align = Top
-      Size.Width = 805.000000000000000000
-      Size.Height = 41.000000000000000000
+    object Left: TLayout
+      Align = Left
+      Margins.Left = 4.000000000000000000
+      Position.X = 4.000000000000000000
+      Size.Width = 209.000000000000000000
+      Size.Height = 496.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 1
-      object EdIPAdress: TEdit
-        Touch.InteractiveGestures = [LongTap, DoubleTap]
+      object LbUsers: TListBox
         Align = Client
-        TabOrder = 0
-        Text = 'localhost'
-        Margins.Left = 4.000000000000000000
-        Margins.Top = 4.000000000000000000
-        Margins.Right = 4.000000000000000000
-        Margins.Bottom = 4.000000000000000000
-        Size.Width = 797.000000000000000000
-        Size.Height = 33.000000000000000000
+        Size.Width = 209.000000000000000000
+        Size.Height = 471.000000000000000000
         Size.PlatformDefault = False
-        OnKeyDown = EdIPAdressKeyDown
-        object WorkIndicator: TAniIndicator
-          Align = Right
-          Margins.Left = 2.000000000000000000
-          Margins.Top = 2.000000000000000000
-          Margins.Right = 2.000000000000000000
-          Margins.Bottom = 2.000000000000000000
-          Position.X = 661.000000000000000000
-          Position.Y = 2.000000000000000000
-          Size.Width = 50.000000000000000000
-          Size.Height = 29.000000000000000000
-          Size.PlatformDefault = False
-        end
-        object CornerButton1: TCornerButton
-          Action = AGetFilesList
-          Align = Right
-          Enabled = True
-          ImageIndex = -1
-          Margins.Left = 2.000000000000000000
-          Margins.Top = 2.000000000000000000
-          Margins.Right = 2.000000000000000000
-          Margins.Bottom = 2.000000000000000000
-          Position.X = 715.000000000000000000
-          Position.Y = 2.000000000000000000
-          Sides = [Top, Left, Bottom, Right]
-          Size.Width = 80.000000000000000000
-          Size.Height = 29.000000000000000000
-          Size.PlatformDefault = False
-          StyleLookup = 'CustomButton'
-          TabOrder = 1
-          XRadius = 3.000000000000000000
-          YRadius = 3.000000000000000000
-        end
+        TabOrder = 0
+        OnDblClick = LbUsersDblClick
+        DisableFocusEffect = True
+        DefaultItemStyles.ItemStyle = ''
+        DefaultItemStyles.GroupHeaderStyle = ''
+        DefaultItemStyles.GroupFooterStyle = ''
+        Viewport.Width = 205.000000000000000000
+        Viewport.Height = 467.000000000000000000
+      end
+      object CornerButton2: TCornerButton
+        Action = ARefreshUsers
+        Align = Bottom
+        Enabled = True
+        ImageIndex = -1
+        Position.Y = 471.000000000000000000
+        Sides = [Top, Left, Bottom, Right]
+        Size.Width = 209.000000000000000000
+        Size.Height = 25.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'CustomButton'
+        TabOrder = 1
+        XRadius = 3.000000000000000000
+        YRadius = 3.000000000000000000
       end
     end
-  end
-  object ActionList: TActionList
-    Left = 24
-    Top = 57
-    object AGetFilesList: TAction
-      Text = 'Browse'
-      OnExecute = AGetFilesListExecute
+    object Splitter1: TSplitter
+      Align = Left
+      Cursor = crHSplit
+      MinSize = 20.000000000000000000
+      Position.X = 213.000000000000000000
+      Size.Width = 15.000000000000000000
+      Size.Height = 496.000000000000000000
+      Size.PlatformDefault = False
     end
-  end
-  object NetHTTPClient: TNetHTTPClient
-    UserAgent = 'Embarcadero URI Client/1.0'
-    OnRequestError = NetHTTPClientRequestError
-    Left = 104
-    Top = 57
   end
   object StyleBook1: TStyleBook
     Styles = <
@@ -147,5 +189,25 @@ object DownloaderFiles: TDownloaderFiles
           165465787453657474696E67732E466F6E74436F6C6F720708636C61417A7572
           65155465787453657474696E67732E576F72645772617008000000}
       end>
+    Left = 48
+    Top = 136
+  end
+  object ActionList: TActionList
+    Left = 24
+    Top = 57
+    object AGetFilesList: TAction
+      Text = 'Browse'
+      OnExecute = AGetFilesListExecute
+    end
+    object ARefreshUsers: TAction
+      Text = 'Refresh list'
+      OnExecute = ARefreshUsersExecute
+    end
+  end
+  object NetHTTPClient: TNetHTTPClient
+    UserAgent = 'Embarcadero URI Client/1.0'
+    OnRequestError = NetHTTPClientRequestError
+    Left = 104
+    Top = 57
   end
 end

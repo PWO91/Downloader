@@ -8,10 +8,10 @@ uses
   Fmx.Dialogs,
   JSON,
   AnsiStrings, Downloader.Common, IdUDPServer, IdUDPBase, IdUDPClient, IdGlobal,
-  IdSocketHandle;
+  IdSocketHandle, System.Net.URLClient, System.Net.HttpClient,
+  System.Net.HttpClientComponent;
 
 const
-  SHARE_FOLDER = 'C:\Share\';
   USER = 'Patryk';
 
 type
@@ -19,6 +19,7 @@ type
     IdHTTPServer: TIdHTTPServer;
     IdUDPServer: TIdUDPServer;
     IdUDPClient: TIdUDPClient;
+    NetHTTPClient: TNetHTTPClient;
     procedure IdHTTPServerCommandGet(AContext: TIdContext;
       ARequestInfo: TIdHTTPRequestInfo; AResponseInfo: TIdHTTPResponseInfo);
     procedure DataModuleCreate(Sender: TObject);
@@ -62,7 +63,7 @@ var
 begin
   JSON := TJSONObject.Create;
 
-  Path:=SHARE_FOLDER;
+  Path:='';
     try
       if FindFirst(Path + '*.*', faArchive, SR) = 0 then
       begin
@@ -146,7 +147,27 @@ begin
     IdUDPClient.Send(ABinding.PeerIP, 8898, 'UserInfo');
 
   if s = 'UserInfo' then
-    //DownloaderFiles.LBUsers.Items.Add(ABinding.PeerIP);
+  begin
+    TThread.Synchronize(AThread,
+
+    procedure()
+    var
+      ClientInfo: THttpClient;
+    begin
+      ClientInfo := THttpClient.Create;
+      try
+
+      finally
+        ClientInfo.Free;
+      end;
+
+
+      DownloaderFiles.LBUsers.Items.Add(ABinding.PeerIP);
+    end
+
+    );
+  end;
+
 end;
 
 end.

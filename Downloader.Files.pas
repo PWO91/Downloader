@@ -25,6 +25,12 @@ type
     WorkIndicator: TAniIndicator;
     Label2: TLabel;
     StyleBook1: TStyleBook;
+    Main: TLayout;
+    Left: TLayout;
+    Splitter1: TSplitter;
+    LbUsers: TListBox;
+    CornerButton2: TCornerButton;
+    ARefreshUsers: TAction;
     procedure Button1Click(Sender: TObject);
     procedure AGetFilesListExecute(Sender: TObject);
     procedure NetHTTPClientRequestError(const Sender: TObject;
@@ -32,6 +38,8 @@ type
     procedure FormCreate(Sender: TObject);
     procedure EdIPAdressKeyDown(Sender: TObject; var Key: Word;
       var KeyChar: Char; Shift: TShiftState);
+    procedure ARefreshUsersExecute(Sender: TObject);
+    procedure LbUsersDblClick(Sender: TObject);
   private
     GetFilesTask: ITask;
   public
@@ -125,6 +133,12 @@ begin
 
 end;
 
+procedure TDownloaderFiles.ARefreshUsersExecute(Sender: TObject);
+begin
+  LbUsers.Items.Clear;
+  DownloaderServer.GetUserList;
+end;
+
 procedure TDownloaderFiles.Button1Click(Sender: TObject);
 begin
   DownloaderServer.GetUserList;
@@ -162,6 +176,12 @@ begin
     end
 
   ).Start;
+end;
+
+procedure TDownloaderFiles.LbUsersDblClick(Sender: TObject);
+begin
+  EdIPAdress.Text := LbUsers.Items[LbUsers.ItemIndex];
+  AGetFilesList.Execute;
 end;
 
 procedure TDownloaderFiles.NetHTTPClientRequestError(const Sender: TObject;

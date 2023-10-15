@@ -30,4 +30,9 @@ object DownloaderServer: TDownloaderServer
     Left = 128
     Top = 24
   end
+  object NetHTTPClient: TNetHTTPClient
+    UserAgent = 'Embarcadero URI Client/1.0'
+    Left = 32
+    Top = 88
+  end
 end
