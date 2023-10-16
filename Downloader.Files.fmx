@@ -86,8 +86,8 @@ object DownloaderFiles: TDownloaderFiles
           DefaultItemStyles.ItemStyle = ''
           DefaultItemStyles.GroupHeaderStyle = ''
           DefaultItemStyles.GroupFooterStyle = ''
-          Viewport.Width = 569.000000000000000000
-          Viewport.Height = 455.000000000000000000
+          Viewport.Width = 573.000000000000000000
+          Viewport.Height = 459.000000000000000000
           object Label2: TLabel
             Align = Client
             StyledSettings = [Family, FontColor]
@@ -117,13 +117,12 @@ object DownloaderFiles: TDownloaderFiles
         Size.Height = 471.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 0
-        OnDblClick = LbUsersDblClick
         DisableFocusEffect = True
         DefaultItemStyles.ItemStyle = ''
         DefaultItemStyles.GroupHeaderStyle = ''
         DefaultItemStyles.GroupFooterStyle = ''
-        Viewport.Width = 205.000000000000000000
-        Viewport.Height = 467.000000000000000000
+        Viewport.Width = 209.000000000000000000
+        Viewport.Height = 471.000000000000000000
       end
       object CornerButton2: TCornerButton
         Action = ARefreshUsers

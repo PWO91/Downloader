@@ -12,7 +12,9 @@ uses
   Downloader.Files in 'Downloader.Files.pas' {DownloaderFiles},
   Downloader.Files.Item in 'Downloader.Files.Item.pas' {DownloaderFilesItem},
   Downloader.Repository in 'Downloader.Repository.pas' {DownloaderRepository},
-  Downloader.Repository.Item in 'Downloader.Repository.Item.pas' {DownloaderRepositoryItem};
+  Downloader.Repository.Item in 'Downloader.Repository.Item.pas' {DownloaderRepositoryItem},
+  Downloader.Files.Users in 'Downloader.Files.Users.pas' {DownloaderFilesUsers},
+  Downloader.Dialog.Urls in 'Downloader.Dialog.Urls.pas' {DownloaderDialogUrls};
 
 {$R *.res}
 

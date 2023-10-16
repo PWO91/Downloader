@@ -28,6 +28,9 @@ type
     CornerButton1: TCornerButton;
     ComboBox2: TComboBox;
     Edit1: TEdit;
+    Edit3: TEdit;
+    Label6: TLabel;
+    Edit4: TEdit;
     procedure CornerButton1Click(Sender: TObject);
     procedure ComboBox1Change(Sender: TObject);
     procedure Edit2Change(Sender: TObject);

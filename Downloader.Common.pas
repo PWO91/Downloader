@@ -4,6 +4,7 @@ interface
 
 uses
   SysUtils, IdHashMessageDigest, idHash,
+  Winsock,
   Classes;
 
 type
@@ -15,12 +16,46 @@ type
     InitialSize: Int64;
   end;
 
+  TUser = record
+    Username: String;
+    IP: String;
+  end;
+
  function ExtractUrlFileName(const AUrl: string): string;
  function GetFileSize(p_sFilePath : string) : Int64;
  function MD5(const fileName : string) : string;
  function NewFile(Url, Dest, FileName, Path: String): TFileSetting;
+ function GetLocalIP: string;
 
 implementation
+
+
+function GetLocalIP: string;
+type
+  TaPInAddr = array [0..10] of PInAddr;
+  PaPInAddr = ^TaPInAddr;
+var
+  phe: PHostEnt;
+  pptr: PaPInAddr;
+  Buffer: array [0..63] of Ansichar;
+  i: Integer;
+  GInitData: TWSADATA;
+begin
+  WSAStartup($101, GInitData);
+  Result := '';
+  GetHostName(Buffer, SizeOf(Buffer));
+  phe := GetHostByName(Buffer);
+  if phe = nil then
+    Exit;
+  pptr := PaPInAddr(phe^.h_addr_list);
+  i := 0;
+  while pptr^[i] <> nil do
+  begin
+    Result := StrPas(inet_ntoa(pptr^[i]^));
+    Inc(i);
+  end;
+  WSACleanup;
+end;
 
 function ExtractUrlFileName(const AUrl: string): string;
 var

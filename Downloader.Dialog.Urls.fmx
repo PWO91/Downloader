@@ -1,0 +1,58 @@
+object DownloaderDialogUrls: TDownloaderDialogUrls
+  Left = 0
+  Top = 0
+  BorderIcons = [biSystemMenu, biMinimize]
+  BorderStyle = Single
+  Caption = 'Download file from url'
+  ClientHeight = 104
+  ClientWidth = 539
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object Label1: TLabel
+    Position.X = 16.000000000000000000
+    Position.Y = 24.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'Url:'
+    TabOrder = 1
+  end
+  object edUrl: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    Anchors = [akLeft, akTop, akRight]
+    TabOrder = 2
+    Position.X = 40.000000000000000000
+    Position.Y = 21.000000000000000000
+    Size.Width = 485.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object CornerButton1: TCornerButton
+    Anchors = [akRight, akBottom]
+    ModalResult = 1
+    Position.X = 444.000000000000000000
+    Position.Y = 73.000000000000000000
+    Sides = [Top, Left, Bottom, Right]
+    TabOrder = 4
+    Text = 'OK'
+    XRadius = 3.000000000000000000
+    YRadius = 3.000000000000000000
+  end
+  object CornerButton2: TCornerButton
+    Anchors = [akRight, akBottom]
+    ModalResult = 2
+    Position.X = 360.000000000000000000
+    Position.Y = 72.000000000000000000
+    Sides = [Top, Left, Bottom, Right]
+    TabOrder = 3
+    Text = 'Cancel'
+    XRadius = 3.000000000000000000
+    YRadius = 3.000000000000000000
+  end
+  object ActionList: TActionList
+    Left = 504
+    Top = 8
+  end
+end

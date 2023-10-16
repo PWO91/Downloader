@@ -13,7 +13,8 @@ uses
   Rtti,
   RegularExpressions, FMX.Memo.Types, FMX.ScrollBox, FMX.Memo,
   System.Notification,
-  Threading, FMX.Menus;
+  Threading, FMX.Menus,
+  IdStack;
 
 type
   TDownloaderMain = class(TForm)
@@ -52,6 +53,7 @@ type
     MenuItem2: TMenuItem;
     MenuItem3: TMenuItem;
     ADownloadFileFromInternet: TAction;
+    LbLocalIP: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure ADownloadPageExecute(Sender: TObject);
     procedure ClipboardMonitorTimer(Sender: TObject);
@@ -76,7 +78,7 @@ implementation
 
 uses
   Downloader.Item, Downloader.Browser, Downloader.Parameters, Downloader.Server, Downloader.Files,
-  Downloader.Repository;
+  Downloader.Repository, Downloader.Dialog.Urls;
 {$R *.fmx}
 
 procedure TDownloaderMain.AAboutExecute(Sender: TObject);
@@ -85,8 +87,15 @@ begin
 end;
 
 procedure TDownloaderMain.ADownloadFileFromInternetExecute(Sender: TObject);
+var
+  UrlsDialog: TDownloaderDialogUrls;
 begin
-  //
+  UrlsDialog := TDownloaderDialogUrls.Create(self);
+  try
+    UrlsDialog.ShowModal;
+  finally
+    UrlsDialog.Free;
+  end;
 end;
 
 procedure TDownloaderMain.ADownloadPageExecute(Sender: TObject);
@@ -133,9 +142,16 @@ begin
  end;
 
 procedure TDownloaderMain.FormCreate(Sender: TObject);
+var
+  fStack: TIdStack;
+  LList: TIdStackLocalAddressList;
+  LAddr: TIdStackLocalAddress;
+  I: Integer;
 begin
 
   InitGui;
+
+  LbLocalIP.Text := GetLocalIP;
 
 end;
 

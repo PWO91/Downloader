@@ -1,0 +1,77 @@
+object DownloaderFilesUsers: TDownloaderFilesUsers
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 41
+  ClientWidth = 368
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object Container: TLayout
+    Align = Client
+    Size.Width = 368.000000000000000000
+    Size.Height = 41.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object Rectangle1: TRectangle
+      Align = Client
+      Fill.Color = xFF5D48AE
+      Size.Width = 368.000000000000000000
+      Size.Height = 41.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Thickness = 0.200000002980232200
+      OnClick = Rectangle1Click
+      object Image1: TImage
+        MultiResBitmap.Height = 48
+        MultiResBitmap.Width = 48
+        MultiResBitmap = <
+          item
+            Width = 48
+            Height = 48
+            PNG = {
+              89504E470D0A1A0A0000000D49484452000000300000003008060000005702F9
+              87000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+              019D494441546843ED963B4A0531148647F1B9010BB5D47D588B856E41C14725
+              966EC0157817A0BBB0B45214150BDD8256A2622158E8FF43062627199D9C0924
+              83F9E02370EEE5E784C9AB2A64C0B7D2279805BEE6BA7A0493E36BACAB5F700E
+              26C5D75888E73029BEA6425D81C9F03514EA334CC21864038365DC8C83A54C20
+              35BE3DC05ACE58FD9625949A32010F5370175EC317E315DC8193303AF56D5ADB
+              8705780B6566ED0D9C877D90996E41C90CBC87324F7A07A7A11699E716941C40
+              99D5E63ED422B3DC8212AE7999D5E625D422B3DC82920F28B3DA7C875AACAC72
+              8C36783463171ECCD89B98133831E33AE47BCAE70624A7668C82B5A65850C2A3
+              91C7E82B5C6541B006DF208F515E765A9C7E9D420F9A17192FAD633812B56C2F
+              B29AE653E2D318F32961F5CB75299B662D67AC7E636EE209B805CFE0215C82DC
+              1774D9D4F8DB26E47FA3617D1216142C42DEAE32ABCD0BC8FDA24166B9854066
+              6197479C947B44F3A893396E21903D2833BABA0D4391196E2190DFDEFF7FC963
+              35142BA39C42A92913484D99406A7CA7D0A0284B2835839F40A1F0BFA9AA1FF7
+              854FB2A48A9CCE0000000049454E44AE426082}
+            FileName = 
+              'C:\Users\p.wojcik\Desktop\Downloader\Src\Img\User Folder_48px.pn' +
+              'g'
+          end>
+        Align = Left
+        HitTest = False
+        Margins.Left = 5.000000000000000000
+        Margins.Top = 5.000000000000000000
+        Margins.Right = 5.000000000000000000
+        Margins.Bottom = 5.000000000000000000
+        Position.X = 5.000000000000000000
+        Position.Y = 5.000000000000000000
+        Size.Width = 65.000000000000000000
+        Size.Height = 31.000000000000000000
+        Size.PlatformDefault = False
+      end
+      object LbUserName: TLabel
+        Align = Left
+        StyledSettings = [Family, Size, Style]
+        Position.X = 75.000000000000000000
+        Size.Width = 286.000000000000000000
+        Size.Height = 41.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.FontColor = claAzure
+        TabOrder = 1
+      end
+    end
+  end
+end

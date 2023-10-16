@@ -42,7 +42,7 @@ var
 implementation
 
 uses
-  Downloader.Files, Downloader.Repository;
+  Downloader.Files, Downloader.Repository, Downloader.Files.Users;
 
 {%CLASSGROUP 'FMX.Controls.TControl'}
 
@@ -153,16 +153,33 @@ begin
     procedure()
     var
       ClientInfo: THttpClient;
+      JSONObject: TJSONObject;
+      Url: String;
+      aResponse: IHTTPResponse;
+      User: TUser;
     begin
       ClientInfo := THttpClient.Create;
       try
+        Url :=  'http://' + ABinding.PeerIP + ':8899/?GetInfo=a';
+        aResponse := ClientInfo.Get(Url);
+        JSONObject := TJSonObject.ParseJSONValue(aResponse.ContentAsString()) as TJSONObject;
+
+        TThread.Synchronize(TThread.Current,
+
+        procedure()
+        begin
+          User.Username:= 'Patryk';
+          User.IP := ABinding.PeerIP;
+          DownloaderFiles.AddUser(User);
+        end
+
+        );
 
       finally
         ClientInfo.Free;
       end;
 
 
-      DownloaderFiles.LBUsers.Items.Add(ABinding.PeerIP);
     end
 
     );

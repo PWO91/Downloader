@@ -250,6 +250,17 @@ object DownloaderMain: TDownloaderMain
     Size.Height = 27.000000000000000000
     Size.PlatformDefault = False
     Stroke.Thickness = 0.000000000000000000
+    object LbLocalIP: TLabel
+      Align = Left
+      StyledSettings = [Family, Size, Style]
+      Margins.Left = 5.000000000000000000
+      Position.X = 5.000000000000000000
+      Size.Width = 120.000000000000000000
+      Size.Height = 27.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.FontColor = claAliceblue
+      TabOrder = 0
+    end
   end
   object StyleBook1: TStyleBook
     Styles = <

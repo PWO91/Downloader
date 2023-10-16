@@ -236,6 +236,14 @@
             <Form>DownloaderRepositoryItem</Form>
             <FormType>fmx</FormType>
         </DCCReference>
+        <DCCReference Include="Downloader.Files.Users.pas">
+            <Form>DownloaderFilesUsers</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="Downloader.Dialog.Urls.pas">
+            <Form>DownloaderDialogUrls</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
@@ -262,6 +270,12 @@
                 </Excluded_Packages>
             </Delphi.Personality>
             <Deployment Version="3">
+                <DeployFile LocalName="..\Win32\Release\Downloader.exe" Configuration="Release" Class="ProjectOutput">
+                    <Platform Name="Win32">
+                        <RemoteName>Downloader.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile LocalName="$(BDS)\Redist\osx32\libcgunwind.1.0.dylib" Class="DependencyModule">
                     <Platform Name="OSX32">
                         <Overwrite>true</Overwrite>

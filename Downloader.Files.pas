@@ -39,11 +39,10 @@ type
     procedure EdIPAdressKeyDown(Sender: TObject; var Key: Word;
       var KeyChar: Char; Shift: TShiftState);
     procedure ARefreshUsersExecute(Sender: TObject);
-    procedure LbUsersDblClick(Sender: TObject);
   private
     GetFilesTask: ITask;
   public
-    { Public declarations }
+    procedure AddUser(User: TUser);
   end;
 
 var
@@ -52,9 +51,35 @@ var
 implementation
 
 uses
-  Downloader.Server, Downloader.Files.Item;
+  Downloader.Server, Downloader.Files.Item, Downloader.Files.Users;
 
 {$R *.fmx}
+
+procedure TDownloaderFiles.AddUser(User: TUser);
+var
+  LbItem: TListBoxItem;
+  Item: TDownloaderFilesUsers;
+begin
+  LbItem      := TListBoxItem.Create(LbUsers);
+  LbItem.Text := '';
+
+  //Create item with created file container
+  //-----------------------------------------------------------------
+  Item:= TDownloaderFilesUsers.CreateItem(LbItem, User);
+
+  Item.Container.Parent   := LbItem;
+  LbItem.Width            := Item.Width;
+  LbItem.Height           := 35;
+
+  if LbUsers.Count = 0 then
+  LbItem.Margins.Top      := 5;
+
+  LbItem.Margins.Left     := 5;
+  LbItem.Margins.Right    := 5;
+  LbItem.Margins.Bottom   := 5;
+
+  LbUsers.AddObject(LbItem);
+end;
 
 procedure TDownloaderFiles.AGetFilesListExecute(Sender: TObject);
 begin
@@ -176,12 +201,6 @@ begin
     end
 
   ).Start;
-end;
-
-procedure TDownloaderFiles.LbUsersDblClick(Sender: TObject);
-begin
-  EdIPAdress.Text := LbUsers.Items[LbUsers.ItemIndex];
-  AGetFilesList.Execute;
 end;
 
 procedure TDownloaderFiles.NetHTTPClientRequestError(const Sender: TObject;
