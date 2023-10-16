@@ -1,6 +1,6 @@
 # Downloader
 
-![Screenshot](Img/Screens/Main.png)
+![Screenshot](Img/Screens/Main2.png)
 Firemonkey multi thread file downloader. Allow share files over local network and download files from internet.
 
 Support:
