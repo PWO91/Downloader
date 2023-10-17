@@ -5,9 +5,23 @@ interface
 uses
   SysUtils, IdHashMessageDigest, idHash,
   Winsock,
-  Classes;
+  Classes,
+  Types,
+  StrUtils,
+  Fmx.Dialogs,IpHlpApi, winapi.IPtypes,
+  Windows;
 
 type
+
+  TNetworkConf = record
+    Card: String;
+    IP: String;
+    Mask: String;
+    Gateway: String;
+  end;
+
+  TNetworksConf = array of TNetworkConf;
+
   TFileSetting = record
     Url: string;
     Dest: string;
@@ -26,9 +40,50 @@ type
  function MD5(const fileName : string) : string;
  function NewFile(Url, Dest, FileName, Path: String): TFileSetting;
  function GetLocalIP: string;
+ function GetBroadcat(IP:String): String;
+ function RetrieveLocalAdapterInformation: TNetworksConf;
 
 implementation
 
+function RetrieveLocalAdapterInformation: TNetworksConf;
+var pAdapterInfo:PIP_ADAPTER_INFO;
+    BufLen,Status:cardinal; i:Integer;
+begin
+  BufLen:= sizeof(IP_ADAPTER_INFO);
+  GetAdaptersInfo(nil, BufLen);
+  pAdapterInfo:= AllocMem(BufLen);
+  try
+    Status:= GetAdaptersInfo(pAdapterInfo,BufLen);
+    if (Status <> ERROR_SUCCESS) then
+    begin
+      case Status of
+        ERROR_NOT_SUPPORTED: raise exception.create('GetAdaptersInfo is not supported by the operating ' +
+                                     'system running on the local computer.');
+        ERROR_NO_DATA: raise exception.create('No network adapter on the local computer.');
+      else
+        raiselastOSerror;
+      end;
+      Exit;
+    end;
+    while (pAdapterInfo<>nil) do
+    begin
+     SetLength(Result, Length(Result) + 1);
+     Result[High(Result)].IP        := pAdapterInfo^.IpAddressList.IpAddress.S;
+     Result[High(Result)].Mask      := pAdapterInfo^.IpAddressList.IpMask.S;
+     Result[High(Result)].Gateway   := pAdapterInfo^.GatewayList.IpAddress.S;
+     Result[High(Result)].Card      := pAdapterInfo^.Description;
+     pAdapterInfo:= pAdapterInfo^.Next;
+    end;
+  finally
+    Freemem(pAdapterInfo);
+  end;
+end;
+
+function GetBroadcat(IP:String): String;
+begin
+
+
+end;
 
 function GetLocalIP: string;
 type

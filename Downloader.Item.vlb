@@ -40,9 +40,6 @@ Coordinates=369,157,64,33
 [BtPause]
 Coordinates=151,71,55,33
 
-[EdUrl]
-Coordinates=61,10,41,51
-
 [ProgressBar1]
 Coordinates=217,10,81,51
 
@@ -60,4 +57,17 @@ Coordinates=10,71,74,33
 
 [ImageList]
 Coordinates=251,230,62,33
+
+[]
+Coordinates=61,10,41,51
+
+[DownloaderParameter.FDParameters]
+Visible=False
+Coordinates=588,1,196,33
+
+[EdUrl]
+Coordinates=70,1,41,51
+
+[DownloaderParameter.BindSourceDB]
+Coordinates=351,34,199,141
 

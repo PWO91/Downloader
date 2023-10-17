@@ -2,272 +2,247 @@ object DownloaderParameter: TDownloaderParameter
   Left = 0
   Top = 0
   Caption = 'Form1'
-  ClientHeight = 480
+  ClientHeight = 620
   ClientWidth = 640
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
   DesignerMasterStyle = 0
   object Container: TLayout
     Align = Client
     Size.Width = 640.000000000000000000
-    Size.Height = 480.000000000000000000
+    Size.Height = 620.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 0
-    object GridPanelLayout1: TGridPanelLayout
-      Align = Client
-      HitTest = False
-      Size.Width = 640.000000000000000000
-      Size.Height = 480.000000000000000000
+    object GroupBox1: TGroupBox
+      Align = Top
+      Margins.Left = 5.000000000000000000
+      Margins.Top = 5.000000000000000000
+      Margins.Right = 5.000000000000000000
+      Margins.Bottom = 5.000000000000000000
+      Position.X = 5.000000000000000000
+      Position.Y = 5.000000000000000000
+      Size.Width = 630.000000000000000000
+      Size.Height = 68.000000000000000000
       Size.PlatformDefault = False
-      TabOrder = 0
-      TabStop = False
-      ColumnCollection = <
-        item
-          Value = 83.333333333333330000
-        end
-        item
-          Value = 16.666666666666670000
-        end>
-      ControlCollection = <
-        item
-          Column = 0
-          Control = Label1
-          Row = 0
-        end
-        item
-          Column = 0
-          Control = Label2
-          Row = 1
-        end
-        item
-          Column = 0
-          Control = Label3
-          Row = 2
-        end
-        item
-          Column = 0
-          Control = Label4
-          Row = 3
-        end
-        item
-          Column = 0
-          Control = Label5
-          Row = 4
-        end
-        item
-          Column = 1
-          Control = Edit2
-          Row = 1
-        end
-        item
-          Column = 1
-          Control = ComboBox1
-          Row = 0
-        end
-        item
-          Column = 0
-          ColumnSpan = 2
-          Control = CornerButton1
-          Row = 9
-          RowSpan = 2
-        end
-        item
-          Column = 1
-          Control = ComboBox2
-          Row = 2
-        end
-        item
-          Column = 1
-          Control = Edit1
-          Row = 3
-        end
-        item
-          Column = 1
-          Control = Edit3
-          Row = 4
-        end
-        item
-          Column = 0
-          Control = Label6
-          Row = 5
-        end
-        item
-          Column = 1
-          Control = Edit4
-          Row = 5
-        end>
-      RowCollection = <
-        item
-          Value = 9.999887197134777000
-        end
-        item
-          Value = 9.999903654735441000
-        end
-        item
-          Value = 9.999970476365244000
-        end
-        item
-          Value = 10.000032488370010000
-        end
-        item
-          Value = 10.000065852454570000
-        end
-        item
-          Value = 10.000068189425760000
-        end
-        item
-          Value = 10.000049392013930000
-        end
-        item
-          Value = 10.000023681441790000
-        end
-        item
-          Value = 10.000003478968020000
-        end
-        item
-          Value = 9.999995589090467000
-        end
-        item
-          SizeStyle = Auto
-        end>
-      object Label1: TLabel
-        Align = Client
-        Margins.Left = 10.000000000000000000
-        Margins.Top = 10.000000000000000000
-        Margins.Right = 10.000000000000000000
-        Margins.Bottom = 10.000000000000000000
-        Size.Width = 513.333312988281300000
-        Size.Height = 27.999458312988280000
+      Text = 'General:'
+      TabOrder = 3
+      object CBScanClipbaord: TCheckBox
+        Position.X = 16.000000000000000000
+        Position.Y = 25.000000000000000000
+        Size.Width = 353.000000000000000000
+        Size.Height = 19.000000000000000000
         Size.PlatformDefault = False
-        Text = 'Scan clipboard to detect downlandable content'
-        TabOrder = 5
+        TabOrder = 38
+        Text = 'Scan clipboard to detect link'
       end
-      object Label2: TLabel
-        Align = Client
-        Margins.Left = 10.000000000000000000
-        Margins.Top = 10.000000000000000000
-        Margins.Right = 10.000000000000000000
-        Margins.Bottom = 10.000000000000000000
-        Size.Width = 513.333312988281300000
-        Size.Height = 27.999534606933590000
-        Size.PlatformDefault = False
-        Text = 'Cliboard file extensions'
-        TabOrder = 4
-      end
-      object Label3: TLabel
-        Align = Client
-        Margins.Left = 10.000000000000000000
-        Margins.Top = 10.000000000000000000
-        Margins.Right = 10.000000000000000000
-        Margins.Bottom = 10.000000000000000000
-        Size.Width = 513.333312988281300000
-        Size.Height = 27.999862670898440000
-        Size.PlatformDefault = False
-        Text = 'Automatic start download'
-        TabOrder = 3
-      end
-      object Label4: TLabel
-        Align = Client
-        Margins.Left = 10.000000000000000000
-        Margins.Top = 10.000000000000000000
-        Margins.Right = 10.000000000000000000
-        Margins.Bottom = 10.000000000000000000
-        Size.Width = 513.333312988281300000
-        Size.Height = 28.000152587890630000
-        Size.PlatformDefault = False
-        Text = 'Push notifications'
-        TabOrder = 2
-      end
-      object Label5: TLabel
-        Align = Client
-        Margins.Left = 10.000000000000000000
-        Margins.Top = 10.000000000000000000
-        Margins.Right = 10.000000000000000000
-        Margins.Bottom = 10.000000000000000000
-        Size.Width = 513.333312988281300000
-        Size.Height = 28.000320434570310000
-        Size.PlatformDefault = False
-        Text = 'Hide to tray'
-        TabOrder = 1
-      end
-      object Edit2: TEdit
-        Touch.InteractiveGestures = [LongTap, DoubleTap]
-        Anchors = []
-        TabOrder = 6
-        Position.X = 536.666625976562500000
-        Position.Y = 60.999225616455080000
-        OnChange = Edit2Change
-      end
-      object ComboBox1: TComboBox
-        Anchors = []
-        Items.Strings = (
-          'Yes'
-          'No')
-        Position.X = 536.666625976562500000
-        Position.Y = 12.999729156494140000
-        TabOrder = 8
-        OnChange = ComboBox1Change
-      end
-      object CornerButton1: TCornerButton
-        Anchors = []
-        Position.X = 280.000000000000000000
-        Position.Y = 445.000061035156300000
-        Sides = [Top, Left, Bottom, Right]
-        TabOrder = 9
-        Text = 'Save'
-        XRadius = 3.000000000000000000
-        YRadius = 3.000000000000000000
-        OnClick = CornerButton1Click
-      end
-      object ComboBox2: TComboBox
-        Anchors = []
-        Items.Strings = (
-          'Yes'
-          'No')
-        Position.X = 536.666625976562500000
-        Position.Y = 108.998924255371100000
-        TabOrder = 7
-      end
+    end
+    object Secure: TGroupBox
+      Align = Top
+      Margins.Left = 5.000000000000000000
+      Margins.Top = 5.000000000000000000
+      Margins.Right = 5.000000000000000000
+      Margins.Bottom = 5.000000000000000000
+      Position.X = 5.000000000000000000
+      Position.Y = 83.000000000000000000
+      Size.Width = 630.000000000000000000
+      Size.Height = 68.000000000000000000
+      Size.PlatformDefault = False
+      Text = 'Secret key:'
+      TabOrder = 2
       object Edit1: TEdit
         Touch.InteractiveGestures = [LongTap, DoubleTap]
-        Anchors = []
-        TabOrder = 12
-        Position.X = 536.666625976562500000
-        Position.Y = 156.998931884765600000
-      end
-      object Edit3: TEdit
-        Touch.InteractiveGestures = [LongTap, DoubleTap]
-        Anchors = []
-        TabOrder = 11
-        Position.X = 536.666625976562500000
-        Position.Y = 204.999176025390600000
-      end
-      object Label6: TLabel
-        Align = Client
-        Margins.Left = 10.000000000000000000
-        Margins.Top = 10.000000000000000000
-        Margins.Right = 10.000000000000000000
-        Margins.Bottom = 10.000000000000000000
-        Size.Width = 513.333312988281300000
-        Size.Height = 28.000335693359380000
+        Anchors = [akLeft, akTop, akRight, akBottom]
+        TabOrder = 38
+        Position.X = 16.000000000000000000
+        Position.Y = 32.000000000000000000
+        Size.Width = 593.000000000000000000
+        Size.Height = 22.000000000000000000
         Size.PlatformDefault = False
-        Text = 'User name'
-        TabOrder = 0
       end
-      object Edit4: TEdit
+    end
+    object GroupBox2: TGroupBox
+      Align = Top
+      Margins.Left = 5.000000000000000000
+      Margins.Top = 5.000000000000000000
+      Margins.Right = 5.000000000000000000
+      Margins.Bottom = 5.000000000000000000
+      Position.X = 5.000000000000000000
+      Position.Y = 161.000000000000000000
+      Size.Width = 630.000000000000000000
+      Size.Height = 68.000000000000000000
+      Size.PlatformDefault = False
+      Text = 'Download path'
+      TabOrder = 1
+      object Edit2: TEdit
         Touch.InteractiveGestures = [LongTap, DoubleTap]
-        Anchors = []
-        TabOrder = 10
-        Position.X = 536.666625976562500000
-        Position.Y = 252.999496459960900000
+        Anchors = [akLeft, akTop, akRight, akBottom]
+        TabOrder = 38
+        Position.X = 16.000000000000000000
+        Position.Y = 32.000000000000000000
+        Size.Width = 593.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
+      end
+    end
+    object GroupBox3: TGroupBox
+      Align = Client
+      Margins.Left = 5.000000000000000000
+      Margins.Top = 5.000000000000000000
+      Margins.Right = 5.000000000000000000
+      Margins.Bottom = 5.000000000000000000
+      Size.Width = 630.000000000000000000
+      Size.Height = 376.000000000000000000
+      Size.PlatformDefault = False
+      Text = 'Network adapter'
+      TabOrder = 0
+      object LbCards: TListBox
+        Align = Client
+        Margins.Left = 20.000000000000000000
+        Margins.Top = 20.000000000000000000
+        Margins.Right = 20.000000000000000000
+        Margins.Bottom = 20.000000000000000000
+        Size.Width = 590.000000000000000000
+        Size.Height = 336.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 38
+        DisableFocusEffect = True
+        ItemIndex = 0
+        DefaultItemStyles.ItemStyle = ''
+        DefaultItemStyles.GroupHeaderStyle = ''
+        DefaultItemStyles.GroupFooterStyle = ''
+        Viewport.Width = 586.000000000000000000
+        Viewport.Height = 332.000000000000000000
       end
     end
   end
-  object BindingsList1: TBindingsList
+  object FDParameters: TFDMemTable
+    Active = True
+    FieldDefs = <
+      item
+        Name = 'DownloadPath'
+        DataType = ftString
+        Size = 255
+      end
+      item
+        Name = 'SecretKey'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'ScanClipboard'
+        DataType = ftString
+        Size = 20
+      end>
+    IndexDefs = <>
+    FetchOptions.AssignedValues = [evMode]
+    FetchOptions.Mode = fmAll
+    ResourceOptions.AssignedValues = [rvPersistent, rvSilentMode]
+    ResourceOptions.Persistent = True
+    ResourceOptions.SilentMode = True
+    UpdateOptions.AssignedValues = [uvUpdateChngFields, uvUpdateMode, uvLockMode, uvLockPoint, uvLockWait, uvRefreshMode, uvFetchGeneratorsPoint, uvCheckRequired, uvCheckReadOnly, uvCheckUpdatable, uvAutoCommitUpdates]
+    UpdateOptions.UpdateChangedFields = False
+    UpdateOptions.LockWait = True
+    UpdateOptions.RefreshMode = rmManual
+    UpdateOptions.FetchGeneratorsPoint = gpNone
+    UpdateOptions.CheckRequired = False
+    UpdateOptions.CheckReadOnly = False
+    UpdateOptions.CheckUpdatable = False
+    UpdateOptions.AutoCommitUpdates = True
+    StoreDefs = True
+    Left = 528
+    Top = 528
+    Content = {
+      414442530F000000F9010000FF00010001FF02FF030400180000004600440050
+      006100720061006D006500740065007200730005000A0000005400610062006C
+      0065000600000000000700000800320000000900000A0000FF0BFF0C04001800
+      000044006F0077006E006C006F00610064005000610074006800050018000000
+      44006F0077006E006C006F006100640050006100740068000D00010000000F00
+      0E001000FF000000110001120001130001140001150001160001170018000000
+      44006F0077006E006C006F006100640050006100740068001800FF000000FEFF
+      0C0400120000005300650063007200650074004B006500790005001200000053
+      00650063007200650074004B00650079000D00020000000F000E001000140000
+      0011000112000113000114000115000116000117001200000053006500630072
+      00650074004B0065007900180014000000FEFF0C04001A000000530063006100
+      6E0043006C006900700062006F0061007200640005001A000000530063006100
+      6E0043006C006900700062006F006100720064000D00030000000F000E001000
+      1400000011000112000113000114000115000116000117001A00000053006300
+      61006E0043006C006900700062006F00610072006400180014000000FEFEFF19
+      FEFF1AFEFF1BFEFEFEFF1CFEFF1D1E0003000000FF1FFEFEFE0E004D0061006E
+      0061006700650072001E00550070006400610074006500730052006500670069
+      00730074007200790012005400610062006C0065004C006900730074000A0054
+      00610062006C00650008004E0061006D006500140053006F0075007200630065
+      004E0061006D0065000A0054006100620049004400240045006E0066006F0072
+      006300650043006F006E00730074007200610069006E00740073001E004D0069
+      006E0069006D0075006D00430061007000610063006900740079001800430068
+      00650063006B004E006F0074004E0075006C006C001A0043006800650063006B
+      0052006500610064004F006E006C007900140043006F006C0075006D006E004C
+      006900730074000C0043006F006C0075006D006E00100053006F007500720063
+      0065004900440018006400740041006E007300690053007400720069006E0067
+      001000440061007400610054007900700065000800530069007A006500140053
+      0065006100720063006800610062006C006500120041006C006C006F0077004E
+      0075006C006C000800420061007300650014004F0041006C006C006F0077004E
+      0075006C006C0012004F0049006E0055007000640061007400650010004F0049
+      006E00570068006500720065001A004F0072006900670069006E0043006F006C
+      004E0061006D006500140053006F007500720063006500530069007A0065001C
+      0043006F006E00730074007200610069006E0074004C00690073007400100056
+      006900650077004C006900730074000E0052006F0077004C0069007300740018
+      00520065006C006100740069006F006E004C006900730074001C005500700064
+      0061007400650073004A006F00750072006E0061006C00120053006100760065
+      0050006F0069006E0074000E004300680061006E00670065007300}
+    object FDParametersDownloadPath: TStringField
+      FieldName = 'DownloadPath'
+      Size = 255
+    end
+    object FDParametersSecretKey: TStringField
+      FieldName = 'SecretKey'
+    end
+    object FDParametersScanClipboard: TStringField
+      FieldName = 'ScanClipboard'
+    end
+    object FDParametersNetworkAdapter: TIntegerField
+      FieldKind = fkCalculated
+      FieldName = 'NetworkAdapter'
+      Calculated = True
+    end
+  end
+  object FDStanStorageJSONLink: TFDStanStorageJSONLink
+    Left = 528
+    Top = 312
+  end
+  object BindSourceDB: TBindSourceDB
+    DataSet = FDParameters
+    ScopeMappings = <>
+    Left = 528
+    Top = 464
+  end
+  object BindingsList: TBindingsList
     Methods = <>
     OutputConverters = <>
-    Left = 20
-    Top = 5
+    Left = 532
+    Top = 389
+    object LinkControlToField1: TLinkControlToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB
+      FieldName = 'ScanClipboard'
+      Control = CBScanClipbaord
+      Track = True
+    end
+    object LinkControlToField2: TLinkControlToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB
+      FieldName = 'SecretKey'
+      Control = Edit1
+      Track = False
+    end
+    object LinkControlToField3: TLinkControlToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB
+      FieldName = 'DownloadPath'
+      Control = Edit2
+      Track = False
+    end
   end
 end

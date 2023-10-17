@@ -4,7 +4,7 @@ object DownloaderMain: TDownloaderMain
   Caption = 'Downloader'
   ClientHeight = 611
   ClientWidth = 1026
-  StyleBook = StyleBook1
+  StyleBook = StyleBook
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
@@ -262,7 +262,7 @@ object DownloaderMain: TDownloaderMain
       TabOrder = 0
     end
   end
-  object StyleBook1: TStyleBook
+  object StyleBook: TStyleBook
     Styles = <
       item
       end
@@ -348,7 +348,7 @@ object DownloaderMain: TDownloaderMain
     Left = 272
     Top = 168
   end
-  object MainMenu1: TMainMenu
+  object MainMenu: TMainMenu
     Left = 368
     Top = 168
     object MMProgram: TMenuItem

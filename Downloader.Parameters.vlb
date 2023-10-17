@@ -1,46 +1,60 @@
-﻿[Label3]
-Coordinates=310,10,46,51
-
-[Label5]
-Coordinates=160,100,46,51
-
-[GridPanelLayout1]
-Coordinates=10,168,102,33
+﻿[Container]
+Coordinates=500,70,62,33
 Visible=True
 
-[Label2]
-Coordinates=193,10,46,51
-
-[Container]
-Coordinates=500,70,62,33
-
-[Label4]
-Coordinates=286,100,46,51
-
-[Label1]
-Coordinates=223,100,46,51
-
 []
-Coordinates=21,134,137,33
-ExplicitSubNodes=Pressed
+Coordinates=155,122,40,51
+ExplicitSubNodes=ItemIndex;ListBox.ItemIndex
+Visible=False
 
-[BindingsList1]
-Coordinates=314,177,82,33
+[FDParametersSecretKey]
+Coordinates=394,1,134,33
 
-[Edit2]
-Coordinates=40,50,40,51
+[FDParameters]
+Coordinates=244,247,84,33
+Visible=False
 
-[ComboBox1]
-Coordinates=590,30,84,159
-ExplicitSubNodes=ItemIndex;ListBox.Index
+[FDStanStorageJSONLink]
+Coordinates=600,260,137,33
 
-[CornerButton1]
-Coordinates=48,205,87,33
+[FDParametersDownloadPath]
+Coordinates=441,276,155,33
 
-[ComboBox2]
-Coordinates=480,170,84,141
-ExplicitSubNodes=ItemIndex
+[FDParametersScanClipboard]
+Coordinates=0,0,156,33
+
+[CBScanClipbaord]
+Coordinates=240,20,101,51
+
+[Secure]
+Coordinates=175,1,48,51
+
+[GroupBox1]
+Coordinates=47,52,70,51
 
 [Edit1]
-Coordinates=126,2,40,51
+Coordinates=126,52,40,51
+
+[GroupBox2]
+Coordinates=204,90,70,51
+
+[Edit2]
+Coordinates=0,0,40,51
+
+[BindSourceDB]
+Coordinates=244,247,87,141
+
+[BindingsList]
+Coordinates=121,168,76,33
+
+[LbCards]
+Coordinates=580,150,116,195
+ExplicitSubNodes=ItemIndex
+Visible=True
+
+[FDParametersNetworkAdapter]
+Coordinates=589,1,163,33
+
+[GroupBox3]
+Coordinates=76,141,70,51
 

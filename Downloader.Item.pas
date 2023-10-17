@@ -11,12 +11,12 @@ uses
   Threading, System.ImageList, FMX.ImgList, Downloader.Common, FMX.Effects,
   IOUtils,
   Notification, System.Notification,
-  Fmx.ListBox;
+  Fmx.ListBox,
+  DateUtils;
 
 type
   TDownloaderItem = class(TForm)
     Container: TLayout;
-    EdUrl: TEdit;
     Rectangle1: TRectangle;
     ActionList: TActionList;
     ADownloadFile: TAction;
@@ -36,6 +36,7 @@ type
     BtHide: TCornerButton;
     ADeleteItem: TAction;
     StyleBook1: TStyleBook;
+    EdUrl: TEdit;
     procedure ADownloadFileExecute(Sender: TObject);
     procedure NetHTTPClientReceiveData(const Sender: TObject; AContentLength,
       AReadCount: Int64; var AAbort: Boolean);
@@ -43,7 +44,15 @@ type
     procedure NetHTTPClientRequestCompleted(const Sender: TObject;
       const AResponse: IHTTPResponse);
     procedure ADeleteItemExecute(Sender: TObject);
+    procedure NetHTTPClientInfoRequestError(const Sender: TObject;
+      const AError: string);
   private
+    LastTime: TDateTime;
+    SecondDiff : Integer;
+    AReadCountDiff: Int64;
+    Speed: Single;
+
+    AReadCountLast: Int64;
     SFile: TFileStream;
     FDFile: TFileSetting;
     FDownloadTask: ITask;
@@ -54,6 +63,7 @@ type
   public
     property DFile: TFileSetting read FDFile write FDFile;
     constructor CreateItem(AOwner: TComponent; _DFile: TFileSetting);
+
   end;
 
 implementation
@@ -72,22 +82,41 @@ procedure TDownloaderItem.ADownloadFileExecute(Sender: TObject);
 var
   aResponse: IHTTPResponse;
   LocalFilePath: string;
+  FileLength: Int64;
+  Secret: string;
 begin
+  //Ask for password
+  //-----------------------------------------------------------------
+  Secret := InputBox('File password',#31, '');
+
   //Prepare download operation
   //-----------------------------------------------------------------
   FSizeUnknow         := True;
   FABort              := False;
   FDFile.InitialSize  := 0;
+  FileLength          := 0;
 
+  //Create local path for downloaded file
+  //-----------------------------------------------------------------
+  LocalFilePath := DownloaderParameter.FDParametersDownloadPath.AsString + FDFile.FileName;
+
+  //Check if it's possible to estaminate size of the file
+  //-----------------------------------------------------------------
   try
-    aResponse := NetHTTPClientInfo.Head(FDFile.Url);
+    NetHTTPClientInfo.CustomHeaders['Secret'] := Secret;
     FSizeUnknow := False;
+    aResponse := NetHTTPClientInfo.Head(FDFile.Url);
+
+    if aResponse.StatusCode = 401 then
+    begin
+      ShowMessage('Incorrect password!');
+      Exit;
+    end;
+
+    FileLength := aResponse.ContentLength;
   except
     FSizeUnknow := True;
   end;
-  //Create local path for downloaded file
-  //-----------------------------------------------------------------
-  LocalFilePath := DownloaderParameter.ProgramParDownloadPath + FDFile.FileName;
 
 
   //Check if file exist
@@ -96,38 +125,36 @@ begin
   begin
     //Check exist and not compleated - resume download
     //-----------------------------------------------------------------
-    if GetFileSize(LocalFilePath) < aResponse.ContentLength then
+    if (GetFileSize(LocalFilePath) < FileLength)   then
     begin
       FResumeDownload     := True;
       SFile               := TFileStream.Create(FDFile.Dest + FDFile.FileName, fmOpenReadWrite);
       FDFile.InitialSize  := SFile.Size;
       SFile.Position      := FDFile.InitialSize;
-      ProgressBar1.Max    := aResponse.ContentLength;
-      ProgressBar1.Value  := FDFile.InitialSize;
     end else
     begin
-      //Or do nothing
+      //Or do nothing - file exist in direcotry and size is this same
       //-----------------------------------------------------------------
       ShowMessage('This file already exist in ' + FDFile.Dest);
       Exit;
     end;
   end else
   begin
-    //If not exist - prepare for new download
+    //If not exist, or size of file cant be estaminate, start new download
     //-----------------------------------------------------------------
     SFile               := TFileStream.Create(LocalFilePath, fmCreate);
-    ProgressBar1.Max    := aResponse.ContentLength;
-    ProgressBar1.Value  := 0;
   end;
 
 
   //New download task
   //-----------------------------------------------------------------
-
+  LastTime:= Now();
+  AReadCountLast := 0;
   FDownloadTask := TTask.Create(
 
     procedure ()
       begin
+        NetHTTPClient.CustomHeaders['Secret'] := Secret;
         if FResumeDownload then
           NetHTTPClient.GetRange(FDFile.Url,FDFile.InitialSize, aResponse.ContentLength, SFile) else
           NetHTTPClient.Get(FDFile.Url, SFile);
@@ -151,12 +178,6 @@ begin
     );
 
 
-
-  if(FSizeUnknow) then
-  begin
-    //ProgressBar1.Visible:= False;
-  end;
-
   //Start task
   //-----------------------------------------------------------------
   FDownloadTask.Start;
@@ -173,8 +194,15 @@ end;
 constructor TDownloaderItem.CreateItem(AOwner: TComponent; _DFile: TFileSetting);
 begin
   inherited Create(AOwner);
-  FDFile      := _DFile;
-  EdUrl.Text  := FDFile.Url;
+  FDFile              := _DFile;
+  EdUrl.Text          := FDFile.Url;
+  LbDownloadInfo.Text := FDFile.FileName;
+end;
+
+procedure TDownloaderItem.NetHTTPClientInfoRequestError(const Sender: TObject;
+  const AError: string);
+begin
+//
 end;
 
 procedure TDownloaderItem.NetHTTPClientReceiveData(const Sender: TObject;
@@ -182,11 +210,27 @@ procedure TDownloaderItem.NetHTTPClientReceiveData(const Sender: TObject;
 begin
   //Operation during download
   //-----------------------------------------------------------------
+
+  //Calculate download speed
+  //-----------------------------------------------------------------
+
+  SecondDiff := MIlliSecondsBetween(LastTime,Now());
+  AReadCountDiff :=  ((AReadCount - AReadCountLast));
+
+  if SecondDiff > 1000 then
+  begin
+    Speed := AReadCountDiff / 1024 / 1024;
+    LastTime := Now();
+    AReadCountLast:=AReadCount;
+  end;
+
   AAbort                  := FAbort;
   ProgressBar1.Value      := FDFile.InitialSize + AReadCount;
-  LbDownloadInfo.Text     := 'Downloaded ' + IntToStr((FDFile.InitialSize + AReadCount) div 1024 div 1024) + 'MB';
+  LbDownloadInfo.Text     := 'Downloaded: ' + DFile.FileName + ' - ' + IntToStr((FDFile.InitialSize + AReadCount) div 1024 div 1024) + '/' + IntToStr(AContentLength div 1024 div 1024) + ' MB Speed: ' +  Format('%.2f', [Speed]) + ' MB/s';
   ADownloadPause.Enabled  := True;
   ADownloadFile.Enabled   := False;
+  ProgressBar1.Max := AContentLength;
+  ProgressBar1.Value := AReadCount;
   if FAbort then
   begin
      //User download abort
@@ -196,6 +240,8 @@ begin
     FDownloadTask.Cancel;
     SFile.Free;
   end;
+
+
 end;
 
 procedure TDownloaderItem.NetHTTPClientRequestCompleted(const Sender: TObject;

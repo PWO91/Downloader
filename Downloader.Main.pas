@@ -43,10 +43,10 @@ type
     TsABout: TTabItem;
     Label1: TLabel;
     Rectangle2: TRectangle;
-    StyleBook1: TStyleBook;
+    StyleBook: TStyleBook;
     Label2: TLabel;
     AAbout: TAction;
-    MainMenu1: TMainMenu;
+    MainMenu: TMainMenu;
     MMProgram: TMenuItem;
     MenuItem1: TMenuItem;
     AExitProgram: TAction;
@@ -89,10 +89,17 @@ end;
 procedure TDownloaderMain.ADownloadFileFromInternetExecute(Sender: TObject);
 var
   UrlsDialog: TDownloaderDialogUrls;
+  DFile: TFileSetting;
 begin
   UrlsDialog := TDownloaderDialogUrls.Create(self);
   try
-    UrlsDialog.ShowModal;
+    if UrlsDialog.ShowModal = mrOk then
+    begin
+      DFile.Url       := UrlsDialog.edUrl.Text;
+      DFile.FileName  := ExtractUrlFileName(UrlsDialog.edUrl.Text);
+      DFile.Dest      := DownloaderParameter.ProgramParDownloadPath;
+      DownloaderBrowser.AddItem(DFile);
+    end;
   finally
     UrlsDialog.Free;
   end;
@@ -172,6 +179,8 @@ begin
 
 
   DownloaderParameter.LoadParameters;
+
+  TabControl1.ActiveTab := TsDownload;
 end;
 
 procedure TDownloaderMain.ClipboardMonitorTimer(Sender: TObject);

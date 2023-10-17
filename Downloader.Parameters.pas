@@ -11,32 +11,41 @@ uses
   FireDAC.Comp.DataSet, FireDAC.Comp.Client, System.Rtti,
   System.Bindings.Outputs, Fmx.Bind.Editors, Data.Bind.EngExt,
   Fmx.Bind.DBEngExt, Data.Bind.Components, Data.Bind.DBScope, JSON,
-  FireDAC.Stan.StorageJSON, FMX.ListBox;
+  FireDAC.Stan.StorageJSON, FMX.ListBox, FMX.Grid.Style, Fmx.Bind.Grid,
+  Data.Bind.Controls, Fmx.Bind.Navigator, Data.Bind.Grid, FMX.ScrollBox,
+  FMX.Grid, Downloader.Common;
 
 type
   TDownloaderParameter = class(TForm)
     Container: TLayout;
-    GridPanelLayout1: TGridPanelLayout;
-    Label1: TLabel;
-    Label2: TLabel;
-    Label3: TLabel;
-    Label4: TLabel;
-    Label5: TLabel;
-    BindingsList1: TBindingsList;
-    Edit2: TEdit;
-    ComboBox1: TComboBox;
-    CornerButton1: TCornerButton;
-    ComboBox2: TComboBox;
+    FDParameters: TFDMemTable;
+    FDParametersDownloadPath: TStringField;
+    FDParametersSecretKey: TStringField;
+    FDStanStorageJSONLink: TFDStanStorageJSONLink;
+    BindSourceDB: TBindSourceDB;
+    BindingsList: TBindingsList;
+    FDParametersScanClipboard: TStringField;
+    CBScanClipbaord: TCheckBox;
+    LinkControlToField1: TLinkControlToField;
+    GroupBox1: TGroupBox;
+    Secure: TGroupBox;
     Edit1: TEdit;
-    Edit3: TEdit;
-    Label6: TLabel;
-    Edit4: TEdit;
+    LinkControlToField2: TLinkControlToField;
+    GroupBox2: TGroupBox;
+    Edit2: TEdit;
+    LinkControlToField3: TLinkControlToField;
+    LbCards: TListBox;
+    FDParametersNetworkAdapter: TIntegerField;
+    GroupBox3: TGroupBox;
     procedure CornerButton1Click(Sender: TObject);
     procedure ComboBox1Change(Sender: TObject);
     procedure Edit2Change(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
   private
     FParScanClipboard : String;
     FParDownloadPath  : String;
+    FAdapters: TNetworksConf;
   public
     procedure SaveParameters;
     procedure LoadParameters;
@@ -66,63 +75,39 @@ begin
   FParDownloadPath := TEdit(Sender).Text;
 end;
 
-procedure TDownloaderParameter.LoadParameters;
+procedure TDownloaderParameter.FormCreate(Sender: TObject);
 var
-  Ctx: TRTTIContext;
-  F : TRTTIField;
-  T: TRttiType;
-  P: TRttiProperty;
-  SL: TStringList;
-  JSON: TJSONObject;
-  JSONPair : TJSONPair;
+  i: Integer;
 begin
-  JSON := TJSONObject.Create;
-  Ctx := TRTTIContext.Create();
-  SL:= TStringList.Create;
-  T := Ctx.GetType(DownloaderParameter.ClassInfo);
-  try
-    SL.LoadFromFile('parameters.json');
-    JSON := TJSonObject.ParseJSONValue(SL.Text) as TJSONObject;
 
-    for JSONPair in JSON do
-      T.GetProperty(JSONPair.JsonString.Value).SetValue(DownloaderParameter, JSONPair.JsonValue.Value);
+  FAdapters := RetrieveLocalAdapterInformation;
 
-  finally
-    JSON.Free;
-    SL.Free;
+  for i:=Low(FAdapters) to High(FAdapters) do
+  begin
+    if FAdapters[i].IP <> '0.0.0.0' then
+    LbCards.Items.Add(FAdapters[i].Card + ' - ' + FAdapters[i].IP+ ' - ' + FAdapters[i].Mask + ' - ' + FAdapters[i].Gateway);
   end;
 
-  ComboBox1.Items.Text:= FParScanClipboard;
-  Edit2.Text := FParDownloadPath;
+  if FileExists('parameters.json') then
+    FDParameters.LoadFromFile('parameters.json');
+end;
+
+procedure TDownloaderParameter.FormDestroy(Sender: TObject);
+begin
+    if FDParameters.State = TDataSetState.dsEdit then
+    FDParameters.Post;
+    FDParameters.SaveToFile('parameters.json');
+end;
+
+procedure TDownloaderParameter.LoadParameters;
+begin
 
 end;
 
 procedure TDownloaderParameter.SaveParameters;
-var
-  Ctx: TRTTIContext;
-  F : TRTTIField;
-  T: TRttiType;
-  P: TRttiProperty;
-  SL: TStringList;
-var
-  JSON: TJSONObject;
 begin
-  JSON := TJSONObject.Create;
-  Ctx := TRTTIContext.Create();
-  SL:= TStringList.Create;
-  T := Ctx.GetType(DownloaderParameter.ClassInfo);
-  try
 
-    for P In T.GetProperties do
-      if P.Name.StartsWith('ProgramPar') then
-      JSON.AddPair(P.Name,P.GetValue(DownloaderParameter).AsString);
 
-    SL.Text:= JSON.ToString;
-    SL.SaveToFile('parameters.json');
-  finally
-    JSON.Free;
-    SL.Free;
-  end;
 end;
 
 end.

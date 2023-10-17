@@ -7,3 +7,6 @@ Coordinates=96,1,82,33
 [IdUDPClient]
 Coordinates=77,52,73,33
 
+[NetHTTPClient]
+Coordinates=216,1,86,33
+
