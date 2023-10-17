@@ -22,7 +22,6 @@ object DownloaderServer: TDownloaderServer
     Top = 24
   end
   object IdUDPClient: TIdUDPClient
-    OnStatus = IdUDPClientStatus
     Active = True
     BroadcastEnabled = True
     Host = '192.168.0.198'

@@ -67,7 +67,6 @@ begin
         Sleep(500);
         TThread.Synchronize(TThread.CurrentThread,
 
-
           procedure()
           begin
             DownloaderBrowser.Label2.Visible := (DownloaderBrowser.LBDownload.Count = 0);

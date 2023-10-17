@@ -62,12 +62,11 @@ Coordinates=251,230,62,33
 Coordinates=61,10,41,51
 
 [DownloaderParameter.FDParameters]
-Visible=False
-Coordinates=588,1,196,33
+Coordinates=794,11,196,33
 
 [EdUrl]
 Coordinates=70,1,41,51
 
-[DownloaderParameter.BindSourceDB]
+[DownloaderParameter.]
 Coordinates=351,34,199,141
 

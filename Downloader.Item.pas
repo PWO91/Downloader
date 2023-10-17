@@ -46,6 +46,7 @@ type
     procedure ADeleteItemExecute(Sender: TObject);
     procedure NetHTTPClientInfoRequestError(const Sender: TObject;
       const AError: string);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     LastTime: TDateTime;
     SecondDiff : Integer;
@@ -98,7 +99,7 @@ begin
 
   //Create local path for downloaded file
   //-----------------------------------------------------------------
-  LocalFilePath := DownloaderParameter.FDParametersDownloadPath.AsString + FDFile.FileName;
+  LocalFilePath := DownloaderParameter.DownloadPath + FDFile.FileName;
 
   //Check if it's possible to estaminate size of the file
   //-----------------------------------------------------------------
@@ -128,7 +129,7 @@ begin
     if (GetFileSize(LocalFilePath) < FileLength)   then
     begin
       FResumeDownload     := True;
-      SFile               := TFileStream.Create(FDFile.Dest + FDFile.FileName, fmOpenReadWrite);
+      SFile               := TFileStream.Create(LocalFilePath, fmOpenReadWrite);
       FDFile.InitialSize  := SFile.Size;
       SFile.Position      := FDFile.InitialSize;
     end else
@@ -197,6 +198,11 @@ begin
   FDFile              := _DFile;
   EdUrl.Text          := FDFile.Url;
   LbDownloadInfo.Text := FDFile.FileName;
+end;
+
+procedure TDownloaderItem.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  DownloaderParameter.SaveParameters;
 end;
 
 procedure TDownloaderItem.NetHTTPClientInfoRequestError(const Sender: TObject;

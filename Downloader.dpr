@@ -14,12 +14,17 @@ uses
   Downloader.Repository in 'Downloader.Repository.pas' {DownloaderRepository},
   Downloader.Repository.Item in 'Downloader.Repository.Item.pas' {DownloaderRepositoryItem},
   Downloader.Files.Users in 'Downloader.Files.Users.pas' {DownloaderFilesUsers},
-  Downloader.Dialog.Urls in 'Downloader.Dialog.Urls.pas' {DownloaderDialogUrls};
+  Downloader.Dialog.Urls in 'Downloader.Dialog.Urls.pas' {DownloaderDialogUrls},
+  Downloader.Splash in 'Downloader.Splash.pas',
+  SysUtils {DownloaderSplash};
 
 {$R *.res}
 
 begin
   Application.Initialize;
+
+
+
   Application.CreateForm(TDownloaderMain, DownloaderMain);
   Application.CreateForm(TDownloaderServer, DownloaderServer);
   Application.Run;

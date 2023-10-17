@@ -1,0 +1,39 @@
+object DownloaderSplash: TDownloaderSplash
+  Left = 0
+  Top = 0
+  BorderStyle = Single
+  Caption = 'Form1'
+  ClientHeight = 183
+  ClientWidth = 645
+  Fill.Color = xFF361642
+  Fill.Kind = Solid
+  Position = DesktopCenter
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object Rectangle1: TRectangle
+    Align = Client
+    Fill.Color = xFF3D0B4A
+    Margins.Left = 5.000000000000000000
+    Margins.Top = 5.000000000000000000
+    Margins.Right = 5.000000000000000000
+    Margins.Bottom = 5.000000000000000000
+    Size.Width = 635.000000000000000000
+    Size.Height = 173.000000000000000000
+    Size.PlatformDefault = False
+    object Label1: TLabel
+      Align = Center
+      StyledSettings = [Family]
+      Size.Width = 297.000000000000000000
+      Size.Height = 59.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 26.000000000000000000
+      TextSettings.Font.StyleExt = {00060000000000000004000000}
+      TextSettings.FontColor = claAliceblue
+      TextSettings.HorzAlign = Center
+      Text = 'Downloader'
+      TabOrder = 0
+    end
+  end
+end

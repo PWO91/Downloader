@@ -4,7 +4,7 @@
         <ProjectVersion>19.2</ProjectVersion>
         <FrameworkType>FMX</FrameworkType>
         <Base>True</Base>
-        <Config Condition="'$(Config)'==''">Debug</Config>
+        <Config Condition="'$(Config)'==''">Release</Config>
         <Platform Condition="'$(Platform)'==''">Win32</Platform>
         <TargetedPlatforms>3</TargetedPlatforms>
         <AppType>Application</AppType>
@@ -69,7 +69,7 @@
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base)'!=''">
         <DCC_DcuOutput>..\Dcu</DCC_DcuOutput>
-        <DCC_ExeOutput>..\$(Platform)\$(Config)</DCC_ExeOutput>
+        <DCC_ExeOutput>..\$(Platform)\</DCC_ExeOutput>
         <DCC_E>false</DCC_E>
         <DCC_N>false</DCC_N>
         <DCC_S>false</DCC_S>
@@ -88,7 +88,10 @@
         <Icns_MainIcns>$(BDS)\bin\delphi_PROJECTICNS.icns</Icns_MainIcns>
         <SanitizedProjectName>Downloader</SanitizedProjectName>
         <VerInfo_Locale>1045</VerInfo_Locale>
-        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.1.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_Release>1</VerInfo_Release>
+        <VerInfo_AutoIncVersion>true</VerInfo_AutoIncVersion>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Android)'!=''">
         <DCC_UsePackage>DBXSqliteDriver;RESTComponents;DBXInterBaseDriver;tethering;bindcompfmx;FmxTeeUI;fmx;FireDACIBDriver;dbexpress;IndyCore;dsnap;FireDACCommon;RESTBackendComponents;soapserver;bindengine;CloudService;FireDACCommonDriver;inet;IndyIPCommon;bindcompdbx;IndyIPServer;IndySystem;fmxFireDAC;FireDAC;FireDACSqliteDriver;ibmonitor;FMXTee;soaprtl;DbxCommonDriver;ibxpress;xmlrtl;soapmidas;ibxbindings;rtl;DbxClientDriver;CustomIPTransport;bindcomp;IndyIPClient;dbxcds;dsnapxml;dbrtl;IndyProtocols;$(DCC_UsePackage)</DCC_UsePackage>
@@ -138,18 +141,16 @@
         <DCC_UsePackage>DBXSqliteDriver;RESTComponents;OmniThreadLibraryRuntime;DBXInterBaseDriver;vclactnband;fsDB27;vclFireDAC;bindcompvclsmp;tethering;svnui;JvGlobus;FireDACADSDriver;JvPluginSystem;frx27;JvMM;fsTee27;unidac270;vcltouch;JvBands;vcldb;bindcompfmx;svn;JvJans;JvNet;crcontrols270;frxIBX27;inetdb;JvAppFrm;frxUniDAC27;CustomComponents;fs27;FmxTeeUI;JvDotNetCtrls;TMSVCLUIPackPkgWizDXE13;fmx;FireDACIBDriver;fmxdae;AbbreviaVCLD;vcledge;vclib;JvWizards;AcroPDF;dbexpress;IndyCore;TMSVCLUIPackPkgXlsDXE13;vclx;Python;JvPageComps;dsnap;frxTee27;FireDACCommon;JvDB;ts_mm;RESTBackendComponents;VCLRESTComponents;soapserver;JclDeveloperTools;dacfmx270;TMSVCLUIPackPkgDXE13;vclie;frxDAC27;bindengine;DBXMySQLDriver;CloudService;JvCmp;FireDACMySQLDriver;JvHMI;FireDACCommonODBC;FireDACCommonDriver;inet;TMSVCLUIPackPkgExDXE13;IndyIPCommon;bindcompdbx;JvCustom;frxDB27;vcl;IndyIPServer;JvXPCtrls;dacvcl270;IndySystem;vquery270;dac270;bindcompvclwinx;dsnapcon;FireDACMSAccDriver;fmxFireDAC;unidacfmx270;vclimg;frxIntIOIndy27;TeeDB;FireDAC;Jcl;fsIBX27;JvCore;frxIntIO27;JvCrypt;FireDACSqliteDriver;FireDACPgDriver;ibmonitor;FMXTee;soaprtl;DbxCommonDriver;JvDlgs;JvRuntimeDesign;ibxpress;Tee;JvManagedThreads;PythonVcl;xmlrtl;soapmidas;ibxbindings;fmxobj;vclwinx;JvTimeFramework;rtl;DbxClientDriver;CustomIPTransport;vcldsnap;unidacvcl270;JvSystem;JvStdCtrls;SynEditDR;bindcomp;appanalytics;frxADO27;IndyIPClient;fsADO27;bindcompvcl;frxe27;TeeUI;JvPascalInterpreter;dbxcds;VclSmp;frxDBX27;adortl;JvDocking;JclVcl;dsnapxml;dbrtl;IndyProtocols;inetdbxpress;JvControls;JvPrintPreview;JclContainers;fmxase;$(DCC_UsePackage)</DCC_UsePackage>
         <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
         <BT_BuildType>Debug</BT_BuildType>
-        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
         <UWP_DelphiLogo44>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_44.png</UWP_DelphiLogo44>
         <UWP_DelphiLogo150>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_150.png</UWP_DelphiLogo150>
+        <Icon_MainIcon>Downloader_Icon2.ico</Icon_MainIcon>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win64)'!=''">
         <DCC_UsePackage>DBXSqliteDriver;RESTComponents;OmniThreadLibraryRuntime;DBXInterBaseDriver;vclactnband;vclFireDAC;bindcompvclsmp;tethering;FireDACADSDriver;vcltouch;vcldb;bindcompfmx;inetdb;frxUniDAC27;FmxTeeUI;fmx;FireDACIBDriver;fmxdae;AbbreviaVCLD;vcledge;vclib;dbexpress;IndyCore;vclx;Python;dsnap;FireDACCommon;RESTBackendComponents;VCLRESTComponents;soapserver;TMSVCLUIPackPkgDXE13;vclie;frxDAC27;bindengine;DBXMySQLDriver;CloudService;FireDACMySQLDriver;FireDACCommonODBC;FireDACCommonDriver;inet;TMSVCLUIPackPkgExDXE13;IndyIPCommon;bindcompdbx;vcl;IndyIPServer;IndySystem;bindcompvclwinx;dsnapcon;FireDACMSAccDriver;fmxFireDAC;vclimg;TeeDB;FireDAC;FireDACSqliteDriver;FireDACPgDriver;ibmonitor;FMXTee;soaprtl;DbxCommonDriver;ibxpress;Tee;PythonVcl;xmlrtl;soapmidas;ibxbindings;fmxobj;vclwinx;rtl;DbxClientDriver;CustomIPTransport;vcldsnap;SynEditDR;bindcomp;appanalytics;IndyIPClient;bindcompvcl;TeeUI;dbxcds;VclSmp;adortl;dsnapxml;dbrtl;IndyProtocols;inetdbxpress;fmxase;$(DCC_UsePackage)</DCC_UsePackage>
         <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;$(DCC_Namespace)</DCC_Namespace>
         <BT_BuildType>Debug</BT_BuildType>
-        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
-        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
         <UWP_DelphiLogo44>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_44.png</UWP_DelphiLogo44>
@@ -167,15 +168,16 @@
         <DCC_RemoteDebug>false</DCC_RemoteDebug>
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
-        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1033</VerInfo_Locale>
-        <DCC_ExeOutput>..\$(Platform)\$(Config)</DCC_ExeOutput>
         <DCC_DcuOutput>..\$(Platform)\$(Config)</DCC_DcuOutput>
+        <VerInfo_Build>1</VerInfo_Build>
         <Icon_MainIcon>Downloader_Icon1.ico</Icon_MainIcon>
+        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.1.1;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win64)'!=''">
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
+        <VerInfo_Locale>1033</VerInfo_Locale>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
         <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
@@ -187,12 +189,16 @@
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
         <DCC_DcuOutput>..\Dcu</DCC_DcuOutput>
-        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1033</VerInfo_Locale>
+        <Icon_MainIcon>Downloader_Icon2.ico</Icon_MainIcon>
+        <VerInfo_Build>3</VerInfo_Build>
+        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.1.3;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_Win64)'!=''">
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.1.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=pwo91.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
     </PropertyGroup>
     <ItemGroup>
         <DelphiCompile Include="$(MainSource)">
@@ -244,6 +250,10 @@
             <Form>DownloaderDialogUrls</Form>
             <FormType>fmx</FormType>
         </DCCReference>
+        <DCCReference Include="Downloader.Splash.pas">
+            <Form>DownloaderSplash</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
         <None Include="README.md"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
@@ -282,13 +292,9 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="$(BDS)\Redist\iossimulator\libcgunwind.1.0.dylib" Class="DependencyModule">
-                    <Platform Name="iOSSimulator">
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
-                <DeployFile LocalName="$(BDS)\Redist\iossimulator\libpcre.dylib" Class="DependencyModule">
-                    <Platform Name="iOSSimulator">
+                <DeployFile LocalName="README.md" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -298,9 +304,19 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="..\Win32\Debug\Downloader.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="..\Win32\Downloader.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>Downloader.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="$(BDS)\Redist\iossimulator\libcgunwind.1.0.dylib" Class="DependencyModule">
+                    <Platform Name="iOSSimulator">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="$(BDS)\Redist\iossimulator\libpcre.dylib" Class="DependencyModule">
+                    <Platform Name="iOSSimulator">
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>

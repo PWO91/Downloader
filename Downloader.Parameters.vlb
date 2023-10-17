@@ -1,60 +1,48 @@
 ﻿[Container]
-Coordinates=500,70,62,33
+Coordinates=500,70,70,36
 Visible=True
 
 []
-Coordinates=155,122,40,51
+Coordinates=126,52,44,58
 ExplicitSubNodes=ItemIndex;ListBox.ItemIndex
 Visible=False
 
 [FDParametersSecretKey]
-Coordinates=394,1,134,33
+Coordinates=394,1,157,36
 
 [FDParameters]
-Coordinates=244,247,84,33
-Visible=False
-
-[FDStanStorageJSONLink]
-Coordinates=600,260,137,33
+Coordinates=352,257,98,146
 
 [FDParametersDownloadPath]
-Coordinates=441,276,155,33
+Coordinates=441,276,181,36
 
 [FDParametersScanClipboard]
-Coordinates=0,0,156,33
+Coordinates=0,0,182,36
 
 [CBScanClipbaord]
-Coordinates=240,20,101,51
+Coordinates=240,20,117,58
 
 [Secure]
-Coordinates=175,1,48,51
+Coordinates=175,1,55,58
 
 [GroupBox1]
-Coordinates=47,52,70,51
-
-[Edit1]
-Coordinates=126,52,40,51
+Coordinates=47,52,79,58
 
 [GroupBox2]
-Coordinates=204,90,70,51
-
-[Edit2]
-Coordinates=0,0,40,51
-
-[BindSourceDB]
-Coordinates=244,247,87,141
-
-[BindingsList]
-Coordinates=121,168,76,33
+Coordinates=204,90,79,58
 
 [LbCards]
-Coordinates=580,150,116,195
-ExplicitSubNodes=ItemIndex
+Coordinates=580,150,139,278
+ExplicitSubNodes=Content.Index;Index;ItemIndex
 Visible=True
 
 [FDParametersNetworkAdapter]
-Coordinates=589,1,163,33
+Coordinates=589,1,190,36
 
 [GroupBox3]
-Coordinates=76,141,70,51
+Coordinates=76,141,79,58
+Visible=True
+
+[EDDownloadPath]
+Coordinates=0,0,44,58
 

@@ -29,8 +29,6 @@ type
     procedure DataModuleCreate(Sender: TObject);
     procedure IdUDPServerUDPRead(AThread: TIdUDPListenerThread;
       const AData: TIdBytes; ABinding: TIdSocketHandle);
-    procedure IdUDPClientStatus(ASender: TObject; const AStatus: TIdStatus;
-      const AStatusText: string);
     function IdServerIOHandlerSSLOpenSSLVerifyPeer(Certificate: TIdX509;
       AOk: Boolean; ADepth, AError: Integer): Boolean;
     procedure IdServerIOHandlerSSLOpenSSLGetPassword(var Password: string);
@@ -130,7 +128,7 @@ begin
     if ARequestInfo.Params.Names[0] = 'DownloadFile' then
     begin
 
-        if (ARequestInfo.RawHeaders.Values['Secret'] <> DownloaderParameter.FDParametersSecretKey.AsString) then
+        if (ARequestInfo.RawHeaders.Values['Secret'] <> DownloaderParameter.Secret) then
         begin
           AResponseInfo.ResponseNo := 401;
         end else
@@ -165,12 +163,6 @@ if ADepth = 0 then
   end;
 end;
 
-procedure TDownloaderServer.IdUDPClientStatus(ASender: TObject;
-  const AStatus: TIdStatus; const AStatusText: string);
-begin
-  //DownloaderFiles.LBUsers.Items.Add(AStatusText);
-end;
-
 procedure TDownloaderServer.IdUDPServerUDPRead(AThread: TIdUDPListenerThread;
   const AData: TIdBytes; ABinding: TIdSocketHandle);
 var
@@ -203,7 +195,7 @@ begin
 
         procedure()
         begin
-          User.Username:= 'Patryk';
+          User.Username:= DownloaderParameter.User;
           User.IP := ABinding.PeerIP;
           DownloaderFiles.AddUser(User);
         end

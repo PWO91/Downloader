@@ -10,10 +10,11 @@ uses
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.StorageBin, Data.DB,
   FireDAC.Comp.DataSet, FireDAC.Comp.Client, System.Rtti,
   System.Bindings.Outputs, Fmx.Bind.Editors, Data.Bind.EngExt,
-  Fmx.Bind.DBEngExt, Data.Bind.Components, Data.Bind.DBScope, JSON,
+  Fmx.Bind.DBEngExt, Data.Bind.Components, Data.Bind.DBScope, System.JSON,
   FireDAC.Stan.StorageJSON, FMX.ListBox, FMX.Grid.Style, Fmx.Bind.Grid,
   Data.Bind.Controls, Fmx.Bind.Navigator, Data.Bind.Grid, FMX.ScrollBox,
-  FMX.Grid, Downloader.Common;
+  FMX.Grid, Downloader.Common,
+  REST.Json;
 
 type
   TDownloaderParameter = class(TForm)
@@ -21,36 +22,30 @@ type
     FDParameters: TFDMemTable;
     FDParametersDownloadPath: TStringField;
     FDParametersSecretKey: TStringField;
-    FDStanStorageJSONLink: TFDStanStorageJSONLink;
-    BindSourceDB: TBindSourceDB;
-    BindingsList: TBindingsList;
     FDParametersScanClipboard: TStringField;
     CBScanClipbaord: TCheckBox;
-    LinkControlToField1: TLinkControlToField;
     GroupBox1: TGroupBox;
     Secure: TGroupBox;
-    Edit1: TEdit;
-    LinkControlToField2: TLinkControlToField;
     GroupBox2: TGroupBox;
-    Edit2: TEdit;
-    LinkControlToField3: TLinkControlToField;
+    EDDownloadPath: TEdit;
     LbCards: TListBox;
     FDParametersNetworkAdapter: TIntegerField;
     GroupBox3: TGroupBox;
+    StyleBook1: TStyleBook;
+    EdSecret: TEdit;
+    GroupBox4: TGroupBox;
+    EdUserNick: TEdit;
     procedure CornerButton1Click(Sender: TObject);
-    procedure ComboBox1Change(Sender: TObject);
-    procedure Edit2Change(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure FormDestroy(Sender: TObject);
+    procedure GroupBox1Click(Sender: TObject);
   private
-    FParScanClipboard : String;
-    FParDownloadPath  : String;
     FAdapters: TNetworksConf;
   public
     procedure SaveParameters;
     procedure LoadParameters;
-    property ProgramParScanClipboard: String read FParScanClipboard write FParScanClipboard;
-    property ProgramParDownloadPath: String read FParDownloadPath write FParDownloadPath;
+    function DownloadPath: String;
+    function Secret: String;
+    function User: String;
   end;
 
 var
@@ -60,25 +55,22 @@ implementation
 
 {$R *.fmx}
 
-procedure TDownloaderParameter.ComboBox1Change(Sender: TObject);
-begin
-  FParScanClipboard := TComboBox(Sender).Selected.Text;
-end;
-
 procedure TDownloaderParameter.CornerButton1Click(Sender: TObject);
 begin
   SaveParameters;
 end;
 
-procedure TDownloaderParameter.Edit2Change(Sender: TObject);
+function TDownloaderParameter.DownloadPath: String;
 begin
-  FParDownloadPath := TEdit(Sender).Text;
+  Result := EDDownloadPath.Text;
 end;
 
 procedure TDownloaderParameter.FormCreate(Sender: TObject);
 var
   i: Integer;
 begin
+
+  FDParameters.Active := True;
 
   FAdapters := RetrieveLocalAdapterInformation;
 
@@ -88,26 +80,62 @@ begin
     LbCards.Items.Add(FAdapters[i].Card + ' - ' + FAdapters[i].IP+ ' - ' + FAdapters[i].Mask + ' - ' + FAdapters[i].Gateway);
   end;
 
-  if FileExists('parameters.json') then
-    FDParameters.LoadFromFile('parameters.json');
+
 end;
 
-procedure TDownloaderParameter.FormDestroy(Sender: TObject);
+procedure TDownloaderParameter.GroupBox1Click(Sender: TObject);
 begin
-    if FDParameters.State = TDataSetState.dsEdit then
-    FDParameters.Post;
-    FDParameters.SaveToFile('parameters.json');
+  SaveParameters;
 end;
 
 procedure TDownloaderParameter.LoadParameters;
+var
+  JSonValue:TJSonValue;
+  SL: TStringList;
 begin
+  SL:= TStringList.Create;
+  SL.LoadFromFile('parameters.json');
+  JSonValue:= TJSonObject.ParseJSONValue(SL.Text);
+
+  CBScanClipbaord.IsChecked := JSonValue.GetValue<Boolean>('ScanClipboard');
+  EDDownloadPath.Text := JSonValue.GetValue<String>('DownloadPath');
+  EDSecret.Text := JSonValue.GetValue<String>('Secret');
+  LBCards.ItemIndex := JSonValue.GetValue<Integer>('NetworkAdapter');
+  EdUserNick.Text := JSonValue.GetValue<String>('UserNick');
+  SL.Free;
+  JSonValue.Free;
 
 end;
 
 procedure TDownloaderParameter.SaveParameters;
+var
+  JSON: TJsonObject;
+  SL: TStringList;
 begin
+  JSON:= TJSonObject.Create;
+  SL:= TStringList.Create;
+  JSON.AddPair(TJSONPair.Create('ScanClipboard', (CBScanClipbaord.IsChecked.ToString)));
+  JSON.AddPair(TJSONPair.Create('DownloadPath', EDDownloadPath.Text));
+  JSON.AddPair(TJSONPair.Create('Secret', EdSecret.Text));
+  JSON.AddPair(TJSONPair.Create('NetworkAdapter', LbCards.ItemIndex.ToString));
+  JSON.AddPair(TJSONPair.Create('UserNick', EdUserNick.Text));
+  SL.Text := JSON.ToJSON;
+  SL.SaveToFile('parameters.json');
+
+  SL.Free;
+  JSON.Free;
+
+end;
 
 
+function TDownloaderParameter.Secret: String;
+begin
+  Result := EdSecret.Text;
+end;
+
+function TDownloaderParameter.User: String;
+begin
+  Result:= EdUserNick.Text;
 end;
 
 end.

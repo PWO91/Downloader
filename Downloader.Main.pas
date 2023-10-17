@@ -14,7 +14,7 @@ uses
   RegularExpressions, FMX.Memo.Types, FMX.ScrollBox, FMX.Memo,
   System.Notification,
   Threading, FMX.Menus,
-  IdStack;
+  IdStack, FMX.Ani, FMX.Effects;
 
 type
   TDownloaderMain = class(TForm)
@@ -54,6 +54,15 @@ type
     MenuItem3: TMenuItem;
     ADownloadFileFromInternet: TAction;
     LbLocalIP: TLabel;
+    TabControl2: TTabControl;
+    TabItem1: TTabItem;
+    TabItem2: TTabItem;
+    Rectangle3: TRectangle;
+    Label3: TLabel;
+    AniIndicator1: TAniIndicator;
+    GlowEffect1: TGlowEffect;
+    FloatAnimation1: TFloatAnimation;
+    Label4: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure ADownloadPageExecute(Sender: TObject);
     procedure ClipboardMonitorTimer(Sender: TObject);
@@ -63,6 +72,7 @@ type
     procedure AAboutExecute(Sender: TObject);
     procedure AExitProgramExecute(Sender: TObject);
     procedure ADownloadFileFromInternetExecute(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     LastClipboardValue: String;
     TaskGui: TTask;
@@ -97,7 +107,7 @@ begin
     begin
       DFile.Url       := UrlsDialog.edUrl.Text;
       DFile.FileName  := ExtractUrlFileName(UrlsDialog.edUrl.Text);
-      DFile.Dest      := DownloaderParameter.ProgramParDownloadPath;
+     // DFile.Dest      := DownloaderParameter.ProgramParDownloadPath;
       DownloaderBrowser.AddItem(DFile);
     end;
   finally
@@ -148,6 +158,11 @@ begin
 
  end;
 
+procedure TDownloaderMain.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  DownloaderParameter.SaveParameters;
+end;
+
 procedure TDownloaderMain.FormCreate(Sender: TObject);
 var
   fStack: TIdStack;
@@ -164,6 +179,9 @@ end;
 
 procedure TDownloaderMain.InitGui;
 begin
+
+  Label4.Text := GetBuildInfoAsString;
+
   DownloaderBrowser                     := TDownloaderBrowser.Create(Self);
   DownloaderBrowser.Container.Parent    := TsDownload;
 
@@ -177,10 +195,24 @@ begin
   DownloaderRepository                  := TDownloaderRepository.Create(Self);
   DownloaderRepository.Container.Parent := TsRepository;
 
-
   DownloaderParameter.LoadParameters;
 
   TabControl1.ActiveTab := TsDownload;
+  TabControl2.ActiveTab := TabItem1;
+
+  TTask.Create(
+    procedure()
+    begin
+      Sleep(2000);
+      TThread.Synchronize(TTHread.Current,
+      procedure()
+      begin
+        TabControl2.SetActiveTabWithTransition(TabItem2, TTabTransition.Slide);
+      end
+      );
+    end
+  ).Start;
+
 end;
 
 procedure TDownloaderMain.ClipboardMonitorTimer(Sender: TObject);
