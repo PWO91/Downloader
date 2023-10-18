@@ -4,7 +4,6 @@ object DownloaderServer: TDownloaderServer
   Height = 422
   Width = 561
   object IdHTTPServer: TIdHTTPServer
-    Active = True
     Bindings = <>
     DefaultPort = 8899
     AutoStartSession = True
@@ -13,7 +12,6 @@ object DownloaderServer: TDownloaderServer
     Top = 24
   end
   object IdUDPServer: TIdUDPServer
-    Active = True
     Bindings = <>
     DefaultPort = 8898
     ThreadedEvent = True

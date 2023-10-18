@@ -18,7 +18,7 @@ uses
 
 type
   TDownloaderParameter = class(TForm)
-    Container: TLayout;
+    Parameters: TLayout;
     FDParameters: TFDMemTable;
     FDParametersDownloadPath: TStringField;
     FDParametersSecretKey: TStringField;
@@ -35,6 +35,13 @@ type
     EdSecret: TEdit;
     GroupBox4: TGroupBox;
     EdUserNick: TEdit;
+    GroupBox5: TGroupBox;
+    EdUDPPort: TEdit;
+    Label1: TLabel;
+    Label2: TLabel;
+    EdHTTPPort: TEdit;
+    VertScrollBox1: TVertScrollBox;
+    Container: TLayout;
     procedure CornerButton1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure GroupBox1Click(Sender: TObject);
@@ -46,6 +53,8 @@ type
     function DownloadPath: String;
     function Secret: String;
     function User: String;
+    function UDPPort : Integer;
+    function HTTPPort : Integer;
   end;
 
 var
@@ -88,6 +97,11 @@ begin
   SaveParameters;
 end;
 
+function TDownloaderParameter.HTTPPort: Integer;
+begin
+  Result := EdHTTPPort.Text.ToInteger;
+end;
+
 procedure TDownloaderParameter.LoadParameters;
 var
   JSonValue:TJSonValue;
@@ -98,10 +112,12 @@ begin
   JSonValue:= TJSonObject.ParseJSONValue(SL.Text);
 
   CBScanClipbaord.IsChecked := JSonValue.GetValue<Boolean>('ScanClipboard');
-  EDDownloadPath.Text := JSonValue.GetValue<String>('DownloadPath');
-  EDSecret.Text := JSonValue.GetValue<String>('Secret');
-  LBCards.ItemIndex := JSonValue.GetValue<Integer>('NetworkAdapter');
-  EdUserNick.Text := JSonValue.GetValue<String>('UserNick');
+  EDDownloadPath.Text       := JSonValue.GetValue<String>('DownloadPath');
+  EDSecret.Text             := JSonValue.GetValue<String>('Secret');
+  LBCards.ItemIndex         := JSonValue.GetValue<Integer>('NetworkAdapter');
+  EdUserNick.Text           := JSonValue.GetValue<String>('UserNick');
+  edUDPPort.Text            := JSonValue.GetValue<String>('UDPPort');
+  edHTTPPort.Text           := JSonValue.GetValue<String>('HTTPPort');
   SL.Free;
   JSonValue.Free;
 
@@ -119,6 +135,8 @@ begin
   JSON.AddPair(TJSONPair.Create('Secret', EdSecret.Text));
   JSON.AddPair(TJSONPair.Create('NetworkAdapter', LbCards.ItemIndex.ToString));
   JSON.AddPair(TJSONPair.Create('UserNick', EdUserNick.Text));
+  JSON.AddPair(TJSONPair.Create('UDPPort', EdUDPPort.Text));
+  JSON.AddPair(TJSONPair.Create('HTTPPort', EdHTTPPort.Text));
   SL.Text := JSON.ToJSON;
   SL.SaveToFile('parameters.json');
 
@@ -131,6 +149,11 @@ end;
 function TDownloaderParameter.Secret: String;
 begin
   Result := EdSecret.Text;
+end;
+
+function TDownloaderParameter.UDPPort: Integer;
+begin
+  Result := EdUDPPort.Text.ToInteger;
 end;
 
 function TDownloaderParameter.User: String;

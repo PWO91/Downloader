@@ -12,9 +12,6 @@ uses
   System.Net.HttpClientComponent, IdServerIOHandler, IdSSL, IdSSLOpenSSL,
   Downloader.Parameters;
 
-const
-  USER = 'Patryk';
-
 type
 
 
@@ -34,7 +31,6 @@ type
     procedure IdServerIOHandlerSSLOpenSSLGetPassword(var Password: string);
   private
     Users: TJSONObject;
-    function GetFilesList: string;
     function GetInfo: string;
 
   public
@@ -59,31 +55,12 @@ uses
 procedure TDownloaderServer.DataModuleCreate(Sender: TObject);
 begin
   Users := TJSONObject.Create;
+  IdUDPServer.DefaultPort := DownloaderParameter.UDPPort;
+  IdUDPServer.Active:= True;
+  IdHTTPServer.Active:= True;
 end;
 
-function TDownloaderServer.GetFilesList: string;
-var
-  JSON: TJSONObject;
-  Path    : String;
-  SR      : TSearchRec;
-begin
-  JSON := TJSONObject.Create;
 
-  Path:='';
-    try
-      if FindFirst(Path + '*.*', faArchive, SR) = 0 then
-      begin
-        repeat
-          JSON.AddPair('File', SR.Name); //Fill the list
-          until FindNext(SR) <> 0;
-          FindClose(SR);
-        end;
-
-      Result := JSON.ToString;
-    finally
-     JSON.Free;
-    end;
-end;
 
 function TDownloaderServer.GetInfo: string;
 var
@@ -91,7 +68,7 @@ var
 begin
   JSON := TJSONObject.Create;
   try
-    JSON.AddPair('Username', USER); //Fill the list
+    JSON.AddPair('Username', DownloaderParameter.User); //Fill the list
     Result := JSON.ToString;
   finally
     JSON.Free;
@@ -101,7 +78,8 @@ end;
 procedure TDownloaderServer.GetUserList;
 begin
   IdUDPClient.Active:= True;
-  IdUDPClient.Broadcast('GetUser',8898,'192.168.0.255');
+  IdUDPClient.Broadcast('GetUser',DownloaderParameter.UDPPort,'192.168.0.255');
+  IdUDPClient.Active:= False;
 end;
 
 procedure TDownloaderServer.IdHTTPServerCommandGet(AContext: TIdContext;
@@ -187,7 +165,7 @@ begin
     begin
       ClientInfo := THttpClient.Create;
       try
-        Url :=  'http://' + ABinding.PeerIP + ':8899/?GetInfo=a';
+        Url :=  'http://' + ABinding.PeerIP + ':'+DownloaderParameter.HTTPPort.ToString+'/?GetInfo=a';
         aResponse := ClientInfo.Get(Url);
         JSONObject := TJSonObject.ParseJSONValue(aResponse.ContentAsString()) as TJSONObject;
 
@@ -195,7 +173,7 @@ begin
 
         procedure()
         begin
-          User.Username:= DownloaderParameter.User;
+          User.Username:= JSONObject.GetValue<String>('Username');
           User.IP := ABinding.PeerIP;
           DownloaderFiles.AddUser(User);
         end

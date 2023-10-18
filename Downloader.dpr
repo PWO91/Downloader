@@ -22,9 +22,6 @@ uses
 
 begin
   Application.Initialize;
-
-
-
   Application.CreateForm(TDownloaderMain, DownloaderMain);
   Application.CreateForm(TDownloaderServer, DownloaderServer);
   Application.Run;

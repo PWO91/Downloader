@@ -2,7 +2,7 @@ object DownloaderFilesUsers: TDownloaderFilesUsers
   Left = 0
   Top = 0
   Caption = 'Form1'
-  ClientHeight = 41
+  ClientHeight = 43
   ClientWidth = 368
   FormFactor.Width = 320
   FormFactor.Height = 480
@@ -11,17 +11,19 @@ object DownloaderFilesUsers: TDownloaderFilesUsers
   object Container: TLayout
     Align = Client
     Size.Width = 368.000000000000000000
-    Size.Height = 41.000000000000000000
+    Size.Height = 43.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 0
     object Rectangle1: TRectangle
       Align = Client
       Fill.Color = xFF5D48AE
       Size.Width = 368.000000000000000000
-      Size.Height = 41.000000000000000000
+      Size.Height = 43.000000000000000000
       Size.PlatformDefault = False
       Stroke.Thickness = 0.200000002980232200
       OnClick = Rectangle1Click
+      OnMouseEnter = Rectangle1MouseEnter
+      OnMouseLeave = Rectangle1MouseLeave
       object Image1: TImage
         MultiResBitmap.Height = 48
         MultiResBitmap.Width = 48
@@ -50,7 +52,7 @@ object DownloaderFilesUsers: TDownloaderFilesUsers
               'C:\Users\p.wojcik\Desktop\Downloader\Src\Img\User Folder_48px.pn' +
               'g'
           end>
-        Align = Left
+        Anchors = [akLeft]
         HitTest = False
         Margins.Left = 5.000000000000000000
         Margins.Top = 5.000000000000000000
@@ -59,18 +61,40 @@ object DownloaderFilesUsers: TDownloaderFilesUsers
         Position.X = 5.000000000000000000
         Position.Y = 5.000000000000000000
         Size.Width = 65.000000000000000000
-        Size.Height = 31.000000000000000000
+        Size.Height = 33.000000000000000000
         Size.PlatformDefault = False
       end
       object LbUserName: TLabel
-        Align = Left
+        Anchors = [akLeft, akRight]
         StyledSettings = [Family, Size, Style]
         Position.X = 75.000000000000000000
         Size.Width = 286.000000000000000000
-        Size.Height = 41.000000000000000000
+        Size.Height = 25.000000000000000000
         Size.PlatformDefault = False
         TextSettings.FontColor = claAzure
+        TabOrder = 2
+      end
+      object LbIPAdress: TLabel
+        Anchors = [akLeft, akRight]
+        StyledSettings = [Family, Style]
+        Position.X = 74.000000000000000000
+        Position.Y = 14.000000000000000000
+        Size.Width = 286.000000000000000000
+        Size.Height = 25.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 10.000000000000000000
+        TextSettings.FontColor = claAzure
         TabOrder = 1
+      end
+      object ColorAnimation1: TColorAnimation
+        AnimationType = InOut
+        Enabled = True
+        Duration = 0.200000002980232200
+        PropertyName = 'Fill.Color'
+        StartValue = xFF6343DF
+        StopValue = xFF5D48AE
+        Trigger = 'IsMouseOver=false'
+        TriggerInverse = 'IsMouseOver=true'
       end
     end
   end

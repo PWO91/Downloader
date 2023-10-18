@@ -4,6 +4,7 @@ object DownloaderMain: TDownloaderMain
   Caption = 'Downloader'
   ClientHeight = 611
   ClientWidth = 1026
+  Position = DesktopCenter
   StyleBook = StyleBook
   FormFactor.Width = 320
   FormFactor.Height = 480
@@ -125,15 +126,17 @@ object DownloaderMain: TDownloaderMain
       end
     end
   end
-  object TabControl2: TTabControl
+  object MainTabs: TTabControl
     Align = Client
     Size.Width = 1026.000000000000000000
     Size.Height = 611.000000000000000000
     Size.PlatformDefault = False
-    TabIndex = 0
+    TabIndex = 2
     TabOrder = 11
     TabPosition = None
     Sizes = (
+      1026s
+      611s
       1026s
       611s
       1026s
@@ -142,13 +145,15 @@ object DownloaderMain: TDownloaderMain
       CustomIcon = <
         item
         end>
-      IsSelected = True
+      IsSelected = False
       Size.Width = 8.000000000000000000
       Size.Height = 8.000000000000000000
       Size.PlatformDefault = False
       StyleLookup = ''
       TabOrder = 0
       Text = 'TabItem1'
+      ExplicitSize.cx = 8.000000000000000000
+      ExplicitSize.cy = 8.000000000000000000
       object Rectangle3: TRectangle
         Align = Client
         Fill.Color = xFF3D0B4A
@@ -195,7 +200,7 @@ object DownloaderMain: TDownloaderMain
             TextSettings.FontColor = claBeige
             TextSettings.HorzAlign = Center
             Text = 'Label4'
-            TabOrder = 4
+            TabOrder = 3
           end
         end
       end
@@ -216,6 +221,8 @@ object DownloaderMain: TDownloaderMain
       StyleLookup = ''
       TabOrder = 0
       Text = 'TabItem2'
+      ExplicitSize.cx = 8.000000000000000000
+      ExplicitSize.cy = 8.000000000000000000
       object Container: TLayout
         Align = Client
         Size.Width = 1026.000000000000000000
@@ -462,6 +469,18 @@ object DownloaderMain: TDownloaderMain
         Size.PlatformDefault = False
         Stroke.Thickness = 0.000000000000000000
       end
+    end
+    object TabItem3: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = True
+      Size.Width = 8.000000000000000000
+      Size.Height = 8.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'TabItem3'
     end
   end
   object ActionList: TActionList

@@ -1,8 +1,4 @@
-﻿[Container]
-Coordinates=500,70,70,36
-Visible=True
-
-[]
+﻿[]
 Coordinates=126,52,44,58
 ExplicitSubNodes=ItemIndex;ListBox.ItemIndex
 Visible=False
@@ -45,4 +41,8 @@ Visible=True
 
 [EDDownloadPath]
 Coordinates=0,0,44,58
+
+[Parameters]
+Coordinates=500,70,70,36
+Visible=True
 

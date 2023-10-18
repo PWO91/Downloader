@@ -10,7 +10,8 @@ uses
   System.Net.HttpClientComponent,
   JSON, Downloader.Common,
   Threading,
-  Windows;
+  Windows,
+  Downloader.Parameters;
 
 type
   TDownloaderFiles = class(TForm)
@@ -103,7 +104,7 @@ begin
       Item: TDownloaderFilesItem;
       DFile: TFIleSetting;
     begin
-      Url := 'http://' + EdIPAdress.Text + ':8899/?GetFiles=a';
+      Url := 'http://' + EdIPAdress.Text + ':'+DownloaderParameter.HTTPPort.ToString+'/?GetFiles=a';
       aResponse := NetHTTPClient.Get(Url);
       LBFiles.Clear;
       try
@@ -121,7 +122,7 @@ begin
               //-----------------------------------------------------------------
               DFile.Url       := Url;
               DFile.FileName  := JSONPair.JsonValue.GetValue<String>;
-              DFile.Url       := 'http://' + EdIPAdress.Text + ':8899/?DownloadFile=' + DFile.FileName;
+              DFile.Url       := 'http://' + EdIPAdress.Text + ':'+DownloaderParameter.HTTPPort.ToString+'/?DownloadFile=' + DFile.FileName;
               DFile.Dest      := 'C:\Downloads\';
               //Create item with created file container
               //-----------------------------------------------------------------

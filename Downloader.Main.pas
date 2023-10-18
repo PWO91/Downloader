@@ -54,7 +54,7 @@ type
     MenuItem3: TMenuItem;
     ADownloadFileFromInternet: TAction;
     LbLocalIP: TLabel;
-    TabControl2: TTabControl;
+    MainTabs: TTabControl;
     TabItem1: TTabItem;
     TabItem2: TTabItem;
     Rectangle3: TRectangle;
@@ -63,6 +63,7 @@ type
     GlowEffect1: TGlowEffect;
     FloatAnimation1: TFloatAnimation;
     Label4: TLabel;
+    TabItem3: TTabItem;
     procedure FormCreate(Sender: TObject);
     procedure ADownloadPageExecute(Sender: TObject);
     procedure ClipboardMonitorTimer(Sender: TObject);
@@ -107,7 +108,6 @@ begin
     begin
       DFile.Url       := UrlsDialog.edUrl.Text;
       DFile.FileName  := ExtractUrlFileName(UrlsDialog.edUrl.Text);
-     // DFile.Dest      := DownloaderParameter.ProgramParDownloadPath;
       DownloaderBrowser.AddItem(DFile);
     end;
   finally
@@ -164,11 +164,6 @@ begin
 end;
 
 procedure TDownloaderMain.FormCreate(Sender: TObject);
-var
-  fStack: TIdStack;
-  LList: TIdStackLocalAddressList;
-  LAddr: TIdStackLocalAddress;
-  I: Integer;
 begin
 
   InitGui;
@@ -198,7 +193,7 @@ begin
   DownloaderParameter.LoadParameters;
 
   TabControl1.ActiveTab := TsDownload;
-  TabControl2.ActiveTab := TabItem1;
+  MainTabs.ActiveTab := TabItem1;
 
   TTask.Create(
     procedure()
@@ -207,7 +202,7 @@ begin
       TThread.Synchronize(TTHread.Current,
       procedure()
       begin
-        TabControl2.SetActiveTabWithTransition(TabItem2, TTabTransition.Slide);
+        MainTabs.SetActiveTabWithTransition(TabItem2, TTabTransition.Slide);
       end
       );
     end
