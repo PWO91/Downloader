@@ -7,6 +7,7 @@ Support:
 -  Multi threading download, start, pause, abort
 -  Search file based on IP adress of partner
 -  Create repository with shared files
+-  Simple remote desktop (view only)
 
 Stack:
 -  Information exchange based on HTTP client/server and JSON format - port 8899
