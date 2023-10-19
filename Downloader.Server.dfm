@@ -32,4 +32,12 @@ object DownloaderServer: TDownloaderServer
     Left = 32
     Top = 88
   end
+  object IdTCPServer: TIdTCPServer
+    Bindings = <>
+    DefaultPort = 8896
+    OnException = IdTCPServerException
+    OnExecute = IdTCPServerExecute
+    Left = 128
+    Top = 88
+  end
 end

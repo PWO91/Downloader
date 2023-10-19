@@ -170,9 +170,9 @@
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <DCC_DcuOutput>..\$(Platform)\$(Config)</DCC_DcuOutput>
-        <VerInfo_Build>1</VerInfo_Build>
+        <VerInfo_Build>2</VerInfo_Build>
         <Icon_MainIcon>Downloader_Icon1.ico</Icon_MainIcon>
-        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.1.1;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.1.2;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win64)'!=''">
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
@@ -191,8 +191,8 @@
         <DCC_DcuOutput>..\Dcu</DCC_DcuOutput>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <Icon_MainIcon>Downloader_Icon2.ico</Icon_MainIcon>
-        <VerInfo_Build>9</VerInfo_Build>
-        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.1.9;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+        <VerInfo_Build>12</VerInfo_Build>
+        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.1.12;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_Win64)'!=''">
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
@@ -254,6 +254,19 @@
             <Form>DownloaderSplash</Form>
             <FormType>fmx</FormType>
         </DCCReference>
+        <DCCReference Include="tools_WIN.pas"/>
+        <DCCReference Include="Downloader.Remote.pas">
+            <Form>DownloaderRemote</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="Downloader.Performance.pas">
+            <Form>DownloaderPerformance</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="Downloader.Remote.Full.pas">
+            <Form>DownloaderRemoteFull</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
         <None Include="README.md"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
@@ -281,20 +294,14 @@
                 </Excluded_Packages>
             </Delphi.Personality>
             <Deployment Version="3">
-                <DeployFile LocalName="..\Win32\Release\Downloader.exe" Configuration="Release" Class="ProjectOutput">
+                <DeployFile LocalName="README.md" Configuration="Debug" Class="ProjectFile">
                     <Platform Name="Win32">
-                        <RemoteName>Downloader.exe</RemoteName>
+                        <RemoteDir>.\</RemoteDir>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
                 <DeployFile LocalName="$(BDS)\Redist\osx32\libcgunwind.1.0.dylib" Class="DependencyModule">
                     <Platform Name="OSX32">
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
-                <DeployFile LocalName="README.md" Configuration="Debug" Class="ProjectFile">
-                    <Platform Name="Win32">
-                        <RemoteDir>.\</RemoteDir>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -312,6 +319,12 @@
                 </DeployFile>
                 <DeployFile LocalName="$(BDS)\Redist\iossimulator\libcgunwind.1.0.dylib" Class="DependencyModule">
                     <Platform Name="iOSSimulator">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="..\Builds\Downloader.exe" Configuration="Release" Class="ProjectOutput">
+                    <Platform Name="Win32">
+                        <RemoteName>Downloader.exe</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>

@@ -29,7 +29,7 @@ type
 implementation
 
 uses
-  Downloader.Files;
+  Downloader.Files, Downloader.Remote;
 
 {$R *.fmx}
 
@@ -49,6 +49,11 @@ begin
   begin
     EdIPAdress.Text := FUser.IP;
     AGetFilesList.Execute;
+  end;
+
+  with DownloaderRemote do
+  begin
+    EdIP.Text := FUser.IP;
   end;
 
 end;

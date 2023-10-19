@@ -2,7 +2,7 @@ object DownloaderFilesUsers: TDownloaderFilesUsers
   Left = 0
   Top = 0
   Caption = 'Form1'
-  ClientHeight = 43
+  ClientHeight = 65
   ClientWidth = 368
   FormFactor.Width = 320
   FormFactor.Height = 480
@@ -11,14 +11,14 @@ object DownloaderFilesUsers: TDownloaderFilesUsers
   object Container: TLayout
     Align = Client
     Size.Width = 368.000000000000000000
-    Size.Height = 43.000000000000000000
+    Size.Height = 65.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 0
     object Rectangle1: TRectangle
       Align = Client
       Fill.Color = xFF5D48AE
       Size.Width = 368.000000000000000000
-      Size.Height = 43.000000000000000000
+      Size.Height = 65.000000000000000000
       Size.PlatformDefault = False
       Stroke.Thickness = 0.200000002980232200
       OnClick = Rectangle1Click
@@ -52,14 +52,14 @@ object DownloaderFilesUsers: TDownloaderFilesUsers
               'C:\Users\p.wojcik\Desktop\Downloader\Src\Img\User Folder_48px.pn' +
               'g'
           end>
-        Anchors = [akLeft]
+        Anchors = []
         HitTest = False
         Margins.Left = 5.000000000000000000
         Margins.Top = 5.000000000000000000
         Margins.Right = 5.000000000000000000
         Margins.Bottom = 5.000000000000000000
         Position.X = 5.000000000000000000
-        Position.Y = 5.000000000000000000
+        Position.Y = 19.000000000000000000
         Size.Width = 65.000000000000000000
         Size.Height = 33.000000000000000000
         Size.PlatformDefault = False
@@ -68,6 +68,7 @@ object DownloaderFilesUsers: TDownloaderFilesUsers
         Anchors = [akLeft, akRight]
         StyledSettings = [Family, Size, Style]
         Position.X = 75.000000000000000000
+        Position.Y = 8.139534950256348000
         Size.Width = 286.000000000000000000
         Size.Height = 25.000000000000000000
         Size.PlatformDefault = False
@@ -78,7 +79,7 @@ object DownloaderFilesUsers: TDownloaderFilesUsers
         Anchors = [akLeft, akRight]
         StyledSettings = [Family, Style]
         Position.X = 74.000000000000000000
-        Position.Y = 14.000000000000000000
+        Position.Y = 31.255813598632810000
         Size.Width = 286.000000000000000000
         Size.Height = 25.000000000000000000
         Size.PlatformDefault = False

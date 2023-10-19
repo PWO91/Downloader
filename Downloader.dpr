@@ -15,8 +15,12 @@ uses
   Downloader.Repository.Item in 'Downloader.Repository.Item.pas' {DownloaderRepositoryItem},
   Downloader.Files.Users in 'Downloader.Files.Users.pas' {DownloaderFilesUsers},
   Downloader.Dialog.Urls in 'Downloader.Dialog.Urls.pas' {DownloaderDialogUrls},
-  Downloader.Splash in 'Downloader.Splash.pas',
-  SysUtils {DownloaderSplash};
+  Downloader.Splash in 'Downloader.Splash.pas' {DownloaderSplash},
+  SysUtils {DownloaderSplash},
+  tools_WIN in 'tools_WIN.pas',
+  Downloader.Remote in 'Downloader.Remote.pas' {DownloaderRemote},
+  Downloader.Performance in 'Downloader.Performance.pas' {DownloaderPerformance},
+  Downloader.Remote.Full in 'Downloader.Remote.Full.pas' {DownloaderRemoteFull};
 
 {$R *.res}
 

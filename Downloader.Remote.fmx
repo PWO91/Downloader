@@ -1,0 +1,139 @@
+object DownloaderRemote: TDownloaderRemote
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 528
+  ClientWidth = 826
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object Container: TLayout
+    Align = Client
+    Size.Width = 826.000000000000000000
+    Size.Height = 528.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object Right: TLayout
+      Align = Client
+      Size.Width = 826.000000000000000000
+      Size.Height = 528.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      object Image1: TImage
+        MultiResBitmap = <
+          item
+          end>
+        Align = Client
+        Size.Width = 826.000000000000000000
+        Size.Height = 472.000000000000000000
+        Size.PlatformDefault = False
+      end
+      object Layout2: TLayout
+        Align = Top
+        Size.Width = 826.000000000000000000
+        Size.Height = 56.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        object EdIP: TEdit
+          Touch.InteractiveGestures = [LongTap, DoubleTap]
+          Align = Client
+          TabOrder = 0
+          Margins.Left = 2.000000000000000000
+          Margins.Top = 10.000000000000000000
+          Margins.Right = 2.000000000000000000
+          Margins.Bottom = 10.000000000000000000
+          Size.Width = 822.000000000000000000
+          Size.Height = 36.000000000000000000
+          Size.PlatformDefault = False
+          object CornerButton1: TCornerButton
+            Action = AStartSession
+            Align = Right
+            Enabled = True
+            ImageIndex = -1
+            Margins.Left = 10.000000000000000000
+            Margins.Top = 2.000000000000000000
+            Margins.Right = 10.000000000000000000
+            Margins.Bottom = 2.000000000000000000
+            Position.X = 325.000000000000000000
+            Position.Y = 2.000000000000000000
+            Sides = [Top, Left, Bottom, Right]
+            Size.Width = 149.000000000000000000
+            Size.Height = 32.000000000000000000
+            Size.PlatformDefault = False
+            StyleLookup = 'CustomButton'
+            TabOrder = 2
+            XRadius = 3.000000000000000000
+            YRadius = 3.000000000000000000
+          end
+          object CornerButton3: TCornerButton
+            Action = AStopSession
+            Align = Right
+            Enabled = True
+            ImageIndex = -1
+            Margins.Left = 10.000000000000000000
+            Margins.Top = 2.000000000000000000
+            Margins.Right = 10.000000000000000000
+            Margins.Bottom = 2.000000000000000000
+            Position.X = 494.000000000000000000
+            Position.Y = 2.000000000000000000
+            Sides = [Top, Left, Bottom, Right]
+            Size.Width = 149.000000000000000000
+            Size.Height = 32.000000000000000000
+            Size.PlatformDefault = False
+            StyleLookup = 'CustomButton'
+            TabOrder = 1
+            XRadius = 3.000000000000000000
+            YRadius = 3.000000000000000000
+          end
+          object CornerButton2: TCornerButton
+            Action = AFullScreen
+            Align = Right
+            Enabled = True
+            ImageIndex = -1
+            Margins.Left = 10.000000000000000000
+            Margins.Top = 2.000000000000000000
+            Margins.Right = 10.000000000000000000
+            Margins.Bottom = 2.000000000000000000
+            Position.X = 663.000000000000000000
+            Position.Y = 2.000000000000000000
+            Sides = [Top, Left, Bottom, Right]
+            Size.Width = 149.000000000000000000
+            Size.Height = 32.000000000000000000
+            Size.PlatformDefault = False
+            StyleLookup = 'CustomButton'
+            TabOrder = 0
+            XRadius = 3.000000000000000000
+            YRadius = 3.000000000000000000
+          end
+        end
+      end
+    end
+  end
+  object ActionList: TActionList
+    Left = 752
+    Top = 320
+    object AStartSession: TAction
+      Text = 'Start'
+      OnExecute = AStartSessionExecute
+    end
+    object ARefreshAll: TAction
+      Text = 'Refresh all'
+    end
+    object AStopSession: TAction
+      Text = 'Stop'
+      OnExecute = AStopSessionExecute
+    end
+    object AFullScreen: TAction
+      Text = 'Full screen'
+      OnExecute = AFullScreenExecute
+    end
+  end
+  object IdTCPClient: TIdTCPClient
+    ConnectTimeout = 0
+    Port = 8896
+    ReadTimeout = -1
+    Left = 752
+    Top = 248
+  end
+end

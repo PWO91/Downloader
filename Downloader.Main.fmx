@@ -2,8 +2,8 @@ object DownloaderMain: TDownloaderMain
   Left = 0
   Top = 0
   Caption = 'Downloader'
-  ClientHeight = 611
-  ClientWidth = 1026
+  ClientHeight = 704
+  ClientWidth = 1127
   Position = DesktopCenter
   StyleBook = StyleBook
   FormFactor.Width = 320
@@ -128,19 +128,21 @@ object DownloaderMain: TDownloaderMain
   end
   object MainTabs: TTabControl
     Align = Client
-    Size.Width = 1026.000000000000000000
-    Size.Height = 611.000000000000000000
+    Size.Width = 1127.000000000000000000
+    Size.Height = 704.000000000000000000
     Size.PlatformDefault = False
-    TabIndex = 2
+    TabIndex = 3
     TabOrder = 11
     TabPosition = None
     Sizes = (
-      1026s
-      611s
-      1026s
-      611s
-      1026s
-      611s)
+      1127s
+      704s
+      1127s
+      704s
+      1127s
+      704s
+      1127s
+      704s)
     object TabItem1: TTabItem
       CustomIcon = <
         item
@@ -161,8 +163,8 @@ object DownloaderMain: TDownloaderMain
         Margins.Top = 5.000000000000000000
         Margins.Right = 5.000000000000000000
         Margins.Bottom = 5.000000000000000000
-        Size.Width = 1016.000000000000000000
-        Size.Height = 601.000000000000000000
+        Size.Width = 1117.000000000000000000
+        Size.Height = 694.000000000000000000
         Size.PlatformDefault = False
         object Label3: TLabel
           Align = Center
@@ -225,15 +227,15 @@ object DownloaderMain: TDownloaderMain
       ExplicitSize.cy = 8.000000000000000000
       object Container: TLayout
         Align = Client
-        Size.Width = 1026.000000000000000000
-        Size.Height = 519.000000000000000000
+        Size.Width = 1127.000000000000000000
+        Size.Height = 612.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 5
         object Rectangle1: TRectangle
           Align = Left
           Fill.Color = xFF6F379C
           Size.Width = 121.000000000000000000
-          Size.Height = 519.000000000000000000
+          Size.Height = 612.000000000000000000
           Size.PlatformDefault = False
           Stroke.Kind = None
           object CornerButton1: TCornerButton
@@ -242,13 +244,13 @@ object DownloaderMain: TDownloaderMain
             Enabled = True
             Images = ImageList
             ImageIndex = 3
-            Position.Y = 152.000000000000000000
+            Position.Y = 304.000000000000000000
             Sides = [Top, Left, Bottom, Right]
             Size.Width = 121.000000000000000000
             Size.Height = 76.000000000000000000
             Size.PlatformDefault = False
             StyleLookup = 'MenuButtonStyle'
-            TabOrder = 4
+            TabOrder = 6
             XRadius = 3.000000000000000000
             YRadius = 3.000000000000000000
           end
@@ -258,13 +260,13 @@ object DownloaderMain: TDownloaderMain
             Enabled = True
             Images = ImageList
             ImageIndex = 1
-            Position.Y = 304.000000000000000000
+            Position.Y = 456.000000000000000000
             Sides = [Top, Left, Bottom, Right]
             Size.Width = 121.000000000000000000
             Size.Height = 76.000000000000000000
             Size.PlatformDefault = False
             StyleLookup = 'MenuButtonStyle'
-            TabOrder = 2
+            TabOrder = 4
             XRadius = 3.000000000000000000
             YRadius = 3.000000000000000000
           end
@@ -274,7 +276,6 @@ object DownloaderMain: TDownloaderMain
             Enabled = True
             Images = ImageList
             ImageIndex = 2
-            Position.Y = 76.000000000000000000
             Sides = [Top, Left, Bottom, Right]
             Size.Width = 121.000000000000000000
             Size.Height = 76.000000000000000000
@@ -290,6 +291,7 @@ object DownloaderMain: TDownloaderMain
             Enabled = True
             Images = ImageList
             ImageIndex = 0
+            Position.Y = 76.000000000000000000
             Sides = [Top, Left, Bottom, Right]
             Size.Width = 121.000000000000000000
             Size.Height = 76.000000000000000000
@@ -305,6 +307,22 @@ object DownloaderMain: TDownloaderMain
             Enabled = True
             Images = ImageList
             ImageIndex = 4
+            Position.Y = 380.000000000000000000
+            Sides = [Top, Left, Bottom, Right]
+            Size.Width = 121.000000000000000000
+            Size.Height = 76.000000000000000000
+            Size.PlatformDefault = False
+            StyleLookup = 'MenuButtonStyle'
+            TabOrder = 5
+            XRadius = 3.000000000000000000
+            YRadius = 3.000000000000000000
+          end
+          object CornerButton6: TCornerButton
+            Action = AComputerInfoPage
+            Align = Top
+            Enabled = True
+            Images = ImageList
+            ImageIndex = 6
             Position.Y = 228.000000000000000000
             Sides = [Top, Left, Bottom, Right]
             Size.Width = 121.000000000000000000
@@ -315,26 +333,44 @@ object DownloaderMain: TDownloaderMain
             XRadius = 3.000000000000000000
             YRadius = 3.000000000000000000
           end
+          object CornerButton7: TCornerButton
+            Action = ASessionPage
+            Align = Top
+            Enabled = True
+            Images = ImageList
+            ImageIndex = 5
+            Position.Y = 152.000000000000000000
+            Sides = [Top, Left, Bottom, Right]
+            Size.Width = 121.000000000000000000
+            Size.Height = 76.000000000000000000
+            Size.PlatformDefault = False
+            StyleLookup = 'MenuButtonStyle'
+            TabOrder = 2
+            XRadius = 3.000000000000000000
+            YRadius = 3.000000000000000000
+          end
         end
         object TabControl1: TTabControl
           Align = Client
-          Size.Width = 905.000000000000000000
-          Size.Height = 519.000000000000000000
+          Size.Width = 1006.000000000000000000
+          Size.Height = 612.000000000000000000
           Size.PlatformDefault = False
-          TabIndex = 4
+          TabIndex = 5
           TabOrder = 1
           TabPosition = None
           Sizes = (
-            905s
-            519s
-            905s
-            519s
-            905s
-            519s
-            905s
-            519s
-            905s
-            519s)
+            1006s
+            612s
+            1006s
+            612s
+            1006s
+            612s
+            1006s
+            612s
+            1006s
+            612s
+            1006s
+            612s)
           object TsDownload: TTabItem
             CustomIcon = <
               item
@@ -395,7 +431,7 @@ object DownloaderMain: TDownloaderMain
             CustomIcon = <
               item
               end>
-            IsSelected = True
+            IsSelected = False
             Size.Width = 8.000000000000000000
             Size.Height = 8.000000000000000000
             Size.PlatformDefault = False
@@ -407,8 +443,8 @@ object DownloaderMain: TDownloaderMain
             object Label1: TLabel
               Align = Client
               StyledSettings = [Family, FontColor]
-              Size.Width = 905.000000000000000000
-              Size.Height = 519.000000000000000000
+              Size.Width = 1006.000000000000000000
+              Size.Height = 612.000000000000000000
               Size.PlatformDefault = False
               TextSettings.Font.Size = 18.000000000000000000
               TextSettings.Font.StyleExt = {00060000000000000004000000}
@@ -417,19 +453,33 @@ object DownloaderMain: TDownloaderMain
               TabOrder = 0
             end
           end
+          object TsRemote: TTabItem
+            CustomIcon = <
+              item
+              end>
+            IsSelected = True
+            Size.Width = 8.000000000000000000
+            Size.Height = 8.000000000000000000
+            Size.PlatformDefault = False
+            StyleLookup = ''
+            TabOrder = 0
+            Text = 'TsRemote'
+            ExplicitSize.cx = 8.000000000000000000
+            ExplicitSize.cy = 8.000000000000000000
+          end
         end
       end
       object Header: TRectangle
         Align = Top
         Fill.Color = xFF482565
-        Size.Width = 1026.000000000000000000
+        Size.Width = 1127.000000000000000000
         Size.Height = 57.000000000000000000
         Size.PlatformDefault = False
         Stroke.Thickness = 0.000000000000000000
         object Label2: TLabel
           Align = Client
           StyledSettings = [Family]
-          Size.Width = 1026.000000000000000000
+          Size.Width = 1127.000000000000000000
           Size.Height = 57.000000000000000000
           Size.PlatformDefault = False
           TextSettings.Font.Size = 22.000000000000000000
@@ -443,8 +493,8 @@ object DownloaderMain: TDownloaderMain
       object Rectangle2: TRectangle
         Align = Bottom
         Fill.Color = xFF482565
-        Position.Y = 584.000000000000000000
-        Size.Width = 1026.000000000000000000
+        Position.Y = 677.000000000000000000
+        Size.Width = 1127.000000000000000000
         Size.Height = 27.000000000000000000
         Size.PlatformDefault = False
         Stroke.Thickness = 0.000000000000000000
@@ -464,7 +514,7 @@ object DownloaderMain: TDownloaderMain
         Align = Top
         Fill.Color = xFF450C75
         Position.Y = 57.000000000000000000
-        Size.Width = 1026.000000000000000000
+        Size.Width = 1127.000000000000000000
         Size.Height = 8.000000000000000000
         Size.PlatformDefault = False
         Stroke.Thickness = 0.000000000000000000
@@ -474,13 +524,55 @@ object DownloaderMain: TDownloaderMain
       CustomIcon = <
         item
         end>
-      IsSelected = True
+      IsSelected = False
       Size.Width = 8.000000000000000000
       Size.Height = 8.000000000000000000
       Size.PlatformDefault = False
       StyleLookup = ''
       TabOrder = 0
       Text = 'TabItem3'
+      ExplicitSize.cx = 8.000000000000000000
+      ExplicitSize.cy = 8.000000000000000000
+      object Button1: TButton
+        Position.X = 216.000000000000000000
+        Position.Y = 296.000000000000000000
+        TabOrder = 0
+        Text = 'Button1'
+      end
+      object Memo1: TMemo
+        Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+        DataDetectorTypes = []
+        Position.X = 632.000000000000000000
+        Position.Y = 424.000000000000000000
+        Size.Width = 401.000000000000000000
+        Size.Height = 161.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        Viewport.Width = 401.000000000000000000
+        Viewport.Height = 161.000000000000000000
+      end
+      object Image1: TImage
+        MultiResBitmap = <
+          item
+          end>
+        Position.X = 600.000000000000000000
+        Position.Y = 48.000000000000000000
+        Size.Width = 465.000000000000000000
+        Size.Height = 337.000000000000000000
+        Size.PlatformDefault = False
+      end
+    end
+    object TabItem4: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = True
+      Size.Width = 8.000000000000000000
+      Size.Height = 8.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'TabItem4'
     end
   end
   object ActionList: TActionList
@@ -524,6 +616,18 @@ object DownloaderMain: TDownloaderMain
     object ADownloadFileFromInternet: TAction
       Text = 'Download from internet'
       OnExecute = ADownloadFileFromInternetExecute
+    end
+    object ASessionPage: TAction
+      Text = 'Remote desktop'
+      ImageIndex = 5
+      OnExecute = ASessionPageExecute
+      ImageIndex = 5
+    end
+    object AComputerInfoPage: TAction
+      Text = 'Computer info'
+      ImageIndex = 6
+      OnExecute = AComputerInfoPageExecute
+      ImageIndex = 6
     end
   end
   object ImageList: TImageList
@@ -1005,6 +1109,104 @@ object DownloaderMain: TDownloaderMain
             FileName = 'C:\Users\p.wojcik\Desktop\Downloader\Src\Img\Settings_96px.png'
           end>
         Name = 'Item 0'
+      end
+      item
+        MultiResBitmap.Height = 96
+        MultiResBitmap.Width = 96
+        MultiResBitmap.LoadSize = 0
+        MultiResBitmap = <
+          item
+            Width = 96
+            Height = 96
+            PNG = {
+              89504E470D0A1A0A0000000D4948445200000060000000600806000000E29877
+              38000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+              00E049444154785EEDDC410A83300000C1D4FFFFB92A7A2E52308B3803620E9E
+              B204120F1900000000BCC6677BBEC790C272BE890810132026404C8098003101
+              6257CE01FB37FCEFE7FC5A0131016202C404880910132026404C809800310162
+              02C404880910132026404C80980031016202C404880910132026404C80980031
+              016202C404880910132026404C80980031016202C404880910132026404C8098
+              0031016202C40488091013202640CCBDA1312B2026404C80980031016202C404
+              0080C88C7BA19FFEAFE9D639B20B8A0910132026404C8098003101000000A61A
+              63054942058A2C0DC2FE0000000049454E44AE426082}
+            FileName = 'C:\Users\p.wojcik\Desktop\Downloader\Src\Img\Widescreen_96px.png'
+          end>
+        Name = 'Widescreen_96px'
+      end
+      item
+        MultiResBitmap.Height = 96
+        MultiResBitmap.Width = 96
+        MultiResBitmap.LoadSize = 0
+        MultiResBitmap = <
+          item
+            Width = 96
+            Height = 96
+            PNG = {
+              89504E470D0A1A0A0000000D4948445200000060000000600806000000E29877
+              38000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+              071849444154785EED9C69C83D531CC7AF7D5FB3648DACC99210B28B22125ED8
+              E585BC208590971222B2652F91EC6B22D95244295BB2BF2022B26689ECCBF7FB
+              BF736EBFE73CDF3973EE3273CEDCCEA73ECDBDBF7BE69973E7CCCC39F39B739F
+              A50683C17FB09088A5AB652111A50112531A2031A50112531A2031A50112531A
+              203131F7012C53989CE0FE2D6740624A0324A63440624A0324A63440624A0324
+              26E70658B65ACE35B936C032F09CE1CBF987370A215370107C7DF8B2F7A87D6A
+              95416B0AEE847FC33596BCEB376A9F5A65D0DA35ABC25F20B77D28033DC7DF9F
+              0BCCB10F3812AE327C39D8A75ACE35B2658C5DF30C74DB7E89819E63F7A55206
+              AD5DB211FC07BA6DFF0E57827DC6EECB45E676093A0EDA3AAD00771FBE9C4F72
+              6B8093ABA565DF6A39B7C853C3D8153B42B5FDE7609F51DFC92A83D6AEB802AA
+              EDFF0A97877D457D27AB0C5ABB80A9872FA0DA3EDD03F615F57D46E6D2071C00
+              371CBE94CC6D3F904B039C502DEBD8AB5A8ECBEAD5326BE4A9616C9B95E14F50
+              6DDBF93D9CE4607914BABBEA54A8EF6395416BDB9C04D5767D7782E3B035E47A
+              E72D79970EFF7B2C30874B901AFB2BC6ED074EAC9667C3AC4751B2658C6DE2A7
+              1E423E0863E164B24FA15BF754980AFB1D9432686D9373A1DAA6F22B183B4B8F
+              678B5DF74398EA6CB7F550CAA0B54DDE826A9B756E0363B80DFAEB1E0D53E0D7
+              C35706AD6D51977A08791A6CA26E54F52A4C815F8F05A6EC8439FA1997980734
+              7CA0A3C6FFBBC103872FF342B68CB10D9A520F75B2636DE269A8D6A57CD8D335
+              AA1E5619B4B601673DA86DC5B829AC6363D834AADA057689AAC3C8692E41EB40
+              5E46EE808F43A68D6F861CF2AD0D4334A51E42EC5D2D15C7C0A6EF34EE7CA3ED
+              E135F05DF86DE53BF06AB81D9C1AD932469FB5E0F5F02FA8CAD31FE185901DA2
+              4F4CEA21241BB98E985115EBBD196C82376F37404E8F517F87F2B3EBE072B00E
+              B59E5506AD969DE137509553BE09FD2F7B3C5465637D0F2A98AA50E5953C8042
+              70E73F0BD5BA4AF63B7577DBAABC5506AD8E5D214F3F5526241B6C13E87812AA
+              72CE2F45CCFA2F5C17FAF092A0CA2BF990673D58C7AD50AD17F246A85065AD32
+              386B5F801CF9AC0F43972E7A16FCDA8BF91E052D9CC8CB3B6555B6CE8BA10FFB
+              2EF6116C64B54E485E8E549FA0CA5A65B00D9914A3EA33E79F9047E6C326A664
+              A768390CAA722199E25E0D6E00CF879C8314BADEC7782DF451E5AC32D886EC98
+              3FF062BE4F40C2B3407DEE7C035A1E80AA5C931CD9349D91E3C8D1918F2A6795
+              C1541E0B093B7BF5B99347AABBDB5D13FE0655B9AEFD19FAA8722367918AE0A9
+              7C04649EE60F0626844353DE4F90B721DFD7C1FEC43DA6E4D87FC5E1CB7E225B
+              2652EE243B63E122A8CAC5C80CA6A569B47419242F43F5790A7949F351E5AC32
+              18234FB73DA185F3383F81AA7C93FB41CB0550957372C76F099B462CEF8B585B
+              5E097D5439AB0C36C9CB0EAFD38AC3A15A27E4C7D07FD8C239A1AAAC9323268E
+              3AD4674E1E24CC1DB9DF1BB4293BF36DA18F2A6B9541EB24D829E6315E0A7D78
+              67C91B2655DEC93E47C59D77417213549F2B79E3C82768EAB390EAE827AAAC55
+              06AD93C023A169E758D591439E87AA7CAC0743B2050C8DF17919E3141696E7C0
+              84B99D710EA2A760DDAF3A5579AB0C5A27A56EAEA76FE84915137A6A9D183F87
+              1C2D39EE83AA1C13782A459D65326E1CD821DB9909759E01EBD81FAA7562BC04
+              5A76807E87FD106C1AC2BA74349380BCDFA01CEDC4A6A3EDF69432689D068ED1
+              D5DF74F21730A16707DC3993DC6471476F057DECD096696D7B86B485AD975206
+              ADD3127A44F8186C82391AB56EC857A0C24D57E110B72BFCBAF9CAA0755A98A7
+              AFBB8EF20C69E272A8D60D7926ACC3CFA4B68DAA9F5506ADB340E5EABF83750F
+              312C87407FDD90BCACF1A95D2EA83A5A65D03A0B98F6F51FB4DC0263E00FB7C7
+              C95832959D13AA8E5619B4CE8A53A0FDBBE3CCF97F0DDA754332319813AA8E56
+              19B4CE0AA61A5E84FC9B1F55EF63B90AFAF552F2A9586EFFE646D573649733E3
+              B8413E11E3BC9D7BAAF7B1702414C3FD901D7EAF58D022C259C3B473EC245B07
+              1FC2C73CA7E5F4C3DC50F5B4CAA075D64CFA93A1A6B4323FCF1155D7915D5E82
+              1CCC704E02675684E00CBD5E225BC6980BA1095DBCEE877EE69A12555FAB0C5A
+              73813F6752F5A34C07E78AAAAF5506AD39C1E1ABAA23CF8E5C51F5B5CAA03527
+              6E877EFD7E8039CF8AF0EBBBC0149DF034A8FB814720F33FBD45B68C3127F868
+              D1AF5FEEFF47C2AFAFAF0C5A73E333E8EA366E4A2305765F2EB26F9720C2F940
+              8EBB21BF48AF59D42A9EB9713A64BD989AD89C81CCF1F7A7AF0C5A73830FC959
+              AFD8045D6AFCFDE92B83D6DCE0359FBFD489F9D1760EA87D6A95416B8EDC0B7B
+              F1CF9880DAA75619B4E608FF17505F50FB74244F67BE0891FB302F7782FBB78F
+              C3D0B9A23440624A0324A63440624A0324A63440624A032426E63EA0D022E50C
+              484C6980C49406484C6980C49406484C6980C4940648CA60F03F5361B915CD95
+              6F630000000049454E44AE426082}
+            FileName = 
+              'C:\Users\p.wojcik\Desktop\Downloader\Src\Img\Heart Monitor_96px.' +
+              'png'
+          end>
+        Name = 'Heart Monitor_96px'
       end>
     Destination = <
       item
@@ -1044,6 +1246,22 @@ object DownloaderMain: TDownloaderMain
             SourceRect.Right = 96.000000000000000000
             SourceRect.Bottom = 96.000000000000000000
           end>
+      end
+      item
+        Layers = <
+          item
+            Name = 'Widescreen_96px'
+            SourceRect.Right = 96.000000000000000000
+            SourceRect.Bottom = 96.000000000000000000
+          end>
+      end
+      item
+        Layers = <
+          item
+            Name = 'Heart Monitor_96px'
+            SourceRect.Right = 96.000000000000000000
+            SourceRect.Bottom = 96.000000000000000000
+          end>
       end>
     Left = 272
     Top = 96
@@ -1051,5 +1269,11 @@ object DownloaderMain: TDownloaderMain
   object NotificationCenter: TNotificationCenter
     Left = 181
     Top = 93
+  end
+  object NetHTTPClient: TNetHTTPClient
+    AllowCookies = False
+    UserAgent = 'Embarcadero URI Client/1.0'
+    Left = 184
+    Top = 232
   end
 end

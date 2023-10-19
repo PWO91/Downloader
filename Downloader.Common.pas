@@ -9,8 +9,11 @@ uses
   Types,
   StrUtils,
   Fmx.Dialogs,IpHlpApi, winapi.IPtypes,
-  Windows;
-
+  Windows,
+  Vcl.Imaging.jpeg,
+  Fmx.Graphics,
+  VCL.Graphics,
+  System.UITypes;
 type
 
   TNetworkConf = record
@@ -43,8 +46,47 @@ type
  function GetBroadcat(IP:String): String;
  function RetrieveLocalAdapterInformation: TNetworksConf;
  function GetBuildInfoAsString: string;
+ function MemoryStreamToString(M: TMemoryStream): AnsiString;
+ procedure ResizeBitmap(var Bitmap: TBitmap; Compression: Single);
+ procedure ResizeBMP(b : TBitmap; NewWidth, NewHeight : integer);
 
 implementation
+
+procedure ResizeBMP(b : TBitmap; NewWidth, NewHeight : integer);
+var
+tbmp : TBitmap;
+begin
+  tbmp := TBitmap.Create;
+  tbmp.Width := b.Width;
+  tbmp.Height := b.Height;
+  BitBlt(tbmp.Canvas.Handle,0,0,tbmp.Width,tbmp.Height,
+  b.Canvas.Handle,0,0,SRCCOPY);
+  b.Width := NewWidth;
+  b.Height := NewHeight;
+  StretchBlt(b.Canvas.Handle,0,0,b.Width,b.Height,tbmp.Canvas.Handle,
+  0,0,tbmp.Width,tbmp.Height,SRCCOPY);
+  tbmp.Free;
+end;
+
+procedure ResizeBitmap(var Bitmap: TBitmap; Compression: Single);
+var
+  buffer: TBitmap;
+begin
+  buffer := TBitmap.Create;
+  try
+    buffer.SetSize(Trunc(Bitmap.Width * Compression), Trunc(Bitmap.Height * Compression));
+    buffer.Canvas.StretchDraw(Rect(0, 0, Trunc(Bitmap.Width * Compression), Trunc(Bitmap.Height * Compression)), Bitmap);
+    Bitmap.SetSize(Trunc(Bitmap.Width * Compression), Trunc(Bitmap.Height * Compression));
+    Bitmap.Canvas.Draw(0, 0, buffer);
+  finally
+    buffer.Free;
+  end;
+end;
+
+function MemoryStreamToString(M: TMemoryStream): AnsiString;
+begin
+  SetString(Result, PAnsiChar(M.Memory), M.Size);
+end;
 
 procedure GetBuildInfo(var V1, V2, V3, V4: word);
 var

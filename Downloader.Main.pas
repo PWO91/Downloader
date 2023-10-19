@@ -14,7 +14,10 @@ uses
   RegularExpressions, FMX.Memo.Types, FMX.ScrollBox, FMX.Memo,
   System.Notification,
   Threading, FMX.Menus,
-  IdStack, FMX.Ani, FMX.Effects;
+  IdStack, FMX.Ani, FMX.Effects,
+  VCL.Graphics, tools_WIN, System.Net.URLClient, System.Net.HttpClient,
+  System.Net.HttpClientComponent,
+  Vcl.Imaging.jpeg, IdBaseComponent, IdComponent, IdTCPConnection, IdTCPClient;
 
 type
   TDownloaderMain = class(TForm)
@@ -64,6 +67,16 @@ type
     FloatAnimation1: TFloatAnimation;
     Label4: TLabel;
     TabItem3: TTabItem;
+    Button1: TButton;
+    NetHTTPClient: TNetHTTPClient;
+    CornerButton6: TCornerButton;
+    TsRemote: TTabItem;
+    ASessionPage: TAction;
+    CornerButton7: TCornerButton;
+    AComputerInfoPage: TAction;
+    Memo1: TMemo;
+    Image1: TImage;
+    TabItem4: TTabItem;
     procedure FormCreate(Sender: TObject);
     procedure ADownloadPageExecute(Sender: TObject);
     procedure ClipboardMonitorTimer(Sender: TObject);
@@ -74,6 +87,8 @@ type
     procedure AExitProgramExecute(Sender: TObject);
     procedure ADownloadFileFromInternetExecute(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure ASessionPageExecute(Sender: TObject);
+    procedure AComputerInfoPageExecute(Sender: TObject);
   private
     LastClipboardValue: String;
     TaskGui: TTask;
@@ -88,13 +103,18 @@ var
 implementation
 
 uses
-  Downloader.Item, Downloader.Browser, Downloader.Parameters, Downloader.Server, Downloader.Files,
+  Downloader.Item, Downloader.Browser, Downloader.Remote, Downloader.Parameters, Downloader.Server, Downloader.Files,
   Downloader.Repository, Downloader.Dialog.Urls;
 {$R *.fmx}
 
 procedure TDownloaderMain.AAboutExecute(Sender: TObject);
 begin
   TabControl1.ActiveTab := TsAbout;
+end;
+
+procedure TDownloaderMain.AComputerInfoPageExecute(Sender: TObject);
+begin
+  //
 end;
 
 procedure TDownloaderMain.ADownloadFileFromInternetExecute(Sender: TObject);
@@ -138,6 +158,11 @@ end;
 procedure TDownloaderMain.ARepositoryPageExecute(Sender: TObject);
 begin
   TabControl1.ActiveTab := TsRepository;
+end;
+
+procedure TDownloaderMain.ASessionPageExecute(Sender: TObject);
+begin
+  TabControl1.ActiveTab := TsRemote;
 end;
 
 procedure TDownloaderMain.ClipboardListener(Value: string);
@@ -189,6 +214,9 @@ begin
 
   DownloaderRepository                  := TDownloaderRepository.Create(Self);
   DownloaderRepository.Container.Parent := TsRepository;
+
+  DownloaderRemote                  := TDownloaderRemote.Create(Self);
+  DownloaderRemote.Container.Parent := TsRemote;
 
   DownloaderParameter.LoadParameters;
 
